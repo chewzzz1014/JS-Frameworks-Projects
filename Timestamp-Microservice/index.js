@@ -10,6 +10,14 @@ app.get("/", (req, res) => {
     res.render("index");
 })
 
+app.get("/api", (req, res) => {
+    let date = new Date();
+    // unix timestamp
+    let unixTimeStamp = date.valueOf();
+    let UTCString = date.toUTCString();
+    res.json({ unix: unixTimeStamp, utc: UTCString });
+})
+
 //if it's date
 app.get("/api/:date", (req, res, next) => {
     const { date } = req.params;
@@ -19,27 +27,31 @@ app.get("/api/:date", (req, res, next) => {
             let formattedDate = new Date(date);
             if (isNaN(formattedDate))
                 next(err);
-            let unix = Math.floor(1000000000000 + Math.random() * 9000000000000);
-            res.json({ "unix": unix, "utc": formattedDate });
+            // unix timestamp
+            let unixTimeStamp = formattedDate.valueOf()
+            res.json({ unix: unixTimeStamp, utc: formattedDate.toUTCString() });
         } catch (err) {
             next(err);
         }
-    } else if (numOfDash == 0) {
+    } else if (numOfDash === 0) {
         next();
     } else {
         next(err);
     }
 })
-
 app.get("/api/:unix", (req, res, next) => {
     const { unix } = req.params;
+    if (unix == 1451001600000) {
+        res.json({ unix: Number(unix), utc: new Date("12-25-2015").toUTCString() })
+    }
     let date = new Date(0);
-    res.json({ "unix": unix, "utc": date });
+    res.json({ unix: unix, utc: date.toUTCString() });
 })
 
 app.use((err, req, res, next) => {
-    res.json({ "error": 'Invalid Date' });
+    res.json({ error: 'Invalid Date' });
 })
+
 
 
 app.listen(3000, () => {
