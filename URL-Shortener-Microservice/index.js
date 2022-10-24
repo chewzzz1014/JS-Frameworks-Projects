@@ -2,8 +2,13 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const dns = require("dns");
+const url = require("url");
 const URL_SHORT = require("./models/url");
+const mongoose = require("mongoose");
 const app = express();
+
+
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Basic Configuration
 const port = process.env.PORT || 3000;
@@ -25,43 +30,40 @@ app.get('/api/hello', function (req, res) {
 
 app.post("/api/shorturl", (req, res, next) => {
   const user_url = req.body.url;
-  const url_obj = new URL(user_url);
-  const url_hostname = url_obj.hostname;
+  const url_hostname = url.parse(user_url).hostname;
 
   // dns lookup on hostname of url 
   dns.lookup(url_hostname, async (err, address) => {
-    if (!err) {
+    if (address) {
+
       console.log(address, url_hostname);
+
       const new_url = new URL_SHORT({
-        url: url_hostname,
-        short_url: randomShortURL()
-      })
-      await new_url.save();
+        url: user_url
+      });
+
+      new_url.save((err, data) => {
+        res.json({ original_url: data.url, short_url: data.id })
+      });
+
     }
     else
-      next(err);
+      res.json({ error: "Invalid URL" });
   });
 })
 
 
 app.get("/api/shorturl/:short_url", async (req, res, next) => {
   const { short_url } = req.params;
-  try {
-    const foundUrl = await URL_SHORT.findOne({ short_url: short_url });
-    console.log(foundUrl.url);
-  } catch (err) {
-    next(err);
-  }
-})
-
-app.use("/", (err, req, res, next) => {
-  res.json({ error: "Invalid URL" });
+  URL_SHORT.findById(short_url, (err, data) => {
+    if (!data)
+      res.json({ error: "Invalid URL" });
+    res.redirect(data.url);
+  })
 })
 
 app.listen(port, function () {
   console.log(`Listening on port ${port}`);
 });
 
-function randomShortURL() {
-  return Math.floor(Math.random() * 100000).toString()
-}
+
