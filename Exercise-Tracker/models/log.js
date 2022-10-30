@@ -1,25 +1,23 @@
 const mongoose = require("mongoose");
 
 const logSchema = new mongoose.Schema({
-    userId: {
-        type: String,
+    _id: {
+        type: mongoose.ObjectId,
         required: true,
     },
     username: {
-        type: String,
-        required: true
+        type: String
     },
     count: {
         type: Number,
         required: true,
         default: 0
     },
-    log: [
-        {
-            description: String,
-            duration: Number,
-            date: Date
-        }
+    log: [{
+        description: String,
+        duration: Number,
+        date: String
+    }
     ]
 })
 

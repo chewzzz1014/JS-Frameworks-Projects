@@ -33,6 +33,16 @@ app.get("/api/users", async (req, res, next) => {
     res.send(users);
 })
 
+app.get("/api/users/:id/logs", async (req, res, next) => {
+    const { id } = req.params;
+    try {
+        const foundLog = await Log.findById(id);
+        res.json(foundLog);
+    } catch (err) {
+        next(err);
+    }
+})
+
 app.post("/api/users", async (req, res, next) => {
     const { username } = req.body;
     const user = new User({ username: username });
@@ -45,34 +55,56 @@ app.post("/api/users", async (req, res, next) => {
 app.post("/api/users/:id/exercises", async (req, res, next) => {
     const { id } = req.params;
     const { description, duration, date } = req.body;
-
+    console.log(1);
     try {
-        const foundUser = await User.findById(id);
-
-        // check if user fill in date
+        let formattedDate;
         if (!date) {
-            const formattedDate = new Date();
-            const exercise = new Exercise({
-                userId: foundUser._id,
-                username: foundUser.username,
-                description: description,
-                duration: duration,
-                date: formattedDate
-            });
-            await exercise.save();
-            res.json(generateJson(exercise));
+            formattedDate = new Date().toDateString();
         } else {
-            const formattedDate = new Date(date);
-            const exercise = new Exercise({
-                userId: foundUser._id,
-                username: foundUser.username,
-                description: description,
-                duration: duration,
-                date: formattedDate
-            });
-            await exercise.save();
-            res.json(generateJson(exercise));
+            formattedDate = new Date(date).toDateString();
         }
+
+        const exercise = {
+            description: description,
+            duration: parseInt(duration),
+            date: formattedDate
+        };
+
+        console.log(2);
+        const foundUser = await User.findOneAndUpdate({ _id: id }, {
+            $set: {
+                date: formattedDate,
+                duration: parseInt(duration),
+                description: description
+            }
+        }, { new: true })
+        console.log(3);
+        const isLogExist = await Log.exists({ _id: foundUser._id });
+        console.log(4);
+        if (!isLogExist) {
+            const userLog = new Log({
+                _id: foundUser,
+                username: foundUser.username,
+                count: 1
+            });
+            userLog.log.push(exercise);
+            await userLog.save();
+            console.log(5);
+            res.json(foundUser);
+            console.log(6);
+        } else {
+            const foundLog = await Log.findByIdAndUpdate(id, {
+                $inc: {
+                    count: 1
+                }
+            }, { new: true })
+            foundLog.log.push(exercise);
+            console.log(5)
+            foundLog.save();
+            res.json(foundUser);
+            console.log(6);
+        }
+
     } catch (err) {
         next(err)
     }
@@ -85,13 +117,3 @@ app.use((err, req, res, next) => {
 app.listen(3000, () => {
     console.log("Listening to Port 3000")
 })
-
-function generateJson({ userId, username, date, duration, description }) {
-    return {
-        _id: userId,
-        username: username,
-        date: date.toDateString(),
-        duration: duration,
-        description: description
-    }
-}
