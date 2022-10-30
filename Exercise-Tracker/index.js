@@ -35,13 +35,36 @@ app.get("/api/users", async (req, res, next) => {
 
 app.get("/api/users/:id/logs", async (req, res, next) => {
     const { id } = req.params;
-    try {
-        const foundLog = await Log.findById(id);
-        res.json(foundLog);
-    } catch (err) {
-        next(err);
+    const { from, to, limit } = req.query;
+
+    if (!from) {
+        try {
+            const foundLog = await Log.findById(id);
+            res.json(foundLog);
+        } catch (err) {
+            next(err);
+        }
+    } else {
+        const fromDate = new Date(from);
+        if (!to) {
+            const selectedLog = Log.find({
+                log: {
+                    $gte: fromDate
+                }
+            })
+        } else {
+            const toDate = new Date(to)
+            const selectedLog = Log.find({
+                log: {
+                    $gte: fromDate,
+                    $lte: toDate
+                }
+            })
+        }
     }
+
 })
+
 
 app.post("/api/users", async (req, res, next) => {
     const { username } = req.body;
@@ -70,14 +93,18 @@ app.post("/api/users/:id/exercises", async (req, res, next) => {
             date: formattedDate
         };
 
-        const foundUser = await User.findOneAndUpdate({ _id: id }, {
+        const foundUser = await User.findById(id);
+
+        User.findByIdAndUpdate(id, {
             $set: {
                 date: formattedDate,
                 duration: parseInt(duration),
                 description: description
             }
-        }, { new: true })
-        await foundUser.save();
+        }, { new: true }, function (err, result) {
+            result.save();
+        })
+
 
         const isLogExist = await Log.exists({ _id: foundUser._id });
 
