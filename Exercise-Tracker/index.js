@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const { User } = require("./models/user");
 const { Exercise } = require("./models/exercise");
+const { Log } = require("./models/log");
 const path = require("path");
 const app = express();
 
@@ -27,6 +28,11 @@ app.get("/", (req, res) => {
     //res.send("ok")
 })
 
+app.get("/api/users", async (req, res, next) => {
+    const users = await User.find();
+    res.send(users);
+})
+
 app.post("/api/users", async (req, res, next) => {
     const { username } = req.body;
     const user = new User({ username: username });
@@ -36,6 +42,56 @@ app.post("/api/users", async (req, res, next) => {
     res.json({ username: fUsername, _id: _id })
 })
 
+app.post("/api/users/:id/exercises", async (req, res, next) => {
+    const { id } = req.params;
+    const { description, duration, date } = req.body;
+
+    try {
+        const foundUser = await User.findById(id);
+
+        // check if user fill in date
+        if (!date) {
+            const formattedDate = new Date();
+            const exercise = new Exercise({
+                userId: foundUser._id,
+                username: foundUser.username,
+                description: description,
+                duration: duration,
+                date: formattedDate
+            });
+            await exercise.save();
+            res.json(generateJson(exercise));
+        } else {
+            const formattedDate = new Date(date);
+            const exercise = new Exercise({
+                userId: foundUser._id,
+                username: foundUser.username,
+                description: description,
+                duration: duration,
+                date: formattedDate
+            });
+            await exercise.save();
+            res.json(generateJson(exercise));
+        }
+    } catch (err) {
+        next(err)
+    }
+})
+
+app.use((err, req, res, next) => {
+    res.send(`${err} error!`)
+})
+
 app.listen(3000, () => {
     console.log("Listening to Port 3000")
 })
+
+function generateJson({ userId, username, date, duration, description }) {
+    return {
+        _id: userId,
+        username: username,
+        date: date.toDateString(),
+        duration: duration,
+        description: description
+    }
+}
