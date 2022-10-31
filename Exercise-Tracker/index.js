@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const { User } = require("./models/user");
-const { Exercise } = require("./models/exercise");
+//const { Exercise } = require("./models/exercise");
 const { Log } = require("./models/log");
 const path = require("path");
 const app = express();
