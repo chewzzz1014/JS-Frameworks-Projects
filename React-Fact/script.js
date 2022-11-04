@@ -1,24 +1,24 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+
 // render JSX at root
 // JSC only return a single parent element (others are nested inside the parent)
-const myJSX = (
+const page = (
     <div>
-        <h1>Hello React!</h1>
-        <p>This is a paragraph</p>
-    </div>
-);
-
-const navBar = (
-    <nav>
-        <h1>My Website</h1>
+        <img src='./logo512.png' width='40px' />
+        <h1>Fun facts about React</h1>
         <ul>
-            <li>Pricing</li>
-            <li>About</li>
-            <li>Contact</li>
+            <li>Was first released in 2013</li>
+            <li>Was originally created by Jordan Walke</li>
+            <li>Has well over 100K stars on Github</li>
+            <li>Is maintained by Facebook</li>
+            <li>Powers thousands of enterprise apps, including mobile apps</li>
         </ul>
-    </nav>
+    </div >
 );
 
 ReactDOM.render(
-    myJSX,
+    page,
     document.querySelector("#root")
 );
