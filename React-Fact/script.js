@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-
+// a react component that returns JSX
 // render JSX at root
 // JSC only return a single parent element (others are nested inside the parent)
-const page = (
+function getPage() {
     <div>
         <img src='./logo512.png' width='40px' />
         <h1>Fun facts about React</h1>
@@ -16,9 +16,9 @@ const page = (
             <li>Powers thousands of enterprise apps, including mobile apps</li>
         </ul>
     </div >
-);
+}
 
 ReactDOM.render(
-    page,
+    getPage(),
     document.querySelector("#root")
 );
