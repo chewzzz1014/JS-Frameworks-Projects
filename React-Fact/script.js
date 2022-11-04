@@ -8,7 +8,7 @@ function Header() {
     return (
         <header>
             <nav>
-                <img src='./logo512.png' width='40px' />
+                <img src='./react-logo.png' width='40px' />
             </nav>
         </header>
     )
