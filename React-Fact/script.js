@@ -4,10 +4,18 @@ import ReactDOM from 'react-dom';
 // a react component that returns JSX
 // render JSX at root
 // JSC only return a single parent element (others are nested inside the parent)
-function GetPage() {
+function Header() {
     return (
-        < div >
-            <img src='./logo512.png' width='40px' />
+        <header>
+            <nav>
+                <img src='./logo512.png' width='40px' />
+            </nav>
+        </header>
+    )
+}
+function MainContent() {
+    return (
+        <div>
             <h1>Fun facts about React</h1>
             <ul>
                 <li>Was first released in 2013</li>
@@ -16,11 +24,31 @@ function GetPage() {
                 <li>Is maintained by Facebook</li>
                 <li>Powers thousands of enterprise apps, including mobile apps</li>
             </ul>
+        </div>
+    )
+}
+
+function Footer() {
+    return (
+        <footer>
+            <small>
+                &copy; 2022 chewzzz development. All rights reserved
+            </small>
+        </footer>
+    )
+}
+
+function Page() {
+    return (
+        < div >
+            <Header />
+            <MainContent />
+            <Footer />
         </div >
     )
 }
 
 ReactDOM.render(
-    <GetPage />,
+    <Page />,
     document.querySelector("#root")
 );
