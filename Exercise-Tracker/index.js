@@ -71,8 +71,8 @@ app.post("/api/users", async (req, res, next) => {
     const user = new User({ username: username });
     await user.save();
 
-    const { username: fUsername, _id } = await User.findOne({ username: username })
-    res.json({ username: fUsername, _id: _id })
+    const foundUser = await User.findOne({ username: username })
+    res.json(foundUser)
 })
 
 app.post("/api/users/:id/exercises", async (req, res, next) => {
