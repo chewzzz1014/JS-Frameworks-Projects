@@ -34,6 +34,9 @@ app.get("/api/users", async (req, res, next) => {
 })
 
 app.get("/api/users/:id/logs", async (req, res, next) => {
+    // from, to and limit are optional
+    // from and to are date
+    // limit is number
     const { id } = req.params;
     const { from, to, limit } = req.query;
 
