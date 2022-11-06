@@ -95,17 +95,6 @@ app.post("/api/users/:id/exercises", async (req, res, next) => {
 
         const foundUser = await User.findById(id);
 
-        User.findByIdAndUpdate(id, {
-            $set: {
-                date: formattedDate,
-                duration: parseInt(duration),
-                description: description
-            }
-        }, { new: true }, function (err, result) {
-            result.save();
-        })
-
-
         const isLogExist = await Log.exists({ _id: foundUser._id });
 
         if (!isLogExist) {
@@ -117,7 +106,9 @@ app.post("/api/users/:id/exercises", async (req, res, next) => {
             userLog.log.push(exercise);
             await userLog.save();
 
-            res.json(foundUser);
+            const { _id: uId, username } = foundUser;
+            //res.json({ ...foundUser, ...exercise });
+            res.json({ _id: uId, username: username, ...exercise });
 
         } else {
             const foundLog = await Log.findByIdAndUpdate(id, {
@@ -128,7 +119,8 @@ app.post("/api/users/:id/exercises", async (req, res, next) => {
             foundLog.log.push(exercise);
             foundLog.save();
 
-            res.json(foundUser);
+            const { _id: uId, username } = foundUser;
+            res.json({ _id: uId, username: username, ...exercise });
         }
 
     } catch (err) {
