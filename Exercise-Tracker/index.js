@@ -37,35 +37,18 @@ app.get("/api/users/:id/logs", async (req, res, next) => {
     // from, to and limit are optional
     // from and to are date
     // limit is number
-    const { id } = req.params;
-    const { from, to, limit } = req.query;
+    const from = req.query.from || new Date(0);
+    const to = req.query.to || new Date(Date.now());
+    const limit = Number(req.query.limit) || 0;
 
-    if (!from) {
-        try {
-            const foundLog = await Log.findById(id);
-            res.json(foundLog);
-        } catch (err) {
-            next(err);
-        }
-    } else {
-        const fromDate = new Date(from);
-        if (!to) {
-            const selectedLog = Log.find({
-                log: {
-                    $gte: fromDate
-                }
-            })
-        } else {
-            const toDate = new Date(to)
-            const selectedLog = Log.find({
-                log: {
-                    $gte: fromDate,
-                    $lte: toDate
-                }
-            })
-        }
-    }
+    const foundLog = await Log.find({
+        _id: req.params.id,
+        date: { $gte: from, $lte: to }
+    })
+        .select("-_id")
+        .limit(limit)
 
+    res.send(foundLog);
 })
 
 
