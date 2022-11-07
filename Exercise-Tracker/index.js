@@ -37,18 +37,53 @@ app.get("/api/users/:id/logs", async (req, res, next) => {
     // from, to and limit are optional
     // from and to are date
     // limit is number
-    const from = req.query.from || new Date(0);
-    const to = req.query.to || new Date(Date.now());
-    const limit = Number(req.query.limit) || 0;
+    const { id } = req.params;
+    let { from, to, limit } = req.query;
 
-    const foundLog = await Log.find({
-        _id: req.params.id,
-        date: { $gte: from, $lte: to }
-    })
-        .select("-_id")
-        .limit(limit)
+    if (!from) {
+        try {
+            const foundLog = await Log.findById(id);
+            res.json(foundLog);
+        } catch (err) {
+            next(err);
+        }
+    } else {
+        from = req.query.from || new Date(0);
+        to = req.query.to || new Date(Date.now());
+        limit = Number(req.query.limit) || 0;
 
-    res.send(foundLog);
+        // const foundLog = await Log.find({
+        //     _id: req.params.id,
+        //     date: { $gte: from, $lte: to }
+        // })
+        //     .select("-_id")
+        //     .limit(limit)
+
+        // res.send(foundLog);
+
+        const foundUser = await Log.findById(id);
+        console.log(foundUser.log) // an array of object(logs)
+        let returnedRecord = [];
+        let count = 0;
+
+        foundUser.log.forEach((ele) => {
+            if (new Date(ele.date) >= from && new Date(ele.date) <= to) {
+                if (count < limit) {
+                    returnedRecord.push(ele);
+                    count++;
+                }
+            }
+        })
+
+        console.log(returnedRecord)
+        res.json({
+            _id: foundUser._id,
+            username: foundUser.username,
+            count: foundUser.log.count,
+            log: returnedRecord
+        })
+    }
+
 })
 
 
