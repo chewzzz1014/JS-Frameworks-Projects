@@ -49,7 +49,7 @@ app.get("/api/users/:id/logs", async (req, res, next) => {
         }
     } else {
         from = req.query.from || new Date(0);
-        to = req.query.to || new Date();
+        to = req.query.to || new Date(Date.now());
         limit = Number(req.query.limit) || 100;
 
         const foundUser = await Log.findById(id);
