@@ -38,7 +38,7 @@ app.get("/api/users/:id/logs", async (req, res, next) => {
     // from and to are date
     // limit is number
     const { id } = req.params;
-    let { from, to, limit } = req.query;
+    let from, to, limit;
 
     if (!from) {
         try {
@@ -49,39 +49,58 @@ app.get("/api/users/:id/logs", async (req, res, next) => {
         }
     } else {
         from = req.query.from || new Date(0);
-        to = req.query.to || new Date(Date.now());
-        limit = Number(req.query.limit) || 0;
-
-        // const foundLog = await Log.find({
-        //     _id: req.params.id,
-        //     date: { $gte: from, $lte: to }
-        // })
-        //     .select("-_id")
-        //     .limit(limit)
-
-        // res.send(foundLog);
+        to = req.query.to || new Date();
+        limit = Number(req.query.limit) || 100;
 
         const foundUser = await Log.findById(id);
         console.log(foundUser.log) // an array of object(logs)
         let returnedRecord = [];
-        let count = 0;
 
         foundUser.log.forEach((ele) => {
             if (new Date(ele.date) >= from && new Date(ele.date) <= to) {
-                if (count < limit) {
+                if (returnedRecord.length < limit)
                     returnedRecord.push(ele);
-                    count++;
-                }
             }
         })
 
+        // Log.findById(id)
+        //     .then(function (data) {
+        //         if (data.length === 0) {
+        //             res.json({
+        //                 error: 'no exercises for this user in database!',
+        //                 username: username,
+        //                 _id: id
+        //             })
+        //         }
+        //         else {
+        //             for (let i in data) {
+        //                 const d = new Date(data[i].date);
+        //                 const dDate = new Date(d.getTime() +
+        //                     d.getTimezoneOffset() *
+        //                     60000
+        //                 );
+        //                 if ((dDate >= from) &&
+        //                     (dDate <= to) &&
+        //                     (returnedRecord.length < limit)) {
+        //                     const o = {
+        //                         description: data[i].description,
+        //                         duration: sata[i].duration,
+        //                         date: d.toDateString(),
+        //                     };
+        //                     returnedRecord.push(o);
+        //                 }
+        //             }
+        //         }
+        //     })
+
         console.log(returnedRecord)
-        res.json({
-            _id: foundUser._id,
+        const result = {
+            _id: id,
             username: foundUser.username,
-            count: foundUser.log.count,
+            count: returnedRecord.length,
             log: returnedRecord
-        })
+        };
+        res.json(result)
     }
 
 })
