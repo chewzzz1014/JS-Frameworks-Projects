@@ -13,10 +13,12 @@ body {
     align-items: center;
     box-shadow: 0px 3px 2px 1px rgba(0, 0, 255, .2);
     padding: 0.5em 1.5em;
+    background-color: #21222A;
 }
 
 .head {
     display: flex;
+    color: #61DAFB;
 }
 
 .nav-items {
@@ -28,10 +30,33 @@ body {
     padding: 10px;
 }
 
+.title {
+    color: #DEEBF8;
+}
+
 img {
     width: 60px;
 }
 
 .main-content {
     padding: 1em;
+    background-color: #282D35;
+    color: white;
+}
+
+li {
+    margin: 1em;
+    list-style: none;
+}
+
+li::marker {
+    content: '• ';
+    font-size: 1.5em;
+    color: #61DAFB;
+    vertical-align: middle;
+}
+
+span {
+    color: #61DAFB;
+    font-size: 50px;
 }

@@ -10,7 +10,7 @@ function Header() {
                     <h3>React Fact</h3>
                 </div>
 
-                <div>
+                <div className='title'>
                     <h4>React Course - Project 1</h4>
                 </div>
             </nav>
