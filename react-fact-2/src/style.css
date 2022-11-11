@@ -11,6 +11,10 @@ body {
     box-shadow: 0px 3px 2px 1px rgba(0, 0, 255, .2);
 }
 
+.head {
+    display: flex;
+}
+
 .nav-items {
     list-style: none;
     display: flex;

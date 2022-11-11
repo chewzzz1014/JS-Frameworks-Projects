@@ -5,7 +5,10 @@ function Header() {
     return (
         <header>
             <nav className="nav">
-                <img src={logo} />
+                <div className='head'>
+                    <img src={logo} />
+                    <h1>React Fact</h1>
+                </div>
 
                 {/* Add style */}
                 <ul className="nav-items">
