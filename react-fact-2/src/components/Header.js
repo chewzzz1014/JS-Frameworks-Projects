@@ -7,11 +7,11 @@ function Header() {
             <nav className="nav">
                 <div className='head'>
                     <img src={logo} />
-                    <h1>React Fact</h1>
+                    <h3>React Fact</h3>
                 </div>
 
                 <div>
-                    <p>React Course - Project 1</p>
+                    <h4>React Course - Project 1</h4>
                 </div>
             </nav>
         </header>
