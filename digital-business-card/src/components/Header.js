@@ -15,11 +15,11 @@ function Header() {
             </div>
 
             <div className="center-text job-title">
-                <p id='job-title-text'>Fullstack Developer</p>
+                <p id='job-title-text'>Student / Fullstack Developer</p>
             </div>
 
             <div className="center-text website">
-                <small><a href="#"></a></small>
+                <small><a href="#">Personal website in progress! Stay tuned</a></small>
             </div>
 
             <div className="button-grp">
