@@ -40,69 +40,52 @@ app.get("/api/users/:id/logs", async (req, res, next) => {
     const { id } = req.params;
     let from, to, limit;
 
-    if (!from) {
-        try {
-            const foundLog = await Log.findById(id);
-            res.json(foundLog);
-        } catch (err) {
-            next(err);
-        }
+    if (!req.query.limit && !req.query.to && !req.query.from) {
+        const foundUser = await Log.findById(id);
+        res.json(foundUser)
     } else {
         from = req.query.from || new Date(0);
         to = req.query.to || new Date(Date.now());
-        limit = Number(req.query.limit) || 100;
+        // limit = Number(req.query.limit) || 100;
 
         const foundUser = await Log.findById(id);
-        console.log(foundUser.log) // an array of object(logs)
+
+        console.log(foundUser.log + '\n\n') // an array of object(logs)
         let returnedRecord = [];
 
-        foundUser.log.forEach((ele) => {
-            if (new Date(ele.date) >= from && new Date(ele.date) <= to) {
-                if (returnedRecord.length < limit)
+        if (req.query.limit && !req.query.to && !req.query.from) {
+            returnedRecord = Array.from(foundUser.log).slice(0, Number(req.query.limit))
+        } else if (req.query.to && !req.query.from) {
+            Array.from(foundUser.log).forEach((ele) => {
+                if (new Date(ele.date) < to)
                     returnedRecord.push(ele);
-            }
-        })
+            })
+            limit = Number(req.query.limit) || returnedRecord.length;
+            returnedRecord = returnedRecord.slice(0, limit)
+        }
+        else if (!req.query.to && req.query.from) {
+            Array.from(foundUser.log).forEach((ele) => {
+                if (new Date(ele.date) >= from)
+                    returnedRecord.push(ele);
+            })
+            limit = Number(req.query.limit) || returnedRecord.length;
+            returnedRecord = returnedRecord.slice(0, limit)
+        }
 
-        // Log.findById(id)
-        //     .then(function (data) {
-        //         if (data.length === 0) {
-        //             res.json({
-        //                 error: 'no exercises for this user in database!',
-        //                 username: username,
-        //                 _id: id
-        //             })
-        //         }
-        //         else {
-        //             for (let i in data) {
-        //                 const d = new Date(data[i].date);
-        //                 const dDate = new Date(d.getTime() +
-        //                     d.getTimezoneOffset() *
-        //                     60000
-        //                 );
-        //                 if ((dDate >= from) &&
-        //                     (dDate <= to) &&
-        //                     (returnedRecord.length < limit)) {
-        //                     const o = {
-        //                         description: data[i].description,
-        //                         duration: sata[i].duration,
-        //                         date: d.toDateString(),
-        //                     };
-        //                     returnedRecord.push(o);
-        //                 }
-        //             }
-        //         }
-        //     })
-
-        console.log(returnedRecord)
         const result = {
             _id: id,
             username: foundUser.username,
             count: returnedRecord.length,
             log: returnedRecord
         };
+        if (req.query.to)
+            result.to = req.query.to
+        if (req.query.from)
+            result.from = req.query.from
+        console.log(result)
+
         res.json(result)
     }
-
 })
 
 
