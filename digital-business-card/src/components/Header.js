@@ -1,23 +1,35 @@
 import React from 'react'
-import person from '../person.png'
+import Chew_212360 from '../pic/Chew_212360.jpg'
+import { AiFillLinkedin, AiFillMail } from 'react-icons/ai';
 
 function Header() {
     return (
         <div className="header">
-            <img src={person} alt="" className='profile' />
+            <div className="img-container">
+                <img src={Chew_212360} alt="" className='profile' />
+            </div>
+
+
             <div className="center-text name">
-                <h1>Laura Smith</h1>
+                <h1>Chew Zi Qing</h1>
             </div>
+
             <div className="center-text job-title">
-                Frontend Developer
+                <p id='job-title-text'>Fullstack Developer</p>
             </div>
+
             <div className="center-text website">
-                <small>laurasmith.website</small>
+                <small><a href="#"></a></small>
             </div>
 
             <div className="button-grp">
-                <button>Email</button>
-                <button>LinkedIn</button>
+                <form action="mailto:chewziqing@gmail.com" target='_blank'>
+                    <button id='mail-btn'><AiFillMail /> Email</button>
+                </form>
+
+                <form action="https://www.linkedin.com/in/ziqingchew" target='_blank'>
+                    <button id='linkedin-btn'><AiFillLinkedin /> LinkedIn</button>
+                </form>
             </div>
         </div>
     )
