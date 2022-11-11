@@ -2,7 +2,7 @@ import React from 'react';
 
 function MainContent() {
     return (
-        <div>
+        <div className='main-content'>
             <h1>Fun facts about React</h1>
             <ul>
                 <li>Was first released in 2013</li>

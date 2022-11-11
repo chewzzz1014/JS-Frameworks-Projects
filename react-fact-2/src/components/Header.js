@@ -10,12 +10,9 @@ function Header() {
                     <h1>React Fact</h1>
                 </div>
 
-                {/* Add style */}
-                <ul className="nav-items">
-                    <li>Pricing</li>
-                    <li>About</li>
-                    <li>Contact</li>
-                </ul>
+                <div>
+                    <p>React Course - Project 1</p>
+                </div>
             </nav>
         </header>
     )

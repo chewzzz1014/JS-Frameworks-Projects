@@ -9,6 +9,7 @@ body {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0px 3px 2px 1px rgba(0, 0, 255, .2);
+    padding: 1em;
 }
 
 .head {
@@ -26,4 +27,8 @@ body {
 
 img {
     width: 60px;
+}
+
+.main-content {
+    padding: 1em;
 }
