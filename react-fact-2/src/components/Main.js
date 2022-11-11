@@ -1,6 +1,6 @@
 import React from 'react';
 
-function MainContent() {
+function Main() {
     return (
         <div className='main-content'>
             <h1>Fun facts about React</h1>
@@ -15,4 +15,4 @@ function MainContent() {
     )
 }
 
-export default MainContent
+export default Main
