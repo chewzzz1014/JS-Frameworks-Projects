@@ -44,8 +44,8 @@ app.get("/api/users/:id/logs", async (req, res, next) => {
         const foundUser = await Log.findById(id);
         res.json(foundUser)
     } else {
-        from = req.query.from || new Date(0);
-        to = req.query.to || new Date(Date.now());
+        from = (req.query.from === 0 || req.query.from) ? new Date(req.query.from) : new Date(0);
+        to = (req.query.to === 0 || req.query.to) ? new Date(req.query.to) : new Date(Date.now());
         // limit = Number(req.query.limit) || 100;
 
         const foundUser = await Log.findById(id);
@@ -57,20 +57,25 @@ app.get("/api/users/:id/logs", async (req, res, next) => {
             returnedRecord = Array.from(foundUser.log).slice(0, Number(req.query.limit))
         } else if (req.query.to && !req.query.from) {
             Array.from(foundUser.log).forEach((ele) => {
-                if (new Date(ele.date) < to)
+                if (new Date(ele.date).getTime() <= to.getTime())
                     returnedRecord.push(ele);
+                console.log(typeof ele.date)
             })
+
             limit = Number(req.query.limit) || returnedRecord.length;
             returnedRecord = returnedRecord.slice(0, limit)
+
         }
         else if (!req.query.to && req.query.from) {
             Array.from(foundUser.log).forEach((ele) => {
-                if (new Date(ele.date) >= from)
+                if (new Date(ele.date).getTime() >= from.getTime())
                     returnedRecord.push(ele);
             })
+
             limit = Number(req.query.limit) || returnedRecord.length;
             returnedRecord = returnedRecord.slice(0, limit)
         }
+
 
         const result = {
             _id: id,
@@ -84,8 +89,9 @@ app.get("/api/users/:id/logs", async (req, res, next) => {
             result.from = req.query.from
         console.log(result)
 
-        res.json(result)
+        res.send(result)
     }
+
 })
 
 
