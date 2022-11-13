@@ -52,9 +52,10 @@ nav {
   padding-left: 2em;
   padding-right: 2em;
   display: flex;
-  flex: 1 1 auto;
-  justify-content: space-between;
+  flex: 1;
+  /* justify-content: space-between; */
   align-items: flex-start;
+  overflow: auto;
   margin-bottom: 3em;
 }
 
@@ -63,6 +64,7 @@ nav {
   flex-direction: column;
   justify-content: flex-start;
   gap: 8px;
+  min-height: min-content;
 }
 
 
