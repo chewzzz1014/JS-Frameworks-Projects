@@ -1,12 +1,17 @@
 import React from 'react';
-import { FaAirbnb } from 'react-icons/fa';
+import header_pics from '../images/header_pics.png'
 
 function Header() {
     return (
-        <nav>
-            <FaAirbnb size='2.5em' color='#FF5A5F' />
-            <h1>airbnb</h1>
-        </nav>
+        <div className='header'>
+            <img src={header_pics} alt="" />
+            <h1 id='title'>Online Experience</h1>
+            <div id='text-box'>
+                <p id='text'>
+                    Join unique interactive activities led by one-of-a-kind hosts—all without leaving home.
+                </p>
+            </div>
+        </div>
     )
 }
 

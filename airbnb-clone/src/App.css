@@ -2,9 +2,10 @@ html,
 body {
   padding: 0;
   margin: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
-h1 {
+#website_name {
   color: #FF5A5F;
 }
 
@@ -15,4 +16,60 @@ nav {
   gap: 8px;
   box-shadow: 0px 3px 2px 1px rgba(0, 0, 255, .2);
   padding: 0.5em 1.5em;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  height: auto;
+  padding-top: 2em;
+}
+
+.header {
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+
+#title {
+  font-size: 3em;
+}
+
+#text-box {
+  width: 80%;
+  height: auto;
+}
+
+#text {
+  font-weight: 100;
+  font-size: 1.5em;
+  text-align: left;
+}
+
+@media screen and (min-width: 768px) {
+
+  nav {
+    padding-left: 4em;
+  }
+
+  img {
+    padding-top: 3em;
+    /* align-self: center; */
+  }
+
+  .header {
+    padding-left: 4em;
+    padding-right: 4em;
+  }
+
+  #text {
+    font-size: 2em;
+  }
+
+  #text-box {
+    width: 50%;
+    height: auto;
+  }
 }
