@@ -68,6 +68,12 @@ nav {
   margin-bottom: 1em;
 }
 
+.item-name {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
 
 
 @media screen and (min-width: 768px) {

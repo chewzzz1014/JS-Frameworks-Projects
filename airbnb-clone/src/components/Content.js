@@ -13,7 +13,7 @@ function ItemBox(props) {
             <img src={props.item} alt="" className='item-img' />
 
             <div className='item-name'>
-                <AiFillStar color='red' /> {rating} ({numRating}) <span>&middot;</span> {country}
+                <AiFillStar color='red' /> <span>{rating}</span> <span>({numRating})</span> <span>&middot;</span> {country}
             </div>
             <div className='item-desc'>
                 {title}
