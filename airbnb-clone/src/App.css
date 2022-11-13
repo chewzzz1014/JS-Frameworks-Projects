@@ -48,6 +48,25 @@ nav {
   text-align: left;
 }
 
+.content {
+  padding-left: 2em;
+  padding-right: 2em;
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 3em;
+}
+
+.item-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+
+
 @media screen and (min-width: 768px) {
 
   nav {
@@ -68,8 +87,9 @@ nav {
     font-size: 2em;
   }
 
-  /* #text-box {
-    width: 70%;
-    height: auto;
-  } */
+  .content {
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+  }
 }
