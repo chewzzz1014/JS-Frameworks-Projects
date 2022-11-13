@@ -4,7 +4,7 @@ import header_pics from '../images/header_pics.png'
 function Header() {
     return (
         <div className='header'>
-            <img src={header_pics} alt="" />
+            <img src={header_pics} alt="" className='header-pic' />
             <h1 id='title'>Online Experience</h1>
             <div id='text-box'>
                 <p id='text'>
