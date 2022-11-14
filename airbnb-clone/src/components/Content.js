@@ -6,13 +6,19 @@ import item_3 from '../images/item_3.png'
 
 function ItemBox(props) {
 
-    const { rating, numRating, country, title, price, openSpots } = props.data;
+    const { rating, numRating, country, title, price, openSpots, location } = props.data;
+
+    let badgeText;
+    if (openSpots === 0)
+        badgeText = 'SOLD OUT'
+    else if (location === 'online')
+        badgeText = 'ONLINE'
 
     return (
         <div className='item-box'>
 
-            {!openSpots && <div className='item-status'>
-                SOLD OUT
+            {badgeText && <div className='item-status'>
+                {badgeText}
             </div>}
 
             <img src={props.item} alt="" className='item-img' />
@@ -38,7 +44,8 @@ function Content() {
         country: 'USA',
         title: 'Life lessons with Katie Zaferes',
         price: 136,
-        openSpots: 0
+        openSpots: 0,
+        location: 'physical'
     }
 
     const item2_data = {
@@ -47,7 +54,8 @@ function Content() {
         country: 'USA',
         title: 'Learning wedding photography',
         price: 126,
-        openSpots: 1
+        openSpots: 1,
+        location: 'online'
     }
 
     const item3_data = {
@@ -56,7 +64,8 @@ function Content() {
         country: 'USA',
         title: 'Group Mountain Biking',
         price: 50,
-        openSpots: 2
+        openSpots: 2,
+        location: 'physical'
     }
 
     return (
