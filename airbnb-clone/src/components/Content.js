@@ -6,10 +6,15 @@ import item_3 from '../images/item_3.png'
 
 function ItemBox(props) {
 
-    const { rating, numRating, country, title, price } = props.data;
+    const { rating, numRating, country, title, price, openSpots } = props.data;
 
     return (
         <div className='item-box'>
+
+            {!openSpots && <div className='item-status'>
+                SOLD OUT
+            </div>}
+
             <img src={props.item} alt="" className='item-img' />
 
             <div className='item-name'>
@@ -32,7 +37,8 @@ function Content() {
         numRating: 6,
         country: 'USA',
         title: 'Life lessons with Katie Zaferes',
-        price: 136
+        price: 136,
+        openSpots: 0
     }
 
     const item2_data = {
@@ -40,7 +46,8 @@ function Content() {
         numRating: 30,
         country: 'USA',
         title: 'Learning wedding photography',
-        price: 126
+        price: 126,
+        openSpots: 1
     }
 
     const item3_data = {
@@ -48,7 +55,8 @@ function Content() {
         numRating: 2,
         country: 'USA',
         title: 'Group Mountain Biking',
-        price: 50
+        price: 50,
+        openSpots: 2
     }
 
     return (

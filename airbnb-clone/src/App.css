@@ -66,12 +66,28 @@ nav {
   gap: 8px;
   min-height: min-content;
   margin-bottom: 1em;
+  position: relative;
 }
 
 .item-name {
   display: flex;
   align-items: center;
   gap: 4px;
+}
+
+.item-img {
+  width: 20em;
+  height: auto;
+}
+
+.item-status {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  background-color: white;
+  padding: 5px 7px;
+  border-radius: 2px;
+  font-weight: bold;
 }
 
 
