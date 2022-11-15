@@ -1,11 +1,10 @@
 import './App.css';
-import { GoGlobe } from 'react-icons/go'
+import NavBar from './components/NavBar';
 
 function App() {
   return (
     <div>
-      <h3>my travel journal</h3>
-      <GoGlobe />
+      <NavBar />
     </div>
   );
 }

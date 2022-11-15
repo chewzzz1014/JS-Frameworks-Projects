@@ -1,4 +1,18 @@
 html,
 body {
   font-family: 'Inter', sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+nav {
+  background-color: #F55A5A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#website-title {
+  color: white;
+  font-weight: 4px;
 }
