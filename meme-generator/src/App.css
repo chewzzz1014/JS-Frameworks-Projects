@@ -24,7 +24,7 @@ nav {
   padding: 0.2em 2em;
 }
 
-form {
+.form {
   margin: 2em 3em;
   display: flex;
   flex-direction: column;
