@@ -50,6 +50,7 @@ button {
   color: white;
   background: linear-gradient(90.41deg, #711F8D 1.14%, #A818DA 100%);
   border-radius: 0.5em;
+  border: none;
   width: 100%;
   align-self: center;
   display: flex;
