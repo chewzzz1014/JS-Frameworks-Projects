@@ -23,9 +23,9 @@ nav {
   margin: 2em 1em;
   flex-direction: column;
   justify-content: center;
-  position: relative;
   gap: 2em;
 }
+
 
 .article-section>img {
   width: 100%;
@@ -47,7 +47,8 @@ nav {
 
 
 .location {
-  font-size: larger;
+  font-size: large;
+  letter-spacing: 3px;
 }
 
 .article-contents {
@@ -73,17 +74,18 @@ p {
   text-align: justify;
 }
 
-@media screen and (min-width: 650px) {
-
-  .article-section>img {
-    width: 30%;
-    height: auto;
-    border-radius: 0.4em;
-  }
+@media screen and (min-width: 700px) {
 
   .article-section {
     flex-direction: row;
+    align-items: center;
     margin: 3em 3em;
+  }
+
+  .article-section>img {
+    width: 40%;
+    height: auto;
+    border-radius: 0.4em;
   }
 
   .location-details {
