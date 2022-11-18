@@ -1,0 +1,29 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Karla', sans-serif;
+}
+
+nav {
+  background-color: #672280;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.nav-left>h2,
+.nav-right>p {
+  color: white;
+}
+
+.nav-left,
+.nav-right {
+  padding: 0.2em 2em;
+}
