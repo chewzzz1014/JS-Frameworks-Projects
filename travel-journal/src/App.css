@@ -10,9 +10,86 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 0.5em;
 }
 
 #website-title {
   color: white;
   font-weight: 4px;
+}
+
+.article-section {
+  display: flex;
+  margin: 1em;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  gap: 2em;
+}
+
+.article-section>img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.4em;
+}
+
+.article-section>div {
+  width: 100%;
+  height: auto;
+}
+
+.location-details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1em;
+}
+
+
+.location {
+  font-size: larger;
+}
+
+.article-contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0px;
+}
+
+a {
+  text-decoration: none;
+  color: #918E9B;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+}
+
+
+p {
+  text-align: justify;
+}
+
+@media screen and (min-width: 650px) {
+
+  .article-section>img {
+    width: 40%;
+    height: auto;
+    border-radius: 0.4em;
+  }
+
+  .article-section {
+    flex-direction: row;
+    margin: 3em 3em;
+  }
+
+  .location-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+  }
 }

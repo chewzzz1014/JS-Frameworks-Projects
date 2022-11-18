@@ -5,7 +5,10 @@ function NavBar() {
     return (
         <nav>
             <GoGlobe size='2em' color='white' />
-            <p id='website-title'> my travel journal</p>
+            <div>
+                <p id='website-title'>my travel journal</p>
+            </div>
+
         </nav>
     )
 }
