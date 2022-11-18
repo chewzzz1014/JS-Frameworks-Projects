@@ -10,6 +10,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: white;
 }
 
 .nav-left {
@@ -18,12 +19,64 @@ nav {
   gap: 0.5em;
 }
 
-.nav-left>h2,
-.nav-right>p {
-  color: white;
-}
-
 .nav-left,
 .nav-right {
   padding: 0.2em 2em;
+}
+
+form {
+  margin: 2em 3em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.form-fields {
+  display: flex;
+  gap: 2em;
+}
+
+input {
+  width: 100%;
+  padding: 1em;
+  border-radius: 0.5em;
+  border-color: #D5D4D8;
+}
+
+button {
+  /* margin: 1em 2em; */
+  padding: 0.5em 1em;
+  align-self: center;
+  color: white;
+  background-color: #672280;
+  width: 100%;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+
+@media screen and (max-width: 700px) {
+
+  .nav-left,
+  .nav-right {
+    padding: 0.2em 0.75em;
+  }
+
+  .form-fields {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .input {
+    width: none;
+  }
+
+  form {
+    margin: 2em 3em;
+    display: flex;
+    flex-direction: column;
+  }
 }
