@@ -4,7 +4,7 @@ import memeData from '../data/memeData'
 
 function Meme() {
     const memes = memeData.data.memes
-    const [imgLink, setImgLink] = useState("")
+    const [imgLink, setImgLink] = useState("https://i.imgflip.com/4t0m5.jpg")
 
     const getRandomMeme = () => {
         const randomMeme = memes[Math.floor(Math.random() * memes.length)]
