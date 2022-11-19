@@ -59,6 +59,12 @@ button {
   gap: 0.5em;
 }
 
+.meme {
+  width: 80%;
+  height: auto;
+  align-self: center;
+}
+
 
 @media screen and (max-width: 700px) {
 
@@ -81,5 +87,10 @@ button {
     margin: 2em 3em;
     display: flex;
     flex-direction: column;
+  }
+
+  .meme {
+    width: 100%;
+    height: auto;
   }
 }

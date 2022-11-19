@@ -20,7 +20,7 @@ function Meme() {
             <div className='form-button'>
                 <button onClick={getRandomMeme}><span><HiPhotograph size='20px' /></span> Get a new meme image</button>
             </div>
-            <img src={imgLink} alt="" />
+            <img src={imgLink} alt="" className='meme' />
         </div>
     )
 }
