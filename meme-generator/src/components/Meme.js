@@ -4,11 +4,20 @@ import memeData from '../data/memeData'
 
 function Meme() {
     const memes = memeData.data.memes
-    const [imgLink, setImgLink] = useState("https://i.imgflip.com/4t0m5.jpg")
+    const [meme, setMeme] = useState({
+        topText: "",
+        bottomText: "",
+        randomImage: "https://i.imgflip.com/4t0m5.jpg"
+    })
 
     const getRandomMeme = () => {
         const randomMeme = memes[Math.floor(Math.random() * memes.length)]
-        setImgLink(randomMeme.url)
+        setMeme((prev) => {
+            return {
+                ...prev,
+                randomImage: randomMeme.url
+            }
+        })
     }
 
     return (
@@ -20,7 +29,7 @@ function Meme() {
             <div className='form-button'>
                 <button onClick={getRandomMeme}><span><HiPhotograph size='20px' /></span> Get a new meme image</button>
             </div>
-            <img src={imgLink} alt="" className='meme' />
+            <img src={meme.randomImage} alt="" className='meme' />
         </div>
     )
 }
