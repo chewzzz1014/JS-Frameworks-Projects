@@ -89,6 +89,7 @@ export default function Form() {
                         id='unemployed'
                         name='employment'
                         value='Unemployed'
+                        checked={formData.employment === 'unemployed'}
                         onChange={handleChange}
                     /><span>Unemployed</span>
                 </div>
@@ -99,6 +100,7 @@ export default function Form() {
                         id='part-time'
                         name='employment'
                         value='Part Time'
+                        checked={formData.employment === 'Part Time'}
                         onChange={handleChange}
                     /><span>Part Time</span>
                 </div>
@@ -109,10 +111,21 @@ export default function Form() {
                         id='full-time'
                         name='employment'
                         value='Full Time'
+                        checked={formData.employment === 'Full Time'}
                         onChange={handleChange}
                     /><span>Full Time</span>
                 </div>
             </fieldset>
+
+            <select id='favColor'>
+                <option value='red'>Red</option>
+                <option value='orange'>Orange</option>
+                <option value='yellow'>Yellow</option>
+                <option value='green'>Green</option>
+                <option value='blue'>Blue</option>
+                <option value='indigo'>Indigo</option>
+                <option value='violet'>Violet</option>
+            </select>
 
             <p>{`${formData.firstName} ${formData.lastName}`}</p>
             {formData.email && <p>Email: {`${formData.email}`}</p>}
