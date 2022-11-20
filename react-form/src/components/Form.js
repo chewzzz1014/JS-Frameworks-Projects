@@ -64,6 +64,7 @@ export default function Form() {
                 onChange={handleChange}
             />
 
+
             <input
                 type="checkbox"
                 id='isFriendly'
@@ -78,26 +79,26 @@ export default function Form() {
             <fieldset>
                 <legend>Current employment status</legend>
 
-                <input
-                    type='radio'
-                    id='unemployed'
-                />
-                <label htmlFor='unemployed'>Unemployed</label>
-                <br />
+                <div className='radio-options'>
+                    <input
+                        type='radio'
+                        id='unemployed'
+                    /><span>Unemployed</span>
+                </div>
 
-                <input
-                    type='radio'
-                    id='part-time'
-                />
-                <label htmlFor='part-time'>Part time</label>
-                <br />
+                <div className='radio-options'>
+                    <input
+                        type='radio'
+                        id='part-time'
+                    /><span>Part Time</span>
+                </div>
 
-                <input
-                    type='radio'
-                    id='full-time'
-                />
-                <label htmlFor='full-time'>Full time</label>
-                <br />
+                <div className='radio-options'>
+                    <input
+                        type='radio'
+                        id='full-time'
+                    /><span>Full Time</span>
+                </div>
             </fieldset>
 
             <p>{`${formData.firstName} ${formData.lastName}`}</p>

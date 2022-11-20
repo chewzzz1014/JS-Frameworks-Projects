@@ -11,3 +11,18 @@ input {
     border-radius: 5px;
     display: block;
 }
+
+input[type="radio"] {
+    display: inline;
+    margin-bottom: 0px;
+}
+
+label>.label-body {
+    margin-left: .5rem;
+    font-weight: normal;
+}
+
+.radio-options {
+    display: flex;
+    align-items: center;
+}
