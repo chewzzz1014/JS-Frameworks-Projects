@@ -64,17 +64,20 @@ export default function Form() {
                 onChange={handleChange}
             />
 
-
-            <input
-                type="checkbox"
-                id='isFriendly'
-                name='isFriendly'
-                checked={formData.isFriendly}
-                onChange={handleChange}
-            />
-            <label htmlFor='isFriendly'>Are you friendly?</label>
             <br />
 
+            <div className='checkbox'>
+                <input
+                    type="checkbox"
+                    id='isFriendly'
+                    name='isFriendly'
+                    checked={formData.isFriendly}
+                    onChange={handleChange}
+                /><span>Are you friendly?</span>
+                <br />
+            </div>
+
+            <br />
 
             <fieldset>
                 <legend>Current employment status</legend>

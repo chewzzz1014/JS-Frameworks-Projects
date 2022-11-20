@@ -12,7 +12,7 @@ input {
     display: block;
 }
 
-input[type="radio"] {
+input {
     display: inline;
     margin-bottom: 0px;
 }
@@ -22,7 +22,8 @@ label>.label-body {
     font-weight: normal;
 }
 
-.radio-options {
+.radio-options,
+.checkbox {
     display: flex;
     align-items: center;
 }
