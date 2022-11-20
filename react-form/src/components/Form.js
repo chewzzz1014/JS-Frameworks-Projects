@@ -7,7 +7,8 @@ export default function Form() {
         lastName: "",
         email: "",
         comment: "",
-        isFriendly: true
+        isFriendly: true,
+        employment: ""
     })
 
     function handleChange(e) {
@@ -86,6 +87,9 @@ export default function Form() {
                     <input
                         type='radio'
                         id='unemployed'
+                        name='employment'
+                        value='Unemployed'
+                        onChange={handleChange}
                     /><span>Unemployed</span>
                 </div>
 
@@ -93,6 +97,9 @@ export default function Form() {
                     <input
                         type='radio'
                         id='part-time'
+                        name='employment'
+                        value='Part Time'
+                        onChange={handleChange}
                     /><span>Part Time</span>
                 </div>
 
@@ -100,6 +107,9 @@ export default function Form() {
                     <input
                         type='radio'
                         id='full-time'
+                        name='employment'
+                        value='Full Time'
+                        onChange={handleChange}
                     /><span>Full Time</span>
                 </div>
             </fieldset>
@@ -107,6 +117,7 @@ export default function Form() {
             <p>{`${formData.firstName} ${formData.lastName}`}</p>
             {formData.email && <p>Email: {`${formData.email}`}</p>}
             {formData.comment && <p>Comment: {`${formData.comment}`}</p>}
+            {formData.employment && <p>Employment: {`${formData.employment}`}</p>}
         </form>
     )
 } 
