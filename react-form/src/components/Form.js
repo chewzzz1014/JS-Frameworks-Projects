@@ -59,6 +59,14 @@ export default function Form() {
                 value={formData.comment}
                 onChange={handleChange}
             />
+            <input
+                type="checkbox"
+                id='isFriendly'
+                checked
+            />
+            <label htmlFor='isFriendly'>
+                Are you friendly?
+            </label>
 
             <p>{`${formData.firstName} ${formData.lastName}`}</p>
             {formData.email && <p>Email: {`${formData.email}`}</p>}
