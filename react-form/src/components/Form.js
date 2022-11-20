@@ -141,6 +141,8 @@ export default function Form() {
             <br />
             <br />
 
+            {/* <input type='submit' value='Submit' /> */}
+            <button>Submit</button>
 
             <br />
             <br />
