@@ -8,7 +8,8 @@ export default function Form() {
         email: "",
         comment: "",
         isFriendly: true,
-        employment: ""
+        employment: "",
+        favColor: ""
     })
 
     function handleChange(e) {
@@ -121,7 +122,13 @@ export default function Form() {
 
             <div className='fav-color'>
                 <label>You favourite colour</label>
-                <select id='favColor'>
+                <select
+                    id='favColor'
+                    value={formData.favColor}
+                    onChange={handleChange}
+                    name='favColor'
+                >
+                    <option value=''>---Choose---</option>
                     <option value='red'>Red</option>
                     <option value='orange'>Orange</option>
                     <option value='yellow'>Yellow</option>
@@ -131,11 +138,20 @@ export default function Form() {
                     <option value='violet'>Violet</option>
                 </select>
             </div>
+            <br />
+            <br />
+
+
+            <br />
+            <br />
+
+            <hr />
 
             <p>{`${formData.firstName} ${formData.lastName}`}</p>
             {formData.email && <p>Email: {`${formData.email}`}</p>}
             {formData.comment && <p>Comment: {`${formData.comment}`}</p>}
             {formData.employment && <p>Employment: {`${formData.employment}`}</p>}
+            {formData.favColor && <p>Favourite Colour: {`${formData.favColor[0].toUpperCase() + formData.favColor.slice(1)}`}</p>}
         </form>
     )
 } 
