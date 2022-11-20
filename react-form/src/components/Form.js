@@ -25,6 +25,12 @@ export default function Form() {
         })
     }
 
+    function handleSubmit(e) {
+        // stopping from refreshing the page
+        e.preventDefault()
+        console.log(formData)
+    }
+
     // function handleFirstNameChange(e) {
     //     setFirstName(e.target.value)
     // }
@@ -34,12 +40,12 @@ export default function Form() {
     // }
 
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <input
                 type='text'
                 placeholder='First name'
                 name='firstName'
-                value={formData.lastName}
+                value={formData.firstName}
                 onChange={handleChange}
             />
             <input
