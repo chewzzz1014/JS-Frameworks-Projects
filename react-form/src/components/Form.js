@@ -39,7 +39,15 @@ export default function Form() {
                 name='lastName'
                 onChange={handleChange}
             />
+
+            <input
+                type='email'
+                placeholder='Email'
+                name='email'
+                onChange={handleChange}
+            />
             <p>{`${formData.firstName} ${formData.lastName}`}</p>
+            {formData.email && <p>Email: {`${formData.email}`}</p>}
         </form>
     )
 } 
