@@ -5,7 +5,8 @@ export default function Form() {
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
-        email: ""
+        email: "",
+        comment: ""
     })
 
     function handleChange(e) {
@@ -50,8 +51,18 @@ export default function Form() {
                 value={formData.email}
                 onChange={handleChange}
             />
+
+            <textarea
+                value={formData.comment}
+                placeholder='Comment'
+                name='comment'
+                value={formData.comment}
+                onChange={handleChange}
+            />
+
             <p>{`${formData.firstName} ${formData.lastName}`}</p>
             {formData.email && <p>Email: {`${formData.email}`}</p>}
+            {formData.comment && <p>Comment: {`${formData.comment}`}</p>}
         </form>
     )
 } 
