@@ -4,7 +4,8 @@ export default function Form() {
 
     const [formData, setFormData] = useState({
         firstName: "",
-        lastName: ""
+        lastName: "",
+        email: ""
     })
 
     function handleChange(e) {
@@ -31,12 +32,14 @@ export default function Form() {
                 type='text'
                 placeholder='First name'
                 name='firstName'
+                value={formData.lastName}
                 onChange={handleChange}
             />
             <input
                 type='text'
                 placeholder='Last name'
                 name='lastName'
+                value={formData.lastName}
                 onChange={handleChange}
             />
 
@@ -44,6 +47,7 @@ export default function Form() {
                 type='email'
                 placeholder='Email'
                 name='email'
+                value={formData.email}
                 onChange={handleChange}
             />
             <p>{`${formData.firstName} ${formData.lastName}`}</p>
