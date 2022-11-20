@@ -7,10 +7,16 @@ import TweetQuote from './TweetQuote'
 export default function QuoteBox() {
     return (
         <div id='quote-box'>
-            <Text />
-            <Author />
-            <NewQuote />
-            <TweetQuote />
+            <div className='box-top'>
+                <Text />
+                <Author />
+            </div>
+
+            <div className='box-bottom'>
+                <TweetQuote />
+                <NewQuote />
+            </div>
+
         </div>
     )
 }
