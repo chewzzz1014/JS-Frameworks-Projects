@@ -10,7 +10,7 @@ export default function Form() {
     }
 
     function handleLastNameChange(e) {
-        setFirstName(e.target.value)
+        setLastName(e.target.value)
     }
 
     return (
