@@ -6,15 +6,19 @@ export default function Form() {
         firstName: "",
         lastName: "",
         email: "",
-        comment: ""
+        comment: "",
+        isFriendly: true
     })
 
     function handleChange(e) {
 
+        // it's 'checked' for checkbox instead of 'value'
+        const { name, value, type, checked } = e.target
+
         setFormData((prev) => {
             return {
                 ...prev,
-                [e.target.name]: [e.target.value]
+                [name]: type === 'checkbox' ? checked : value
             }
         })
     }
@@ -59,14 +63,42 @@ export default function Form() {
                 value={formData.comment}
                 onChange={handleChange}
             />
+
             <input
                 type="checkbox"
                 id='isFriendly'
-                checked
+                name='isFriendly'
+                checked={formData.isFriendly}
+                onChange={handleChange}
             />
-            <label htmlFor='isFriendly'>
-                Are you friendly?
-            </label>
+            <label htmlFor='isFriendly'>Are you friendly?</label>
+            <br />
+
+
+            <fieldset>
+                <legend>Current employment status</legend>
+
+                <input
+                    type='radio'
+                    id='unemployed'
+                />
+                <label htmlFor='unemployed'>Unemployed</label>
+                <br />
+
+                <input
+                    type='radio'
+                    id='part-time'
+                />
+                <label htmlFor='part-time'>Part time</label>
+                <br />
+
+                <input
+                    type='radio'
+                    id='full-time'
+                />
+                <label htmlFor='full-time'>Full time</label>
+                <br />
+            </fieldset>
 
             <p>{`${formData.firstName} ${formData.lastName}`}</p>
             {formData.email && <p>Email: {`${formData.email}`}</p>}
