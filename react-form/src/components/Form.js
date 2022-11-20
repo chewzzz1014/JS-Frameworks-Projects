@@ -117,15 +117,20 @@ export default function Form() {
                 </div>
             </fieldset>
 
-            <select id='favColor'>
-                <option value='red'>Red</option>
-                <option value='orange'>Orange</option>
-                <option value='yellow'>Yellow</option>
-                <option value='green'>Green</option>
-                <option value='blue'>Blue</option>
-                <option value='indigo'>Indigo</option>
-                <option value='violet'>Violet</option>
-            </select>
+            <br />
+
+            <div className='fav-color'>
+                <label>You favourite colour</label>
+                <select id='favColor'>
+                    <option value='red'>Red</option>
+                    <option value='orange'>Orange</option>
+                    <option value='yellow'>Yellow</option>
+                    <option value='green'>Green</option>
+                    <option value='blue'>Blue</option>
+                    <option value='indigo'>Indigo</option>
+                    <option value='violet'>Violet</option>
+                </select>
+            </div>
 
             <p>{`${formData.firstName} ${formData.lastName}`}</p>
             {formData.email && <p>Email: {`${formData.email}`}</p>}
