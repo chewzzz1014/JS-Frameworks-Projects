@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export function Form() {
+export default function Form() {
+
+    const [firstName, setFirstName] = useState("")
+
+    function handleChange(e) {
+        setFirstName(e.target.value)
+        console.log(firstName)
+    }
+
     return (
         <form>
-            <input type='text' placeholder='First name' />
+            <input
+                type='text'
+                placeholder='First name'
+                onChange={handleChange}
+            />
         </form>
     )
 }
