@@ -3,10 +3,14 @@ import React, { useState } from 'react';
 export default function Form() {
 
     const [firstName, setFirstName] = useState("")
+    const [lastName, setLastName] = useState("")
 
-    function handleChange(e) {
+    function handleFirstNameChange(e) {
         setFirstName(e.target.value)
-        console.log(firstName)
+    }
+
+    function handleLastNameChange(e) {
+        setFirstName(e.target.value)
     }
 
     return (
@@ -14,8 +18,13 @@ export default function Form() {
             <input
                 type='text'
                 placeholder='First name'
-                onChange={handleChange}
+                onChange={handleFirstNameChange}
+            />
+            <input
+                type='text'
+                placeholder='Last name'
+                onChange={handleLastNameChange}
             />
         </form>
     )
-}
+} 
