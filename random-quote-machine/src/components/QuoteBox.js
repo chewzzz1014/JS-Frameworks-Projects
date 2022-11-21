@@ -34,6 +34,8 @@ export default function QuoteBox() {
     }
 
     let quoteData = allQuotes[quote];
+    document.body.style.backgroundColor = color;
+
     return (
         <div id='wrapper'>
             <div id='quote-box'>
