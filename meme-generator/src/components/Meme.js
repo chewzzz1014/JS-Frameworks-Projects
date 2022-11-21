@@ -1,14 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { HiPhotograph } from 'react-icons/hi'
-import memeData from '../data/memeData'
+// import memeData from '../data/memeData'
 
 function Meme() {
-    const memes = memeData.data.memes
+    // const memes = memeData.data.memes
     const [meme, setMeme] = useState({
         topText: "",
         bottomText: "",
         randomImage: "https://i.imgflip.com/4t0m5.jpg"
     })
+    const [allMemes, setAllMemes] = useState([])
+
+    useEffect(() => {
+        fetch("https://api.imgflip.com/get_memes")
+            .then(res => res.json())
+            .then(d => setAllMemes(d.data.memes))
+    }, [])
 
     function handleChange(e) {
         const { name, value } = e.target
@@ -22,7 +29,7 @@ function Meme() {
     }
 
     const getRandomMeme = () => {
-        const randomMeme = memes[Math.floor(Math.random() * memes.length)]
+        const randomMeme = allMemes[Math.floor(Math.random() * allMemes.length)]
         setMeme((prev) => {
             return {
                 ...prev,
