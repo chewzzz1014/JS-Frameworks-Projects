@@ -1,9 +1,12 @@
 import React from 'react'
 
 export default function Author(props) {
+
+    const { author, color } = props
+
     return (
         <div id='author'>
-            <p>- {(props.author) ? props.author : 'Unknown'}</p>
+            <p>- {(author) ? author : 'Unknown'}</p>
         </div>
     )
 }

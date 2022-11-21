@@ -1,9 +1,12 @@
 import React from 'react'
 
 export default function Text(props) {
+
+    const { text, color } = props
+
     return (
         <div id='text'>
-            <p>{props.text}</p>
+            <p>{text}</p>
         </div>
     )
 }
