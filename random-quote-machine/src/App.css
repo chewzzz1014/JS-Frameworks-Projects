@@ -15,10 +15,10 @@ body {
 
 
 #quote-box {
-
   text-align: center;
   border: 1px solid red;
   background-color: aqua;
+  padding: 2em;
 }
 
 .box-top {
