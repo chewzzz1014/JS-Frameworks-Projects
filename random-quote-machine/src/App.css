@@ -3,6 +3,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #wrapper {
@@ -19,6 +20,7 @@ body {
   border: 1px solid red;
   background-color: aqua;
   padding: 2em;
+  width: 450px;
 }
 
 .box-top {
@@ -29,12 +31,44 @@ body {
 .box-bottom {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
-#text {}
+#text {
+  text-align: center;
+}
 
-#author {}
+#text>p {
+  font-size: 1.5em;
+  font-weight: 500;
+  margin-bottom: 0px;
+}
 
-#new-quote {}
+#author {
+  align-self: flex-end;
+  margin-bottom: 1em;
+}
 
-#tweet-quote {}
+#new-quote {
+  background-color: black;
+  border: none;
+  padding: 1em 1.5em;
+  border-radius: 0.3em;
+  color: white;
+}
+
+#tweet-quote {
+  text-decoration: none;
+  color: white;
+  background-color: black;
+  padding: 0.5em;
+  border-radius: 0.3em;
+}
+
+a {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {}
