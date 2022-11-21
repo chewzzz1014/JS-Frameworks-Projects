@@ -5,7 +5,7 @@ function App() {
 
   const apiLink = 'https://swapi.dev/api/people/'
   const [starWarsData, setStarWarsData] = useState({})
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(1)
 
   function btnHandler() {
     setCount((prev) => prev + 1)
