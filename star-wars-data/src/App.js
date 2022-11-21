@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 
 function App() {
 
-  const apiLink = 'https://swapi.dev/api/people/1/'
+  const apiLink = 'https://swapi.dev/api/people/'
   const [starWarsData, setStarWarsData] = useState({})
   const [count, setCount] = useState(0)
 
@@ -13,16 +13,16 @@ function App() {
 
   useEffect(() => {
     console.log("effect rendered")
-    fetch(apiLink)
+    fetch(`${apiLink}/${count}/`)
       .then(res => res.json())
       .then(data => setStarWarsData(data))
   }, [count])
 
   return (
     <div className="App">
-      <pre>{JSON.stringify(starWarsData, null, 2)}</pre>
       <p>The count is {count}</p>
-      <button onClick={btnHandler}>Add</button>
+      <button onClick={btnHandler}>Get Next Character</button>
+      <pre>{JSON.stringify(starWarsData, null, 2)}</pre>
     </div>
   );
 }
