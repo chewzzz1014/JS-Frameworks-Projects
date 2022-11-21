@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Author() {
+export default function Author(props) {
     return (
         <div id='author'>
-            <p>- Author</p>
+            <p>- {(props.author) ? props.author : 'Unknown'}</p>
         </div>
     )
 }

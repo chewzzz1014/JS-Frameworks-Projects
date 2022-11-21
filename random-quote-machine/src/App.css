@@ -4,6 +4,7 @@ body {
   padding: 0;
   height: 100vh;
   font-family: 'Montserrat', sans-serif;
+  background-color: aqua;
 }
 
 #wrapper {
@@ -11,16 +12,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
 }
 
 
 #quote-box {
   text-align: center;
-  border: 1px solid red;
-  background-color: aqua;
+  background-color: white;
   padding: 2em;
   width: 450px;
+  border-radius: 0.5em;
 }
 
 .box-top {
@@ -69,6 +69,10 @@ body {
 a {
   display: flex;
   align-items: center;
+}
+
+#dev-info {
+  color: white;
 }
 
 @media screen and (max-width: 768px) {}
