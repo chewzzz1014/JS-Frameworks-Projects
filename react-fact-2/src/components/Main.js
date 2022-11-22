@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Main() {
+function Main(props) {
     return (
-        <div className='main-content'>
+        <main className={props.darkMode ? 'dark' : ''}>
             <h1>Fun facts about React</h1>
             <ul>
                 <li>Was first released in 2013</li>
@@ -11,7 +11,7 @@ function Main() {
                 <li>Is maintained by Facebook</li>
                 <li>Powers thousands of enterprise apps, including mobile apps</li>
             </ul>
-        </div>
+        </main>
     )
 }
 

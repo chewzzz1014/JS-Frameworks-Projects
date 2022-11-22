@@ -1,8 +1,6 @@
-import logo from './logo.svg';
 import './style.css';
 
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState } from 'react';
 import Header from './components/Header'
 import Main from './components/Main'
 
@@ -11,18 +9,21 @@ import Main from './components/Main'
 // JSC only return a single parent element (others are nested inside the parent)
 
 function App() {
+
+  const [darkMode, setDarkMode] = useState(true)
+
+  function toogleDarkMode() {
+    console.log('hihih')
+    setDarkMode(prev => !prev)
+  }
+
   return (
     < div >
-      <Header />
-      <Main />
+      <Header darkMode={darkMode} toogleDarkMode={toogleDarkMode} />
+      <Main darkMode={darkMode} />
     </div >
   )
 }
-
-ReactDOM.render(
-  <App />,
-  document.querySelector("#root")
-);
 
 
 export default App;

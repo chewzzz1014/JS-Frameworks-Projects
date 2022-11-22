@@ -1,10 +1,10 @@
 import React from 'react';
 import logo from '../logo.svg';
 
-function Header() {
+function Header(props) {
     return (
         <header>
-            <nav className="nav">
+            <nav className={props.darkMode ? 'dark' : ''}>
                 <div className='head'>
                     <img src={logo} />
                     <h3>React Fact</h3>
@@ -14,7 +14,7 @@ function Header() {
                     <p className="toggler-light">Light</p>
                     <div
                         className="toggler-slider"
-                    // onClick={props.toggleDarkMode}
+                        onClick={props.toogleDarkMode}
                     >
                         <div className="toggler-slider-circle"></div>
                     </div>
