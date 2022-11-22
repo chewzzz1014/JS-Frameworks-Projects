@@ -46,8 +46,10 @@ export default function Die() {
                 return (d.isHeld) ? d :
                     { value: randomNum(), id: nanoid(), isHeld: false }
             }))
-        else
-            isEnd = setIsEnd(false)
+        else {
+            setIsEnd(false)
+            setDice(allNewDice())
+        }
     }
 
     const diceElements = dice.map((ele) =>
