@@ -10,8 +10,15 @@ function Header() {
                     <h3>React Fact</h3>
                 </div>
 
-                <div className='title'>
-                    <h4>React Course - Project 1</h4>
+                <div className="toggler">
+                    <p className="toggler-light">Light</p>
+                    <div
+                        className="toggler-slider"
+                    // onClick={props.toggleDarkMode}
+                    >
+                        <div className="toggler-slider-circle"></div>
+                    </div>
+                    <p className="toggler-dark">Dark</p>
                 </div>
             </nav>
         </header>
