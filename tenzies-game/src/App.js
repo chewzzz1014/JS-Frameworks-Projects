@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useStare } from 'react'
 import Number from './components/Number';
+import Die from './components/Die';
 
 function App() {
   return (
@@ -12,22 +13,7 @@ function App() {
           <p>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
         </div>
 
-        <div className='number-section'>
-          <div className='number-row-1'>
-            <Number />
-            <Number />
-            <Number />
-            <Number />
-            <Number />
-          </div>
-          <div className='number-row-2'>
-            <Number />
-            <Number />
-            <Number />
-            <Number />
-            <Number />
-          </div>
-        </div>
+        <Die />
 
         <div className='roll-btn-section'>
           <button className='roll-btn'>Roll</button>
