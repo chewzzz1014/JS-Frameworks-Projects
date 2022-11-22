@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Number from './Number'
+import { nanoid } from 'nanoid'
 
 export default function Die() {
     const [dice, setDice] = useState(allNewDice())
@@ -11,11 +12,16 @@ export default function Die() {
         for (let i = 0; i < 10; i++) {
             arr.push({
                 value: randomNum(),
-                isHeld: true
+                isHeld: true,
+                id: nanoid()
             })
         }
 
         return arr
+    }
+
+    function holdDice(id) {
+        console.log(id)
     }
 
     function rollDice() {
@@ -23,7 +29,7 @@ export default function Die() {
     }
 
     const diceElements = dice.map((ele) =>
-        <Number value={ele} />
+        <Number value={ele} handler={holdDice} />
 
     )
 
