@@ -47,18 +47,29 @@ h1 {
   gap: 1.5em;
   margin-top: 1em;
   margin-bottom: 2em;
+  border: 1px solid red;
+  width: 23rem;
 }
 
-.number-row-1 {
+.number-row-1,
+.number-row-2 {
+  border: 1px solid purple;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 button {
   background-color: none;
-  padding: 1em;
   border-radius: 0.3em;
   border: none;
+}
+
+.btn-num {
+  padding: 0.8em;
+  color: #2B283A;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 .roll-btn {
