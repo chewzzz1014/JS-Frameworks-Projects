@@ -15,10 +15,6 @@ function App() {
 
         <Die />
 
-        <div className='roll-btn-section'>
-          <button className='roll-btn'>Roll</button>
-        </div>
-
       </main>
     </div>
   );
