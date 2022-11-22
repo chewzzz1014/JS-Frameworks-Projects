@@ -50,8 +50,7 @@ h1 {
   width: 23rem;
 }
 
-.number-row-1,
-.number-row-2 {
+.number-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
