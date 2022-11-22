@@ -12,7 +12,7 @@ export default function Die() {
         for (let i = 0; i < 10; i++) {
             arr.push({
                 value: randomNum(),
-                isHeld: true,
+                isHeld: false,
                 id: nanoid()
             })
         }
@@ -21,7 +21,9 @@ export default function Die() {
     }
 
     function holdDice(id) {
-        console.log(id)
+        setDice(prev => prev.map((d) => {
+            return (d.id === id) ? { ...d, isHeld: !d.isHeld } : d
+        }))
     }
 
     function rollDice() {
