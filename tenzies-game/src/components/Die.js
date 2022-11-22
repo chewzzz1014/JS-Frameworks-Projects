@@ -8,8 +8,12 @@ export default function Die() {
         const randomNum = () => Math.floor(Math.random() * 6) + 1
 
         const arr = []
-        for (let i = 0; i < 10; i++)
-            arr.push(randomNum())
+        for (let i = 0; i < 10; i++) {
+            arr.push({
+                value: randomNum(),
+                isHeld: true
+            })
+        }
 
         return arr
     }
@@ -20,6 +24,7 @@ export default function Die() {
 
     const diceElements = dice.map((ele) =>
         <Number value={ele} />
+
     )
 
     return (
