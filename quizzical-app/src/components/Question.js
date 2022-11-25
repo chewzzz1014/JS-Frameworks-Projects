@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react'
+import { nanoid } from 'nanoid'
+
 
 export default function Question() {
 
     const [questions, setQuestions] = useState([])
 
-    fetch("https://opentdb.com/api.php?amount=5")
-        .then(res => res.json())
-        .then(data => setQuestions(data.results))
+    useEffect(() => {
+        fetch("https://opentdb.com/api.php?amount=5")
+            .then(res => res.json())
+            .then(data => setQuestions(data.results))
+    }, [])
+
 
     const questionElements = questions.map((ele) => {
         return (
@@ -18,7 +23,7 @@ export default function Question() {
 
     return (
         <div className='question'>
-            <p></p>
+            {questionElements}
         </div>
     )
 }
