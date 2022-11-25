@@ -6,8 +6,9 @@ export default function Landing(props) {
 
     return (
         <div className='question'>
-            Landing
-            <button onClick={handler}>Start Quiz</button>
+            <h1>Quizzical</h1>
+            <p>Some description if needed</p>
+            <button onClick={handler} className='start-btn'>Start Quiz</button>
         </div>
     )
 }

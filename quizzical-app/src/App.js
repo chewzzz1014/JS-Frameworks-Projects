@@ -17,11 +17,11 @@ function App() {
 
   return (
     <div className="App">
-      <h1>{mode}</h1>
       {(mode === 'landing') ?
         <Landing handler={handleStartGame} /> :
         <Question />
       }
+      <div className='decoration'></div>
 
     </div>
   );

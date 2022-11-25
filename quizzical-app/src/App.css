@@ -2,14 +2,41 @@ html,
 body {
   margin: 0;
   padding: 0;
-}
-
-body {
-  width: 100 vw;
-}
-
-.App {
-  height: 100vh;
-  border: 1px solid red;
+  font-family: 'Inter', sans-serif;
   background-color: #F5F7FB;
+}
+
+h1,
+p {
+  color: #293264;
+}
+
+.decoration {
+  position: absolute;
+  top: 0;
+  right: 0;
+  size: 25px;
+  /* background-color: #FFFAD1; */
+  background-color: red;
+}
+
+.question {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.start-btn {
+  color: #F5F7FB;
+  font-size: 1em;
+  padding: 1em 3.5em;
+  border: none;
+  background-color: #4D5B9E;
+  border-radius: 0.8em;
+}
+
+button:focus {
+  border: none;
 }
