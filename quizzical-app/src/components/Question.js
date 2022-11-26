@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { nanoid } from 'nanoid'
-
+const he = require('he')
 
 export default function Question() {
 
@@ -14,9 +14,27 @@ export default function Question() {
 
 
     const questionElements = questions.map((ele) => {
+        const options = [ele.correct_answer, ...ele.incorrect_answers]
+
+        options.sort((a, b) =>
+            0.5 - Math.random()
+        )
+
+        const optionsElements = options.map((o) => {
+            if (o === ele.correct_answer)
+                return (
+                    <button>{`${o} (correct answer)`}</button>
+                )
+            else
+                return (
+                    <button>{o}</button>
+                )
+        })
+
         return (
             <div>
-                <h3>{ele.question}</h3>
+                <h3>{he.decode(ele.question)}</h3>
+                {optionsElements}
             </div>
         )
     })
