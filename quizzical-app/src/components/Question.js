@@ -7,6 +7,11 @@ export default function Question() {
     console.log('rerender')
     const [questions, setQuestions] = useState([])
 
+    const questionsAnswers = [0, 0, 0, 0, 0]
+    const questionsSelected = [0, 0, 0, 0, 0]
+
+    const result = [0, 0, 0, 0, 0]
+
     useEffect(() => {
         getData()
         console.log('in useEffect')
@@ -18,26 +23,59 @@ export default function Question() {
             .then(data => setQuestions(data.results))
     }
 
+    function handleSelect(e) {
+        const numQuestion = parseInt(e.currentTarget.className.split(" ")[0])
+        questionsSelected[numQuestion] = e.target.id
+        console.log(e.target)
+    }
+
+    function handleCheck() {
+        questionsSelected.forEach((ele, idx) => {
+            if (ele === questionsAnswers[idx])
+                result[idx] = 1
+        })
+
+        console.log(questionsAnswers)
+        console.log(questionsSelected)
+        console.log(result)
+    }
+
     function handleRegenerate() {
         getData()
         console.log('in handlerRegenerate')
     }
 
-    const questionElements = questions.map((ele) => {
+    const questionElements = questions.map((ele, idxEle) => {
         const options = [ele.correct_answer, ...ele.incorrect_answers]
 
         options.sort((a, b) =>
             0.5 - Math.random()
         )
 
-        const optionsElements = options.map((o) => {
-            if (o === ele.correct_answer)
+        const optionsElements = options.map((o, idxO) => {
+            const strRef = `${idxEle} ${idxO}`
+            if (o === ele.correct_answer) {
+                const ansId = nanoid()
+                questionsAnswers[idxEle] = ansId
                 return (
-                    <button>{`${he.decode(o)} (correct answer)`}</button>
+                    <button
+                        id={ansId}
+                        className={strRef}
+                        onClick={handleSelect}
+                    >
+                        {`${he.decode(o)} (correct answer)`}
+                    </button>
                 )
+            }
             else
                 return (
-                    <button>{he.decode(o)}</button>
+                    <button
+                        id={nanoid()}
+                        className={strRef}
+                        onClick={handleSelect}
+                    >
+                        {`${he.decode(o)}`}
+                    </button>
                 )
         })
 
@@ -53,8 +91,10 @@ export default function Question() {
 
     return (
         <div className='question'>
+            {console.log(questionsAnswers)}
             <button onClick={handleRegenerate} className='reGen-btn'>Regenerate Questions</button>
             {questionElements}
+            <button className='check-btn' onClick={handleCheck}>Check Answers</button>
         </div>
     )
 }
