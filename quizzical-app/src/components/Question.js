@@ -8,7 +8,9 @@ export default function Question() {
     const [questions, setQuestions] = useState([])
 
     const questionsAnswers = [0, 0, 0, 0, 0]
+    const questionsAnswersId = ['', '', '', '', '']
     const questionsSelected = [0, 0, 0, 0, 0]
+    const questionsSelectedId = ['', '', '', '', '']
 
     const result = [0, 0, 0, 0, 0]
 
@@ -25,19 +27,29 @@ export default function Question() {
 
     function handleSelect(e) {
         const numQuestion = parseInt(e.currentTarget.className.split(" ")[0])
-        questionsSelected[numQuestion] = e.target.id
+        questionsSelectedId[numQuestion] = e.currentTarget.id
+        questionsSelected[numQuestion] = e.currentTarget.value
         console.log(e.target)
+        console.log(questionsSelectedId)
     }
 
     function handleCheck() {
         questionsSelected.forEach((ele, idx) => {
-            if (ele === questionsAnswers[idx])
+            let selected = document.getElementById(questionsSelectedId[idx])
+            let answer = document.getElementById(questionsAnswersId[idx])
+
+            if (ele === questionsAnswers[idx]) {
+                selected.style.backgroundColor = 'green'
                 result[idx] = 1
+            }
+            else
+                answer.style.backgroundColor = 'red'
         })
 
         console.log(questionsAnswers)
         console.log(questionsSelected)
         console.log(result)
+        console.log(document.getElementById(questionsAnswers[0]))
     }
 
     function handleRegenerate() {
@@ -56,27 +68,31 @@ export default function Question() {
             const strRef = `${idxEle} ${idxO}`
             if (o === ele.correct_answer) {
                 const ansId = nanoid()
-                questionsAnswers[idxEle] = ansId
+                questionsAnswersId[idxEle] = ansId
+                questionsAnswers[idxEle] = o
                 return (
                     <button
                         id={ansId}
                         className={strRef}
                         onClick={handleSelect}
+                        value={o}
                     >
                         {`${he.decode(o)} (correct answer)`}
                     </button>
                 )
             }
-            else
+            else {
                 return (
                     <button
                         id={nanoid()}
                         className={strRef}
                         onClick={handleSelect}
+                        value={o}
                     >
                         {`${he.decode(o)}`}
                     </button>
                 )
+            }
         })
 
         console.log('in questionElements')
