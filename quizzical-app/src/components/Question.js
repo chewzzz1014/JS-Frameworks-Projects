@@ -7,10 +7,10 @@ export default function Question() {
     console.log('rerender')
     const [questions, setQuestions] = useState([])
 
-    const questionsAnswers = [0, 0, 0, 0, 0]
-    const questionsAnswersId = ['', '', '', '', '']
-    const questionsSelected = [0, 0, 0, 0, 0]
-    const questionsSelectedId = ['', '', '', '', '']
+    const questionsAnswers = new Array(5)
+    const questionsAnswersId = new Array(5)
+    const questionsSelected = new Array(5)
+    const questionsSelectedId = new Array(5)
 
     const result = [0, 0, 0, 0, 0]
 
@@ -42,8 +42,10 @@ export default function Question() {
                 selected.style.backgroundColor = 'green'
                 result[idx] = 1
             }
-            else
-                answer.style.backgroundColor = 'red'
+            else {
+                selected.style.backgroundColor = 'red'
+                answer.style.backgroundColor = 'green'
+            }
         })
 
         console.log(questionsAnswers)
