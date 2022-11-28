@@ -8,6 +8,7 @@ I've completed [Back End Development and APIs](https://www.freecodecamp.org/lear
 
 
 # Projects Live Site
+- Details of all projects available [here](https://chewzzz1014.github.io/portfolio-website-projects-page/)
 
 ## Express
 - [Exercise-Tracker]
