@@ -19,7 +19,7 @@ function Header() {
             </div>
 
             <div className="center-text website">
-                <small><a href="#">Personal website in progress! Stay tuned</a></small>
+                <small><a href="https://chewzzz1014.github.io/portfolio-website/">Portfolio</a></small>
             </div>
 
             <div className="button-grp">
