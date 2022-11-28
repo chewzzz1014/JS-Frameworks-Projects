@@ -1,4 +1,5 @@
-# JS-Frameworks-Projects
+# Overview
+Compilation of projects I've built using JavaScript frameworks that includes Nodejs, Express and React. 
 
 I've completed [Back End Development and APIs](https://www.freecodecamp.org/learn/back-end-development-and-apis/) course on FreeCodeCamp! [Verify my cert here](https://www.freecodecamp.org/certification/ZiQingChew/back-end-development-and-apis)
 
