@@ -27,9 +27,6 @@ export default function QuoteBox() {
         setColor(changeColor())
     }
 
-    function tweetHandler() {
-        console.log('yayyy')
-    }
 
     function changeColor() {
         let r = Math.floor(Math.random() * 256)
@@ -50,7 +47,7 @@ export default function QuoteBox() {
                 </div>
 
                 <div className='box-bottom'>
-                    <TweetQuote color={color} tweetHandler={tweetHandler} />
+                    <TweetQuote color={color} text={quoteData.text} author={quoteData.author} />
                     <NewQuote handler={changeQuote} color={color} />
                 </div>
             </div>
