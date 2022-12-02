@@ -37,6 +37,7 @@ body {
 
 #text {
   text-align: center;
+  transition: opacity 2s ease-out;
 }
 
 #text>p {
@@ -48,6 +49,7 @@ body {
 #author {
   align-self: flex-end;
   margin-bottom: 1em;
+  transition: opacity 2s ease-in-out;
 }
 
 #new-quote {
@@ -61,8 +63,9 @@ body {
 #tweet-quote {
   text-decoration: none;
   color: white;
-  background-color: black;
+  /* background-color: black; */
   padding: 0.5em;
+  border: none;
   border-radius: 0.3em;
 }
 
@@ -75,4 +78,11 @@ a {
   color: white;
 }
 
-@media screen and (max-width: 768px) {}
+* :not(#text, #author) {
+  transition-duration: 2s;
+}
+
+
+/* #text{
+  transition-property: font-size;
+} */

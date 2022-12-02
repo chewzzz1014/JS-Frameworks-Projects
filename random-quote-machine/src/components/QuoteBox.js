@@ -17,13 +17,18 @@ export default function QuoteBox() {
         fetch("https://type.fit/api/quotes")
             .then(res => res.json())
             .then(data => {
-                setAllQuotes(data)
+                setAllQuotes(allQuotes.concat(data))
+                setQuote(Math.floor(Math.random() * allQuotes.length))
             })
     }, [])
 
     function changeQuote() {
         setQuote(Math.floor(Math.random() * allQuotes.length))
         setColor(changeColor())
+    }
+
+    function tweetHandler() {
+        console.log('yayyy')
     }
 
     function changeColor() {
@@ -45,7 +50,7 @@ export default function QuoteBox() {
                 </div>
 
                 <div className='box-bottom'>
-                    <TweetQuote color={color} />
+                    <TweetQuote color={color} tweetHandler={tweetHandler} />
                     <NewQuote handler={changeQuote} color={color} />
                 </div>
             </div>

@@ -3,7 +3,7 @@ import { BsTwitter } from 'react-icons/bs';
 
 export default function TweetQuote(props) {
 
-    const { color } = props
+    const { color, tweetHandler } = props
 
     const styles = {
         backgroundColor: color
@@ -11,9 +11,9 @@ export default function TweetQuote(props) {
 
     return (
         <div>
-            <a href="#" id='tweet-quote' style={styles}>
+            <button id='tweet-quote' style={styles} onClick={tweetHandler}>
                 <BsTwitter size='30px' />
-            </a>
+            </button>
         </div>
     )
 }
