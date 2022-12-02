@@ -7,6 +7,7 @@ export default function Question() {
 
     console.log('rerender')
     const [questions, setQuestions] = useState([])
+    const [options, setOptions] = useState([])
 
     const questionsAnswers = new Array(5)
     const questionsAnswersId = new Array(5)
@@ -27,11 +28,13 @@ export default function Question() {
     }
 
     function handleSelect(e) {
-        const numQuestion = parseInt(e.currentTarget.className.split(" ")[0])
-        questionsSelectedId[numQuestion] = e.currentTarget.id
-        questionsSelected[numQuestion] = e.currentTarget.value
-        console.log(e.target)
-        console.log(questionsSelectedId)
+        // const numQuestion = parseInt(e.currentTarget.className.split(" ")[0])
+        // questionsSelectedId[numQuestion] = e.currentTarget.id
+        // questionsSelected[numQuestion] = e.currentTarget.value
+        // console.log(e.target)
+        // console.log(questionsSelectedId)
+
+        console.log(e.target.isCorrect)
     }
 
     function handleCheck() {
@@ -68,30 +71,22 @@ export default function Question() {
         )
 
         const optionsElements = options.map((o) => {
-            if (o === ele.correct_answer) {
-                return (
-                    <Options
-                        id={nanoid()}
-                        handleSelect={handleSelect}
-                        value={o}
-                        isCorrect={true}
-                        isSelected={false}
-                        text={`${he.decode(o)} (correct answer)`}
-                    />
-                )
-            }
-            else {
-                return (
-                    <Options
-                        id={nanoid()}
-                        handleSelect={handleSelect}
-                        value={o}
-                        isCorrect={false}
-                        isSelected={false}
-                        text={`${he.decode(o)}`}
-                    />
-                )
-            }
+            let text
+            if (o === ele.correct_answer)
+                text = `${he.decode(o)} (correct answer)`
+            else
+                text = `${he.decode(o)}`
+
+            return (
+                <Options
+                    id={nanoid()}
+                    handleSelect={handleSelect}
+                    value={o}
+                    isCorrect={false}
+                    isSelected={false}
+                    text={`${he.decode(o)}`}
+                />
+            )
         })
 
         console.log('in questionElements')
@@ -104,6 +99,7 @@ export default function Question() {
         )
     })
 
+    console.log(questions)
     return (
         <div className='question'>
             {console.log(questionsAnswers)}
