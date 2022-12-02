@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Options from './Options'
 import { nanoid } from 'nanoid'
 const he = require('he')
 
@@ -66,33 +67,29 @@ export default function Question() {
             0.5 - Math.random()
         )
 
-        const optionsElements = options.map((o, idxO) => {
-            const strRef = `${idxEle} ${idxO}`
+        const optionsElements = options.map((o) => {
             if (o === ele.correct_answer) {
-                const ansId = nanoid()
-                questionsAnswersId[idxEle] = ansId
-                questionsAnswers[idxEle] = o
                 return (
-                    <button
-                        id={ansId}
-                        className={strRef}
-                        onClick={handleSelect}
+                    <Options
+                        id={nanoid()}
+                        handleSelect={handleSelect}
                         value={o}
-                    >
-                        {`${he.decode(o)} (correct answer)`}
-                    </button>
+                        isCorrect={true}
+                        isSelected={false}
+                        text={`${he.decode(o)} (correct answer)`}
+                    />
                 )
             }
             else {
                 return (
-                    <button
+                    <Options
                         id={nanoid()}
-                        className={strRef}
-                        onClick={handleSelect}
+                        handleSelect={handleSelect}
                         value={o}
-                    >
-                        {`${he.decode(o)}`}
-                    </button>
+                        isCorrect={false}
+                        isSelected={false}
+                        text={`${he.decode(o)}`}
+                    />
                 )
             }
         })
