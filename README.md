@@ -23,7 +23,7 @@ I've completed [Back End Development and APIs](https://www.freecodecamp.org/lear
 - [markdown-editor]
 - [meme-generator](https://chewzzz-meme-generator.netlify.app/)
 - [quizzical-app]() [Ongoing]
-- [random-quote-machine]() [Ongoing]
+- [random-quote-machine](https://chewzzz-quote-machine.netlify.app/) 
 - [react-fact](https://chewzzz-react-fact.netlify.app/)
 - [react-form]
 - [tenzies-game](https://chewzzz-rolling-dice.netlify.app/)
