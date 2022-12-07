@@ -3,7 +3,11 @@ const app = express()
 
 // GET
 app.get('/', (req, res) => {
-    res.send('Home Page')
+    res.status(200).send('Home Page')
+})
+
+app.get("/about", (req, res) => {
+    res.status(200).send("About Page")
 })
 
 // POST
@@ -13,6 +17,9 @@ app.get('/', (req, res) => {
 // DELETE
 
 // ALL (work with all HTTP Method)
+app.all('*', (req, res) => {
+    res.status(404).send("<h1>404 Resource Not Found</h1>")
+})
 
 // USE (middleware)
 
