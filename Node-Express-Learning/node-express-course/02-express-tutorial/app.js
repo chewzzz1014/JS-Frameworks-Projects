@@ -2,7 +2,8 @@ const express = require('express')
 const path = require('path')
 const app = express()
 
-app.use(express.static(path.resolve(__dirname, './navbar-app/styles.css')))
+// set the location of static files (css and js)
+app.use(express.static(path.resolve(__dirname, './navbar-app/')))
 
 // GET
 app.get('/', (req, res) => {
