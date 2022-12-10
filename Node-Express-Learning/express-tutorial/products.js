@@ -42,6 +42,10 @@ app.get("/api/v1/query", (req, res) => {
     if (limit) {
         sortedProducts = sortedProducts.slice(0, Number(limit))
     }
+    if (sortedProducts.length < 1) {
+        res.status(200).send('<h1>No Item Found</h1>')
+    }
+
     res.status(200).json(sortedProducts)
 })
 
