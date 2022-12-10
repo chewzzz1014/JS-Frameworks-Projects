@@ -14,6 +14,15 @@ app.get("/api/products", (req, res) => {
     res.json(newProducts)
 })
 
+app.get("/api/products/:id", (req, res) => {
+    const foundProduct = products.find(ele => ele.id === Number(req.params.id))
+
+    if (!foundProduct) {
+        res.status(404).send('<h1>404 Resource Not Found</h1>')
+    }
+    res.json(foundProduct)
+})
+
 app.listen(3000, () => {
     console.log('Server running ar port 3000')
 })
