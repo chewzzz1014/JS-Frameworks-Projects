@@ -15,12 +15,25 @@ app.get("/api/products", (req, res) => {
 })
 
 app.get("/api/products/:id", (req, res) => {
-    const foundProduct = products.find(ele => ele.id === Number(req.params.id))
+    const { id } = req.params
+    const foundProduct = products.find(ele => ele.id === Number(id))
 
     if (!foundProduct) {
-        res.status(404).send('<h1>404 Resource Not Found</h1>')
+        res.status(404).send(`<h1>404 Product with Id ${id} Not Found</h1>`)
     }
     res.json(foundProduct)
+})
+
+app.get("/api/products/:productId/reviews/:reviewId", (req, res) => {
+    const { productId, reviewId } = req.params
+    res.send(`Viewing product of Id$ {productId} and review with Id ${reviewId}`)
+})
+
+app.get("/api/v1/query", (req, res) => {
+    const { name, id } = req.query
+    res.json({
+        name, id
+    })
 })
 
 app.listen(3000, () => {
