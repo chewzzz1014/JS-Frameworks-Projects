@@ -30,10 +30,19 @@ app.get("/api/products/:productId/reviews/:reviewId", (req, res) => {
 })
 
 app.get("/api/v1/query", (req, res) => {
-    const { name, id } = req.query
-    res.json({
-        name, id
-    })
+    const { search, limit } = req.query
+    let sortedProducts = [...products]
+
+    // only if search and limit query are provided
+    if (search) {
+        sortedProducts = sortedProducts.filter((ele) => {
+            return ele.name.toLowerCase().startsWith(search.toLowerCase())
+        })
+    }
+    if (limit) {
+        sortedProducts = sortedProducts.slice(0, Number(limit))
+    }
+    res.status(200).json(sortedProducts)
 })
 
 app.listen(3000, () => {
