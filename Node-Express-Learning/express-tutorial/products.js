@@ -24,11 +24,6 @@ app.get("/api/products/:id", (req, res) => {
     res.json(foundProduct)
 })
 
-app.get("/api/products/:productId/reviews/:reviewId", (req, res) => {
-    const { productId, reviewId } = req.params
-    res.send(`Viewing product of Id$ {productId} and review with Id ${reviewId}`)
-})
-
 app.get("/api/v1/query", (req, res) => {
     const { search, limit } = req.query
     let sortedProducts = [...products]
@@ -49,6 +44,11 @@ app.get("/api/v1/query", (req, res) => {
     res.status(200).json(sortedProducts)
 })
 
+app.get('/api/products/:productId/reviews/:reviewId', (req, res) => {
+    const { productId, reviewId } = req.params
+    res.send('Hello HOHOHO')
+})
+
 app.listen(3000, () => {
-    console.log('Server running ar port 3000')
+    console.log('Server running at port 3000')
 })
