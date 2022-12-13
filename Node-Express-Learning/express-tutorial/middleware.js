@@ -10,10 +10,26 @@ const logger = (req, res, next) => {
     next()
 }
 
-app.use("/api", logger)
+const authorize = (req, res, next) => {
+    const { user } = req.query
+
+    // update req.user
+    if (user === 'john') {
+        req.user = { name: 'john', id: 3 }
+        next()
+    } else {
+        res.status(401).send('Unauthorized')
+    }
+    next()
+}
+
+// we can specify path for applying middleware
+//app.use("/api", logger)
+
+app.use([authorize, logger])
 
 app.get("/", (req, res) => {
-    res.send('Home')
+    res.json(req.user)
 })
 
 app.get("/about", (req, res) => {
