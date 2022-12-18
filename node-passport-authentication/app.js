@@ -1,12 +1,21 @@
 const express = require('express')
+const mongoose = require('mongoose')
 const expressLayouts = require('express-ejs-layouts')
 const path = require('path')
 const ejs = require('ejs')
 const app = express()
 const mainRoute = require('./routes/index')
 const userRoute = require('./routes/users')
-
 require('dotenv').config()
+
+mongoose
+    .connect(process.env.MONGO_URI)
+    .then(() => {
+        console.log('mongo connected')
+    })
+    .catch(err => {
+        console.log(err)
+    })
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(expressLayouts)
