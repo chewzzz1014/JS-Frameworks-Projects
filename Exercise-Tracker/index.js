@@ -4,7 +4,7 @@ const { User } = require("./models/user");
 //const { Exercise } = require("./models/exercise");
 const { Log } = require("./models/log");
 const path = require("path");
-const serverless = require('serverless-http')
+// const serverless = require('serverless-http')
 const app = express();
 
 app.set("views", path.join(__dirname, "views"));
@@ -165,6 +165,3 @@ app.use((err, req, res, next) => {
 app.listen(3000, () => {
     console.log("Listening to Port 3000")
 })
-
-
-module.exports.handler = serverless(app)
