@@ -1,8 +1,9 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const flash = require('connect-flash')
+const session = require('express-session')
 const expressLayouts = require('express-ejs-layouts')
 const path = require('path')
-const ejs = require('ejs')
 const app = express()
 const mainRoute = require('./routes/home')
 const userRoute = require('./routes/users')
@@ -22,6 +23,14 @@ app.use(expressLayouts)
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 app.use(express.urlencoded({ extended: true }))
+
+// express session
+app.use(session({
+    secret: 'keyboard warrior',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+}))
 
 app.use('/', mainRoute)
 app.use('/users', userRoute)
