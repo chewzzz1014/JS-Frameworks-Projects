@@ -66,7 +66,7 @@ router.post('/register', async (req, res, next) => {
                     password,
                     password2
                 })
-            } else { // email not registered
+            } else {  // email not registered
                 // create new user
                 const newUser = new User({
                     name,
@@ -74,14 +74,15 @@ router.post('/register', async (req, res, next) => {
                     password
                 })
 
-                res.send(newUser)
+                await newUser.save()
+                console.log(newUser)
+                res.redirect('/users/login')
             }
         } catch (err) {
             next(err)
         }
     }
 
-    res.send('hello')
 })
 
 module.exports = router

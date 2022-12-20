@@ -28,7 +28,8 @@ app.use('/users', userRoute)
 
 // error middleware
 app.use((err, req, res, next) => {
-    res.status(400).send(err)
+    console.log(err)
+    next(err)
 })
 
 app.listen(process.env.PORT, () => {
