@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const { use } = require('passport')
 
 const userSchema = new mongoose.Schema({
     name: {

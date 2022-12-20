@@ -4,7 +4,7 @@ const expressLayouts = require('express-ejs-layouts')
 const path = require('path')
 const ejs = require('ejs')
 const app = express()
-const mainRoute = require('./routes/index')
+const mainRoute = require('./routes/home')
 const userRoute = require('./routes/users')
 require('dotenv').config()
 
