@@ -26,6 +26,10 @@ app.use(express.urlencoded({ extended: true }))
 app.use('/', mainRoute)
 app.use('/users', userRoute)
 
+// error middleware
+app.use((err, req, res, next) => {
+    res.status(400).send(err)
+})
 
 app.listen(process.env.PORT, () => {
     console.log('Server Running')
