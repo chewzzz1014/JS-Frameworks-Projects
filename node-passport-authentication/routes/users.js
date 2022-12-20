@@ -13,9 +13,10 @@ router.get('/login', (req, res) => {
     res.render('login')
 })
 
-router.post('/login', (req, res) => {
-    res.render('login')
-})
+// router.post('/login', (req, res) => {
+//     console.log(2)
+//     res.render('login')
+// })
 
 router.get('/register', (req, res) => {
     res.render('register')
@@ -111,7 +112,8 @@ router.post('/register', async (req, res, next) => {
 })
 
 
-router.get('/login', (req, res, next) => {
+// after user enter email, password and press enter
+router.post('/login', (req, res, next) => {
     passport.authenticate('local', {
         successRedirect: '/dashboard',
         failureRedirect: '/users/login',

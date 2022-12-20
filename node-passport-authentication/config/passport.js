@@ -12,7 +12,7 @@ module.exports = function (passport) {
                 // find is there any user with the given email
                 const foundUser = await User.findOne({ email: email })
 
-                if (!user) {
+                if (!foundUser) {
                     // email is not matched
                     return done(null, false, { message: 'Email is not registered' })
                 }
