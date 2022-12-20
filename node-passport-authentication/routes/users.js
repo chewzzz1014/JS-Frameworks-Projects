@@ -92,6 +92,9 @@ router.post('/register', async (req, res, next) => {
 
                 await newUser.save()
                 console.log(newUser)
+
+                // show flash message and redirect
+                req.flash('success_msg', 'You are now registered')
                 res.redirect('/users/login')
             }
         } catch (err) {
