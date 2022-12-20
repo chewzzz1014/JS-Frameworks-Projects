@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const flash = require('connect-flash')
 const session = require('express-session')
+const passport = require('passport')
 const expressLayouts = require('express-ejs-layouts')
 const path = require('path')
 const app = express()
@@ -9,6 +10,8 @@ const mainRoute = require('./routes/home')
 const userRoute = require('./routes/users')
 const { MONGO_URI, PORT } = require('./config/keys')
 
+// passport config
+require('./config/passport')(passport)
 
 mongoose
     .connect(MONGO_URI, { useNewUrlParser: true })
@@ -32,6 +35,10 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }))
+
+// must put after session middleware
+app.use(passport.initialize())
+app.use(passport.session())
 
 // global variables for flash colors
 app.use((req, res, next) => {
