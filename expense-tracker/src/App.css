@@ -5,7 +5,41 @@ body {
 }
 
 .App {
-  background-color: gold;
   width: 100vw;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header {
+  background-color: pink;
+}
+
+.income-expense-container {
+  display: flex;
+}
+
+.income-expense-box {
+  padding: 0.5em 4em;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+}
+
+.h {
+  flex: 1;
+  border: 1px solid red;
+}
+
+.main {
+  background-color: yellow;
+}
+
+.footer {
+  background-color: green;
 }
