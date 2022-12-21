@@ -1,12 +1,98 @@
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
+/* * {
+  border: 1px solid red;
+} */
+
+:root {
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.605), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
   font-family: 'Lato', sans-serif;
+  display: flex;
+  justify-content: center;
+  color: black;
 }
 
 .App {
-  padding: 3em 5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.slight-bold {
+  font-weight: bold;
+}
+
+.larger-text {
+  font-size: 1.25em;
+}
+
+.title {
+  text-align: center;
+}
+
+.income {
+  color: rgb(28, 218, 28);
+  font-size: 1.5em;
+  margin-top: -15px;
+}
+
+.expense {
+  color: red;
+  font-size: 1.5em;
+  margin-top: -15px;
+}
+
+.header-balance-display {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0px;
+}
+
+.balance {
+  margin-top: -20px;
+}
+
+.box-with-shadow {
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+}
+
+.income-expense-box {
+  padding: 0.5em 2em;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  border-radius: 0.25em;
+}
+
+.item-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 0.75em;
+  border-radius: 0.25em;
+}
+
+.item-income {
+  border-right: 0.5em solid rgb(43, 255, 43);
+}
+
+.item-expense {
+  border-right: 0.5em solid rgb(203, 16, 16);
+}
+
+.btn {
+  cursor: pointer;
+  background-color: #9c88ff;
+  box-shadow: var(--box-shadow);
+  border: #9c88ff;
 }
