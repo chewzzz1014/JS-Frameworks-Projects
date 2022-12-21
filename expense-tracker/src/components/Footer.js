@@ -12,7 +12,7 @@ function Footer() {
 
 
                     <label htmlFor="amount" className='form-label px-0 slight-bold'>Amount<br /> (negative - expense, positive - income)</label>
-                    <input type="text" className='form-control mb-3' id='amount' placeholder='Enter amounnt...' name='new-item-amount' />
+                    <input type="text" className='form-control mb-4' id='amount' placeholder='Enter amounnt...' name='new-item-amount' />
 
                     <button type="submit" class="btn btn-primary slight-bold">Add transaction</button>
                 </form>
