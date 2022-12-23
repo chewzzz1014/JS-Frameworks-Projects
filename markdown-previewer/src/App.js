@@ -5,7 +5,8 @@ import Previewer from './components/Previewer';
 function App() {
   return (
     <div className="App">
-      hello
+      <Editor />
+      <Previewer />
     </div>
   );
 }
