@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { GlobalContext } from '../context/GlobalState'
+import SingleTransaction from './SingleTransaction'
 
 function TransactionList() {
 
@@ -10,17 +11,12 @@ function TransactionList() {
         < div className='col-12' >
             <div className='row'>
                 {
-                    transactions.map(t => {
-                        return (
-                            <div className={`col-12 box-with-shadow item-box my-2 ${(t.amount > 0) ? 'item-income' : 'item-expense'}`}>
-                                <span className='item-name'>{t.text}</span>
-                                <div className='list-right'>
-                                    <span className='item-price'>{`${(t.amount > 0) ? '+' : ''}${t.amount}`}</span>
-                                    <button className='delete-btn'>x</button>
-                                </div>
-                            </div>
-                        )
-                    })
+                    transactions.map(t =>
+                        <SingleTransaction
+                            key={t.id}
+                            transaction={t}
+                        />
+                    )
                 }
             </div>
         </div >
