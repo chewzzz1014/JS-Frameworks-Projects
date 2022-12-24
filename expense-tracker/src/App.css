@@ -85,10 +85,12 @@ body {
 
 .item-income {
   border-right: 0.5em solid rgb(43, 255, 43);
+  font-size: 1.25em;
 }
 
 .item-expense {
   border-right: 0.5em solid rgb(203, 16, 16);
+  font-size: 1.25em;
 }
 
 .btn {
