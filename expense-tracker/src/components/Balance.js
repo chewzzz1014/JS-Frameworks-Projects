@@ -11,7 +11,7 @@ function Balance() {
             <h1 className='mb-3 balance'>
                 $
                 <span className='balance'>
-                    {transactions.reduce((total, t) => total + t.amount, 0)}
+                    {transactions.reduce((total, t) => total + t.amount, 0).toFixed(2)}
                 </span>
             </h1>
         </div>

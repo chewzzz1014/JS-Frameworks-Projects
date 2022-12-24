@@ -12,7 +12,7 @@ function IncomeExpense() {
                     <p className='slight-bold mt-2 larger-text'>INCOME</p>
                     <p className='income'>${transactions.reduce((total, t) =>
                         (t.amount > 0) ? total + t.amount : total
-                        , 0)}
+                        , 0).toFixed(2)}
                     </p>
                 </div>
                 <div className='box-with-shadow income-expense-box col-6'>
@@ -20,7 +20,7 @@ function IncomeExpense() {
                     <p className='expense'>$
                         {transactions.reduce((total, t) =>
                             (t.amount < 0) ? total + Math.abs(t.amount) : total
-                            , 0)}
+                            , 0).toFixed(2)}
                     </p>
                 </div>
             </div>
