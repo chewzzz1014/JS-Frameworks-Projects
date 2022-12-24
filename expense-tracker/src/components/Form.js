@@ -1,12 +1,28 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
+import { GlobalContext } from '../context/GlobalState'
 
 function Form(props) {
 
-    const { inputText, inputAmount, setInputText, setInputAmount } = props
+    const [inputText, setInputText] = useState("")
+    const [inputAmount, setInputAmount] = useState(0)
+    const { addTransaction } = useContext(GlobalContext)
+
+    function onSubmit(e) {
+        e.preventDefault()
+
+        // make a new transaction item
+        const newTransaction = {
+            id: Math.floor(Math.random() * 100000000),
+            text: inputText,
+            amount: parseFloat(inputAmount)
+        }
+
+        addTransaction(newTransaction)
+    }
 
     return (
         <div className='col-12'>
-            <form action="" className='row'>
+            <form onSubmit={onSubmit} className='row'>
                 <label htmlFor="item" className='form-label col-12 px-0 slight-bold'>Text</label>
                 <input
                     type="text"
@@ -30,7 +46,11 @@ function Form(props) {
                     onChange={(e) => setInputAmount(e.target.value)}
                 />
 
-                <button type="submit" className="btn btn-primary slight-bold">Add transaction</button>
+                <button
+                    type="submit"
+                    className="btn btn-primary slight-bold">
+                    Add transaction
+                </button>
             </form>
         </div>
     )
