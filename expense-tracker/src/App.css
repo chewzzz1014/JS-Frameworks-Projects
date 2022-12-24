@@ -102,10 +102,13 @@ body {
 
 .list-right {
   display: flex;
+  justify-content: center;
   gap: 1em;
 }
 
 .delete-btn {
+  vertical-align: center;
   border: none;
+  padding: 0;
   background-color: white;
 }
