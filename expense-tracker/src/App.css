@@ -97,3 +97,13 @@ body {
   box-shadow: var(--box-shadow);
   border: #9c88ff;
 }
+
+.list-right {
+  display: flex;
+  gap: 3em;
+}
+
+.delete-btn {
+  border: none;
+  background-color: white;
+}
