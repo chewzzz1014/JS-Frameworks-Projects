@@ -30,7 +30,7 @@ function Form(props) {
                     onChange={(e) => setInputAmount(e.target.value)}
                 />
 
-                <button type="submit" class="btn btn-primary slight-bold">Add transaction</button>
+                <button type="submit" className="btn btn-primary slight-bold">Add transaction</button>
             </form>
         </div>
     )

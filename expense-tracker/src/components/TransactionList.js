@@ -3,36 +3,27 @@ import { GlobalContext } from '../context/GlobalState'
 
 function TransactionList() {
 
-    const context = useContext(GlobalContext)
-
-    console.log(context)
+    const { transactions } = useContext(GlobalContext)
+    console.log(transactions)
 
     return (
-        <div className='col-12'>
+        < div className='col-12' >
             <div className='row'>
-                <div className='col-12 box-with-shadow item-box my-2 item-income'>
-                    <span className='item-name'>Cash</span>
-                    <div className='list-right'>
-                        <span className='item-price'>+500</span>
-                        <button className='delete-btn'>x</button>
-                    </div>
-                </div>
-                <div className='col-12 box-with-shadow item-box my-2 item-expense'>
-                    <span className='item-name '>Cash</span>
-                    <div className="list-right">
-                        <span className='item-price'>-40</span>
-                        <button className='delete-btn'>x</button>
-                    </div>
-                </div>
-                <div className='col-12 box-with-shadow item-box my-2 item-expense'>
-                    <span className='item-name'>Cash</span>
-                    <div className="list-right">
-                        <span className='item-price'>-200</span>
-                        <button className='delete-btn'>x</button>
-                    </div>
-                </div>
+                {
+                    transactions.map(t => {
+                        return (
+                            <div className={`col-12 box-with-shadow item-box my-2 ${(t.amount > 0) ? 'item-income' : 'item-expense'}`}>
+                                <span className='item-name'>{t.text}</span>
+                                <div className='list-right'>
+                                    <span className='item-price'>{`${(t.amount > 0) ? '+' : ''}${t.amount}`}</span>
+                                    <button className='delete-btn'>x</button>
+                                </div>
+                            </div>
+                        )
+                    })
+                }
             </div>
-        </div>
+        </div >
     )
 }
 
