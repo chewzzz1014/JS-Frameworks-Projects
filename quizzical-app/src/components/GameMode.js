@@ -7,6 +7,7 @@ export default function GameMode() {
 
     console.log('rerender')
     const [questions, setQuestions] = useState([])
+    const [gameMode, setGameMode] = useState('selecting')
 
     useEffect(() => {
         getData()
@@ -24,16 +25,25 @@ export default function GameMode() {
         console.log('in handlerRegenerate')
     }
 
+    function handleCheck() {
+        console.log('checking')
+        setGameMode('checking')
+    }
+
     console.log(questions)
     const questionsElement = questions.map(q => {
         return <Question
             question={q}
             key={nanoid()}
+            gameMode={gameMode}
         />
     })
     return (
         <div className='question'>
             {questionsElement}
+            <button onClick={handleCheck}>
+                Check Answer
+            </button>
         </div>
     )
 }

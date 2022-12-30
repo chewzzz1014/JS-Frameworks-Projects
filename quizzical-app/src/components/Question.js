@@ -5,7 +5,7 @@ const he = require('he')
 
 export default function Question(props) {
 
-    const { question } = props
+    const { question, gameMode } = props
     const correctOption = {
         text: question.correct_answer,
         isCorrect: true,
@@ -13,7 +13,8 @@ export default function Question(props) {
     const incorrectOptions = question.incorrect_answers.map(o => {
         return {
             text: o,
-            isCorrect: false
+            isCorrect: false,
+            isSelected: false
         }
     })
     const options = [
@@ -26,9 +27,10 @@ export default function Question(props) {
             key={nanoid()}
             text={o.text}
             isCorrect={o.isCorrect}
+            isSelected={false}
+            gameMode={gameMode}
         />
     })
-
     return (
         <div>
             {he.decode(question.question)}

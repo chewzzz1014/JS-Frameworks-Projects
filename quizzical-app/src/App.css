@@ -42,3 +42,15 @@ p {
 button:focus {
   border: none;
 }
+
+.selected-option {
+  background-color: #D6DBF5;
+}
+
+.correct-ans {
+  background-color: green;
+}
+
+.wrong-ans {
+  background-color: red;
+}
