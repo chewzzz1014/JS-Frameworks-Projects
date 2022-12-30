@@ -3,7 +3,8 @@ const he = require('he')
 
 export default function Option(props) {
 
-    const { value, text, isCorrect, isSelected, gameMode } = props
+    const { value, text, isCorrect, gameMode } = props
+    let { isSelected } = props
 
     const [isSelectedState, setIsSelectedState] = useState(isSelected)
 
@@ -14,6 +15,8 @@ export default function Option(props) {
         console.log(numQ)
 
         const oldRecord = JSON.parse(localStorage.getItem('selectedItems'))
+
+        // select or deselect
         if (Number(activeBtns[numQ]) === 0) {
             if (!isSelectedState) {
                 localStorage.setItem("selectedItems", JSON.stringify(oldRecord.concat(value)))
@@ -29,8 +32,10 @@ export default function Option(props) {
                 localStorage.setItem('activeBtns', JSON.stringify(activeBtns))
             }
             setIsSelectedState(!isSelectedState)
+            isSelected = !isSelected
             console.log(value)
-        } else {
+            console.log(isSelected)
+        } else { // deselect only
             if (isSelectedState) {
                 const newRecord = oldRecord.filter(e => e !== value)
                 localStorage.setItem("selectedItems", JSON.stringify([
@@ -39,7 +44,9 @@ export default function Option(props) {
                 activeBtns[numQ] = 0
                 localStorage.setItem('activeBtns', JSON.stringify(activeBtns))
                 setIsSelectedState(!isSelectedState)
+                isSelected = !isSelected
                 console.log(value)
+                console.log(isSelected)
             }
         }
     }
@@ -59,7 +66,7 @@ export default function Option(props) {
             {gameMode === 'selecting' && <button
                 onClick={(e) => handleSelect(e)
                 }
-                className={isSelectedState ? 'selected-option' : ''}
+                className={(isSelectedState) ? 'selected-option' : ''}
             >
                 {he.decode(text)}
             </button >}
