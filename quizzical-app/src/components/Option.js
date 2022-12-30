@@ -18,12 +18,13 @@ export default function Option(props) {
 
         // select or deselect
         if (Number(activeBtns[numQ]) === 0) {
+            // select
             if (!isSelectedState) {
                 localStorage.setItem("selectedItems", JSON.stringify(oldRecord.concat(value)))
                 console.log(localStorage.getItem('selectedItems'))
                 activeBtns[numQ] = 1
                 localStorage.setItem('activeBtns', JSON.stringify(activeBtns))
-            } else {
+            } else { // deselect
                 const newRecord = oldRecord.filter(e => e !== value)
                 localStorage.setItem("selectedItems", JSON.stringify([
                     ...newRecord
@@ -32,7 +33,6 @@ export default function Option(props) {
                 localStorage.setItem('activeBtns', JSON.stringify(activeBtns))
             }
             setIsSelectedState(!isSelectedState)
-            isSelected = !isSelected
             console.log(value)
             console.log(isSelected)
         } else { // deselect only
@@ -44,7 +44,6 @@ export default function Option(props) {
                 activeBtns[numQ] = 0
                 localStorage.setItem('activeBtns', JSON.stringify(activeBtns))
                 setIsSelectedState(!isSelectedState)
-                isSelected = !isSelected
                 console.log(value)
                 console.log(isSelected)
             }

@@ -22,7 +22,6 @@ export default function Question(props) {
     ]
 
     const optionsEle = options.map((o, idx) => {
-        console.log('rerender option btn')
         const k = value + "-" + idx
         return <Option
             key={k}
