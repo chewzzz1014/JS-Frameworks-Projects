@@ -10,10 +10,7 @@ export default function Option(props) {
     function handleSelect(e) {
         const oldRecord = JSON.parse(localStorage.getItem('selectedItems'))
         if (!isSelectedState) {
-            localStorage.setItem("selectedItems", JSON.stringify([
-                ...oldRecord,
-                value
-            ]))
+            localStorage.setItem("selectedItems", JSON.stringify(oldRecord.concat(value)))
             console.log(localStorage.getItem('selectedItems'))
         } else {
             const newRecord = oldRecord.filter(e => e !== value)

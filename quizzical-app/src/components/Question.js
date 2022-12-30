@@ -5,7 +5,6 @@ const he = require('he')
 
 export default function Question(props) {
 
-    localStorage.setItem('selectedItems', JSON.stringify([]))
     const { question, gameMode, value } = props
     const correctOption = {
         text: question.correct_answer,

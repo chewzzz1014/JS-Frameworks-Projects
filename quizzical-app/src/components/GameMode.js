@@ -15,6 +15,7 @@ export default function GameMode() {
 
 
     useEffect(() => {
+        localStorage.setItem('selectedItems', JSON.stringify([]))
         getData()
         console.log('in useEffect')
     }, [])
