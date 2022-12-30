@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Options from './Options'
+import Option from './Option'
 import Question from './Question'
 import { nanoid } from 'nanoid'
 
