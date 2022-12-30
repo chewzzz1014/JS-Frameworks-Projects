@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 const he = require('he')
 
 export default function Option(props) {
@@ -8,19 +8,40 @@ export default function Option(props) {
     const [isSelectedState, setIsSelectedState] = useState(isSelected)
 
     function handleSelect(e) {
-        const oldRecord = JSON.parse(localStorage.getItem('selectedItems'))
-        if (!isSelectedState) {
-            localStorage.setItem("selectedItems", JSON.stringify(oldRecord.concat(value)))
-            console.log(localStorage.getItem('selectedItems'))
-        } else {
-            const newRecord = oldRecord.filter(e => e !== value)
-            localStorage.setItem("selectedItems", JSON.stringify([
-                ...newRecord
-            ]))
-        }
+        const numQ = Number(value.split('-')[0])
+        let activeBtns = JSON.parse(localStorage.getItem('activeBtns'))
+        console.log(activeBtns)
+        console.log(numQ)
 
-        setIsSelectedState(!isSelectedState)
-        console.log(value)
+        const oldRecord = JSON.parse(localStorage.getItem('selectedItems'))
+        if (Number(activeBtns[numQ]) === 0) {
+            if (!isSelectedState) {
+                localStorage.setItem("selectedItems", JSON.stringify(oldRecord.concat(value)))
+                console.log(localStorage.getItem('selectedItems'))
+                activeBtns[numQ] = 1
+                localStorage.setItem('activeBtns', JSON.stringify(activeBtns))
+            } else {
+                const newRecord = oldRecord.filter(e => e !== value)
+                localStorage.setItem("selectedItems", JSON.stringify([
+                    ...newRecord
+                ]))
+                activeBtns[numQ] = 0
+                localStorage.setItem('activeBtns', JSON.stringify(activeBtns))
+            }
+            setIsSelectedState(!isSelectedState)
+            console.log(value)
+        } else {
+            if (isSelectedState) {
+                const newRecord = oldRecord.filter(e => e !== value)
+                localStorage.setItem("selectedItems", JSON.stringify([
+                    ...newRecord
+                ]))
+                activeBtns[numQ] = 0
+                localStorage.setItem('activeBtns', JSON.stringify(activeBtns))
+                setIsSelectedState(!isSelectedState)
+                console.log(value)
+            }
+        }
     }
 
     const selectedItem = JSON.parse(localStorage.getItem('selectedItems'))
@@ -33,15 +54,8 @@ export default function Option(props) {
         color = 'wrong-ans'
     }
 
-    if (isCorrect) {
-        color = 'correct-ans'
-    }
-
     return (
         <>
-            {console.log(gameMode + " " + isSelectedState)}
-            {console.log(selectedItem)}
-            {console.log('is in ' + selectedItem.includes(value))}
             {gameMode === 'selecting' && <button
                 onClick={(e) => handleSelect(e)
                 }

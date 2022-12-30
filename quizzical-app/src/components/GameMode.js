@@ -8,12 +8,9 @@ export default function GameMode() {
     const [gameMode, setGameMode] = useState('selecting')
 
     useEffect(() => {
-        console.log(localStorage.getItem('selectedItems'))
-    }, [gameMode])
-
-    useEffect(() => {
         localStorage.setItem('selectedItems', JSON.stringify([]))
         localStorage.setItem('score', "0")
+        localStorage.setItem('activeBtns', JSON.stringify([0, 0, 0, 0, 0]))
         getData()
         console.log('in useEffect')
     }, [])
@@ -38,12 +35,13 @@ export default function GameMode() {
     function handlePlayAgain() {
         localStorage.setItem('selectedItems', JSON.stringify([]))
         localStorage.setItem('score', "0")
+        localStorage.setItem('activeBtns', JSON.stringify([0, 0, 0, 0, 0]))
         getData()
         setGameMode('selecting')
     }
 
     console.log(questions)
-    const questionsElement = questions.map((q, idx) => {
+    let questionsElement = questions.map((q, idx) => {
         const k = idx.toString()
         return <Question
             question={q}
