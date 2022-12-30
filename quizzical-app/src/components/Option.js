@@ -23,10 +23,13 @@ export default function Option(props) {
         console.log(value)
     }
 
+    const selectedItem = JSON.parse(localStorage.getItem('selectedItems'))
     return (
         <>
             {console.log(gameMode + " " + isSelectedState)}
-            {<button
+            {console.log(selectedItem)}
+            {console.log('is in ' + selectedItem.includes(value))}
+            {gameMode === 'selecting' && <button
                 onClick={(e) => handleSelect(e)
                 }
                 className={isSelectedState ? 'selected-option' : ''}
@@ -37,7 +40,7 @@ export default function Option(props) {
             {gameMode === 'checking' && <button
                 onClick={(e) => handleSelect(e)
                 }
-                className={isSelectedState && isCorrect ? 'correct-ans' : isSelectedState && !isCorrect ? 'wrong-ans' : ''}
+                className={selectedItem.includes(value) && isCorrect ? 'correct-ans' : selectedItem.includes(value) && !isCorrect ? 'wrong-ans' : ''}
             >
                 {he.decode(text)}
             </button >}

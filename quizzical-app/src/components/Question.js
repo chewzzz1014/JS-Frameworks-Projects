@@ -22,8 +22,8 @@ export default function Question(props) {
         ...incorrectOptions
     ]
 
-    const optionsEle = options.map(o => {
-        const k = nanoid()
+    const optionsEle = options.map((o, idx) => {
+        const k = value + "-" + idx
         return <Option
             key={k}
             value={k}

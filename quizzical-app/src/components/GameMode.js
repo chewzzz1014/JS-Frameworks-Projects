@@ -38,8 +38,8 @@ export default function GameMode() {
     }
 
     console.log(questions)
-    const questionsElement = questions.map(q => {
-        const k = nanoid()
+    const questionsElement = questions.map((q, idx) => {
+        const k = idx.toString()
         return <Question
             question={q}
             key={k}
