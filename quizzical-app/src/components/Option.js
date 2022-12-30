@@ -3,20 +3,33 @@ const he = require('he')
 
 export default function Option(props) {
 
-    const { text, isCorrect, isSelected, gameMode } = props
+    const { value, text, isCorrect, isSelected, gameMode } = props
 
     const [isSelectedState, setIsSelectedState] = useState(isSelected)
 
     function handleSelect(e) {
-        setIsSelectedState(!isSelectedState)
-        console.log(isSelectedState)
-    }
+        const oldRecord = JSON.parse(localStorage.getItem('selectedItems'))
+        if (!isSelectedState) {
+            localStorage.setItem("selectedItems", JSON.stringify([
+                ...oldRecord,
+                value
+            ]))
+            console.log(localStorage.getItem('selectedItems'))
+        } else {
+            const newRecord = oldRecord.filter(e => e !== value)
+            localStorage.setItem("selectedItems", JSON.stringify([
+                ...newRecord
+            ]))
+        }
 
+        setIsSelectedState(!isSelectedState)
+        console.log(value)
+    }
 
     return (
         <>
-            {console.log(gameMode)}
-            {gameMode === 'selecting' && <button
+            {console.log(gameMode + " " + isSelectedState)}
+            {<button
                 onClick={(e) => handleSelect(e)
                 }
                 className={isSelectedState ? 'selected-option' : ''}

@@ -5,7 +5,8 @@ const he = require('he')
 
 export default function Question(props) {
 
-    const { question, gameMode } = props
+    localStorage.setItem('selectedItems', JSON.stringify([]))
+    const { question, gameMode, value } = props
     const correctOption = {
         text: question.correct_answer,
         isCorrect: true,
@@ -23,8 +24,10 @@ export default function Question(props) {
     ]
 
     const optionsEle = options.map(o => {
+        const k = nanoid()
         return <Option
-            key={nanoid()}
+            key={k}
+            value={k}
             text={o.text}
             isCorrect={o.isCorrect}
             isSelected={false}

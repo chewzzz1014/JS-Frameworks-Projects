@@ -10,6 +10,11 @@ export default function GameMode() {
     const [gameMode, setGameMode] = useState('selecting')
 
     useEffect(() => {
+        console.log(localStorage.getItem('selectedItems'))
+    }, [gameMode])
+
+
+    useEffect(() => {
         getData()
         console.log('in useEffect')
     }, [])
@@ -28,13 +33,16 @@ export default function GameMode() {
     function handleCheck() {
         console.log('checking')
         setGameMode('checking')
+        //console.log(localStorage.getItem('selectedItems'))
     }
 
     console.log(questions)
     const questionsElement = questions.map(q => {
+        const k = nanoid()
         return <Question
             question={q}
-            key={nanoid()}
+            key={k}
+            value={k}
             gameMode={gameMode}
         />
     })
