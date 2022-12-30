@@ -66,7 +66,7 @@ export default function Option(props) {
             {gameMode === 'selecting' && <button
                 onClick={(e) => handleSelect(e)
                 }
-                className={(isSelectedState) ? 'selected-option' : ''}
+                className={selectedItem.includes(value) ? 'selected-option' : ''}
             >
                 {he.decode(text)}
             </button >}
