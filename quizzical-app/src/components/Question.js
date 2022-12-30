@@ -1,6 +1,5 @@
 import React from 'react'
 import Option from './Option'
-import { nanoid } from 'nanoid'
 const he = require('he')
 
 export default function Question(props) {

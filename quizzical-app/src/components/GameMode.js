@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Option from './Option'
 import Question from './Question'
-import { nanoid } from 'nanoid'
 
 export default function GameMode() {
 
