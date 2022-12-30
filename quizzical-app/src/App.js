@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState, useEffect } from 'react'
 import Landing from './components/Landing';
-import Question from './components/Question';
+import GameMode from './components/GameMode';
 
 function App() {
 
@@ -19,7 +19,7 @@ function App() {
     <div className="App">
       {(mode === 'landing') ?
         <Landing handler={handleStartGame} /> :
-        <Question />
+        <GameMode />
       }
       <div className='decoration'></div>
 
