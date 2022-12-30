@@ -24,6 +24,19 @@ export default function Option(props) {
     }
 
     const selectedItem = JSON.parse(localStorage.getItem('selectedItems'))
+    const currentScore = Number(localStorage.getItem('score'))
+    let color = ''
+    if (selectedItem.includes(value) && isCorrect) {
+        localStorage.setItem('score', (currentScore + 1).toString())
+        color = 'correct-ans'
+    } else if (selectedItem.includes(value) && !isCorrect) {
+        color = 'wrong-ans'
+    }
+
+    if (isCorrect) {
+        color = 'correct-ans'
+    }
+
     return (
         <>
             {console.log(gameMode + " " + isSelectedState)}
@@ -40,7 +53,8 @@ export default function Option(props) {
             {gameMode === 'checking' && <button
                 onClick={(e) => handleSelect(e)
                 }
-                className={selectedItem.includes(value) && isCorrect ? 'correct-ans' : selectedItem.includes(value) && !isCorrect ? 'wrong-ans' : ''}
+                className={color}
+                disabled
             >
                 {he.decode(text)}
             </button >}
