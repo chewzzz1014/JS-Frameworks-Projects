@@ -16,10 +16,7 @@ const getTransactions = async (req, res, next) => {
             data: transactions
         })
     } catch (error) {
-        return res.status(500).json({
-            success: false,
-            error: 'Server Error'
-        })
+        next(error)
     }
 }
 
@@ -28,6 +25,17 @@ const getTransactions = async (req, res, next) => {
 // @access Public
 const addTransactions = async (req, res, next) => {
     //res.send('POST transaction')
+    try {
+        const { text, amount } = req.body
+
+        const transaction = await Transaction.create(req.body)
+        return res.status(201).json({
+            success: true,
+            data: transaction
+        })
+    } catch (error) {
+        next(error)
+    }
 }
 
 // @desc Delete transaction

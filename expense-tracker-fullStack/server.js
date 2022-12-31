@@ -10,6 +10,7 @@ require('colors')
 connectDB()
 
 // middleware
+app.use(express.json())
 app.use(morganLogger)
 
 // routes

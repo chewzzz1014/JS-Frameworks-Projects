@@ -15,8 +15,11 @@ const morganLogger = morgan(function (tokens, req, res) {
 })
 
 const errorHandler = (err, req, res, next) => {
-    console.log(err.red)
-    next()
+    console.log(`${err.message}`.red)
+    return res.status(500).json({
+        success: false,
+        ...err
+    })
 }
 
 module.exports = {
