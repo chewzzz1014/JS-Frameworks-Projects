@@ -10,19 +10,21 @@ I've completed [Back End Development and APIs](https://www.freecodecamp.org/lear
 # Projects Live Site
 - Details of all projects available [here](https://chewzzz1014.github.io/portfolio-website-projects-page/)
 
-## Express
+## Express (Deployment in Progress)
 - [Exercise-Tracker]
 - [File-Metadata-Microservice]
 - [Request-Header-Parser-Microservice]
 - [Timestamp-Microservice]
 - [URL-Shortener-Microservice]
+- [node-passport-authentication]
 
 ## React
 - [airbnb-clone](https://chewzzz-airbnb-clone.netlify.app/)
 - [digital-business-card](https://chewzzz-digital-business-card.netlify.app/)
+- [expense-tracker](https://chewzzz-expense-tracker-react.netlify.app/)
 - [markdown-editor]
 - [meme-generator](https://chewzzz-meme-generator.netlify.app/)
-- [quizzical-app]() [Ongoing]
+- [quizzical-app](https://chewzzz-quizzical-game.netlify.app/)
 - [random-quote-machine](https://chewzzz-quote-machine.netlify.app/) 
 - [react-fact](https://chewzzz-react-fact.netlify.app/)
 - [react-form](https://chewzzz-react-form.netlify.app/)
