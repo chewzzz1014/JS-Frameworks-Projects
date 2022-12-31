@@ -1,14 +1,12 @@
 import React, { createContext, useReducer } from 'react'
 import AppReducer from './AppReducer'
+import axios from 'axios'
 
 // initial state
 const initialState = {
-    transactions: [
-        { id: 1, text: 'Flower', amount: -20 },
-        { id: 2, text: 'Salary', amount: 300 },
-        { id: 3, text: 'Book', amount: -10 },
-        { id: 4, text: 'Camera', amount: 150 }
-    ]
+    transactions: [],
+    error: null,
+    loading: true
 }
 
 // create context
@@ -17,6 +15,23 @@ export const GlobalContext = createContext(initialState)
 // provider component
 export const GlobalProvider = ({ children }) => {
     const [state, dispatch] = useReducer(AppReducer, initialState)
+
+    async function getTransactions() {
+        try {
+            // domain name not needed bcs we've added proxy in the client's package.json
+            const res = await axios.get('/api/v1/transactions')
+
+            dispatch({
+                type: 'GET_TRANSACTIONS',
+                payload: res.data.data
+            })
+        } catch (error) {
+            dispatch({
+                type: 'TRANSACTION_ERROR',
+                payload: error.response.data.error
+            })
+        }
+    }
 
     // action for deleting an item
     function deleteTransaction(id) {
