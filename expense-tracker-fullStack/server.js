@@ -1,11 +1,13 @@
 const express = require('express')
 const morgan = require('morgan')
 const colors = require('colors')
+const transactionRouter = require('./routes/transactions')
 const app = express()
 
 require('dotenv').config({ path: './config/config.js' })
 app.use(morgan())
 
+app.use('/transaction', transactionRouter)
 app.get('/', (req, res) => {
     res.send('Hello')
 })
