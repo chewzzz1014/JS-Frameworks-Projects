@@ -15,11 +15,20 @@ const morganLogger = morgan(function (tokens, req, res) {
 })
 
 const errorHandler = (err, req, res, next) => {
-    console.log(`${err.message}`.red)
-    return res.status(500).json({
-        success: false,
-        ...err
-    })
+    if (err.name === 'ValidationError') {
+        const messages = Object.values(err.errors).map(v => v.message)
+
+        return res.status(400).json({
+            success: false,
+            error: messages
+        })
+    } else {
+        console.log(`${err.message}`.red)
+        return res.status(500).json({
+            success: false,
+            ...err
+        })
+    }
 }
 
 module.exports = {
