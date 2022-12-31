@@ -5,6 +5,10 @@ const mongoose = require('mongoose')
 
 const connectDB = async () => {
     try {
+
+        // to prevent DeprecationWarning
+        mongoose.set('strictQuery', false)
+
         // create connection
         const connection = await mongoose.connect(MONGO_URI, {
             useNewUrlParser: true,
