@@ -2,17 +2,23 @@ const express = require('express')
 const { invalidEndpoint, morganLogger } = require('./utils/middleware')
 const { PORT, NODE_ENV, MONGO_URI } = require('./config/config')
 const transactionRouter = require('./routes/transactions')
+const connectDB = require('./config/db')
 const app = express()
-
 require('colors')
 
+// connect db
+connectDB()
+
+// middleware
 app.use(morganLogger)
 
+// routes
 app.use('/api/v1/transactions', transactionRouter)
 app.get('/', (req, res) => {
     res.send('Hello Home')
 })
 
+// middleware
 app.use(invalidEndpoint)
 
 app.listen(PORT, () => {
