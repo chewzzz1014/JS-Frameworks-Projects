@@ -11,26 +11,32 @@ p {
   color: #293264;
 }
 
-.decoration {
-  position: absolute;
-  top: 0;
-  right: 0;
-  size: 25px;
-  /* background-color: #FFFAD1; */
-  background-color: red;
-}
-
-.question {
+.all-questions {
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: left;
 }
 
-.start-btn,
-.reGen-btn,
-.check-btn {
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.landing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-txt {
+  text-align: center;
+}
+
+.utils-btn {
   color: #F5F7FB;
   font-size: 1em;
   padding: 1em 3.5em;
@@ -39,18 +45,59 @@ p {
   border-radius: 0.8em;
 }
 
-button:focus {
-  border: none;
+.question-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.question {
+  color: #293264;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.question {
+  flex: 1;
+}
+
+.all-options {
+  flex: 1;
+  display: flex;
+  gap: 3em;
+}
+
+.option-btn {
+  color: #293264;
+  font-weight: bold;
+  background: none;
+  border-radius: 0.5em;
+  padding: 0.75em 2em;
+  border-color: #4D5B9E;
+}
+
+.wrong-ans:disabled {
+  opacity: 0.5;
 }
 
 .selected-option {
+  border: none;
   background-color: #D6DBF5;
 }
 
 .correct-ans {
-  background-color: green;
+  border: none;
+  background-color: #94D7A2;
 }
 
 .wrong-ans {
-  background-color: red;
+  border: none;
+  background-color: #F8BCBC;
+}
+
+.some-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }

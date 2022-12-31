@@ -22,6 +22,9 @@ export default function GameMode() {
     }
 
     function handleRegenerate() {
+        localStorage.setItem('selectedItems', JSON.stringify([]))
+        localStorage.setItem('score', "0")
+        localStorage.setItem('activeBtns', JSON.stringify([0, 0, 0, 0, 0]))
         getData()
         console.log('in handlerRegenerate')
     }
@@ -51,15 +54,21 @@ export default function GameMode() {
         />
     })
     return (
-        <div className='question'>
-            {questionsElement}
-            {gameMode === 'selecting' && <button onClick={handleCheck}>
-                Check Answer
-            </button>}
-            {gameMode === 'checking' && `You score ${localStorage.getItem('score')}/5 correct answers`}
-            {gameMode === 'checking' && <button onClick={handlePlayAgain}>
-                Play Again
-            </button>}
+        <div className='all-questions'>
+            <div className='main'>{questionsElement}</div>
+            <div className='some-btns'>
+                {gameMode === 'selecting' && <button onClick={handleCheck} className='utils-btn'>
+                    Check Answer
+                </button>}
+                {gameMode === 'selecting' && <button className='utils-btn' onClick={handleRegenerate}>Regenerate Questions</button>}
+            </div>
+
+            <div className='some-btns'>
+                {gameMode === 'checking' && <button onClick={handlePlayAgain} className='utils-btn'>
+                    Play Again
+                </button>}
+                {gameMode === 'checking' && <h1 className='question'>You score {localStorage.getItem('score')}/5 correct answers</h1>}
+            </div>
         </div>
     )
 }

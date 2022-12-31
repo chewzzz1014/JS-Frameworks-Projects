@@ -21,7 +21,6 @@ function App() {
         <Landing handler={handleStartGame} /> :
         <GameMode />
       }
-      <div className='decoration'></div>
 
     </div>
   );

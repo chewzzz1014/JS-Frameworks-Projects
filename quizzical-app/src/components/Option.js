@@ -59,13 +59,15 @@ export default function Option(props) {
     } else if (selectedItem.includes(value) && !isCorrect) {
         color = 'wrong-ans'
     }
+    if (isCorrect)
+        color = 'correct-ans'
 
     return (
         <>
             {gameMode === 'selecting' && <button
                 onClick={(e) => handleSelect(e)
                 }
-                className={selectedItem.includes(value) ? 'selected-option' : ''}
+                className={`option-btn ${selectedItem.includes(value) ? 'selected-option' : ''}`}
             >
                 {he.decode(text)}
             </button >}
@@ -73,7 +75,7 @@ export default function Option(props) {
             {gameMode === 'checking' && <button
                 onClick={(e) => handleSelect(e)
                 }
-                className={color}
+                className={`${color} option-btn`}
                 disabled
             >
                 {he.decode(text)}

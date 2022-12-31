@@ -5,10 +5,10 @@ export default function Landing(props) {
     const { handler } = props
 
     return (
-        <div className='question'>
-            <h1>Quizzical</h1>
-            <p>Some description if needed</p>
-            <button onClick={handler} className='start-btn'>Start Quiz</button>
+        <div>
+            <h1 className='landing-txt'>Quizzical</h1>
+            <p className='landing-txt'>Some description if needed</p>
+            <button onClick={handler} className='utils-btn start-btn'>Start Quiz</button>
         </div>
     )
 }
