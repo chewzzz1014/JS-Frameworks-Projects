@@ -1,3 +1,4 @@
+const path = require('path')
 const express = require('express')
 const { invalidEndpoint, morganLogger, errorHandler } = require('./utils/middleware')
 const { PORT, NODE_ENV, MONGO_URI } = require('./config/config')
@@ -16,13 +17,18 @@ if (NODE_ENV === 'development')
 
 // routes
 app.use('/api/v1/transactions', transactionRouter)
-app.get('/', (req, res) => {
-    res.send('Hello Home')
-})
 
 // middleware
 app.use(invalidEndpoint)
 app.use(errorHandler)
+
+if (NODE_ENV === 'production') {
+    app.use(express.static('client/build'))
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+    })
+}
 
 app.listen(PORT, () => {
     console.log(`Listening at port ${PORT} (${NODE_ENV} mode)`.yellow.bold)
