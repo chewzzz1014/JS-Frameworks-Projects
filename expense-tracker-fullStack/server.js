@@ -1,5 +1,5 @@
 const express = require('express')
-const { invalidEndpoint, morganLogger } = require('./utils/middleware')
+const { invalidEndpoint, morganLogger, errorHandler } = require('./utils/middleware')
 const { PORT, NODE_ENV, MONGO_URI } = require('./config/config')
 const transactionRouter = require('./routes/transactions')
 const connectDB = require('./config/db')
@@ -20,6 +20,7 @@ app.get('/', (req, res) => {
 
 // middleware
 app.use(invalidEndpoint)
+app.use(errorHandler)
 
 app.listen(PORT, () => {
     console.log(`Listening at port ${PORT} (${NODE_ENV} mode)`.yellow.bold)

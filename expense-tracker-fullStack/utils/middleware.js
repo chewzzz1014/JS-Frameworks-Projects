@@ -14,7 +14,13 @@ const morganLogger = morgan(function (tokens, req, res) {
     ].join(' ')
 })
 
+const errorHandler = (err, req, res, next) => {
+    console.log(err.red)
+    next()
+}
+
 module.exports = {
     invalidEndpoint,
-    morganLogger
+    morganLogger,
+    errorHandler
 }
