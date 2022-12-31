@@ -7,7 +7,7 @@ export default function Question(props) {
 
     const { question, gameMode, value } = props
     const correctOption = {
-        text: question.correct_answer + ' (correct)',
+        text: question.correct_answer,
         isCorrect: true,
     }
     const incorrectOptions = question.incorrect_answers.map(o => {
@@ -34,12 +34,12 @@ export default function Question(props) {
         />
     })
     return (
-        <>
+        <div>
             <div class='question-section'>
                 <p className='question'>{he.decode(question.question)}</p>
                 <div className='all-options'>{optionsEle}</div>
             </div>
             <hr />
-        </>
+        </div>
     )
 }
