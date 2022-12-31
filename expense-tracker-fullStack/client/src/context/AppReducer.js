@@ -12,7 +12,7 @@ const reducer = (state, action) => {
         case 'DELETE_TRANSACTION':
             return {
                 ...state,
-                transactions: state.transactions.filter(t => t.id !== action.payload)
+                transactions: state.transactions.filter(t => t._id !== action.payload)
             }
         case 'ADD_TRANSACTION':
             return {
