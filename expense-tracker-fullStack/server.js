@@ -1,10 +1,10 @@
 const express = require('express')
 const { invalidEndpoint, morganLogger } = require('./utils/middleware')
-const colors = require('colors')
+const { PORT, NODE_ENV, MONGO_URI } = require('./config/config')
 const transactionRouter = require('./routes/transactions')
 const app = express()
 
-require('dotenv').config({ path: './config/config.js' })
+require('colors')
 
 app.use(morganLogger)
 
@@ -15,7 +15,6 @@ app.get('/', (req, res) => {
 
 app.use(invalidEndpoint)
 
-const PORT = process.env.PORT
 app.listen(PORT, () => {
-    console.log(`Listening at port ${PORT} (${process.env.NODE_ENV} mode)`.yellow.bold)
+    console.log(`Listening at port ${PORT} (${NODE_ENV} mode)`.yellow.bold)
 })
