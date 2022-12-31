@@ -11,7 +11,8 @@ connectDB()
 
 // middleware
 app.use(express.json())
-app.use(morganLogger)
+if (NODE_ENV === 'development')
+    app.use(morganLogger)
 
 // routes
 app.use('/api/v1/transactions', transactionRouter)
