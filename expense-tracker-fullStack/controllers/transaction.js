@@ -9,8 +9,17 @@ const getTransactions = async (req, res, next) => {
     // res.send('GET transaction')
     try {
         const transactions = await Transaction.find()
+
+        return res.status(200).json({
+            success: true,
+            count: transactions.length,
+            data: transactions
+        })
     } catch (error) {
-        next(err)
+        return res.status(500).json({
+            success: false,
+            error: 'Server Error'
+        })
     }
 }
 
@@ -18,7 +27,7 @@ const getTransactions = async (req, res, next) => {
 // @route /api/v1/transactions
 // @access Public
 const addTransactions = async (req, res, next) => {
-    res.send('POST transaction')
+    //res.send('POST transaction')
 }
 
 // @desc Delete transaction
