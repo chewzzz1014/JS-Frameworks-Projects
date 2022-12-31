@@ -1,7 +1,6 @@
 const router = require('express').Router()
+const { getTransactions } = require('../controllers/transaction')
 
-router.get('/', (req, res) => {
-    res.send('Hello')
-})
+router.route('/').get(getTransactions)
 
 module.exports = router

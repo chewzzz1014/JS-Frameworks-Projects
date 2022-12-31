@@ -8,7 +8,7 @@ require('dotenv').config({ path: './config/config.js' })
 
 app.use(morganLogger)
 
-app.use('/api/v1/transaction', transactionRouter)
+app.use('/api/v1/transactions', transactionRouter)
 app.get('/', (req, res) => {
     res.send('Hello Home')
 })
