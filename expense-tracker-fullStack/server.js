@@ -8,9 +8,9 @@ require('dotenv').config({ path: './config/config.js' })
 
 app.use(morganLogger)
 
-app.use('/transaction', transactionRouter)
+app.use('/api/v1/transaction', transactionRouter)
 app.get('/', (req, res) => {
-    res.send('Hello')
+    res.send('Hello Home')
 })
 
 app.use(invalidEndpoint)
