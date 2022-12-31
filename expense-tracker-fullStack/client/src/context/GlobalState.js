@@ -19,7 +19,7 @@ export const GlobalProvider = ({ children }) => {
     async function getTransactions() {
         try {
             // domain name not needed bcs we've added proxy in the client's package.json
-            const res = await axios.get('api/v1/transactions')
+            const res = await axios.get('/api/v1/transactions')
 
             dispatch({
                 type: 'GET_TRANSACTIONS',
