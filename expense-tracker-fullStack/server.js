@@ -1,16 +1,19 @@
 const express = require('express')
-const morgan = require('morgan')
+const { invalidEndpoint, morganLogger } = require('./utils/middleware')
 const colors = require('colors')
 const transactionRouter = require('./routes/transactions')
 const app = express()
 
 require('dotenv').config({ path: './config/config.js' })
-app.use(morgan())
+
+app.use(morganLogger)
 
 app.use('/transaction', transactionRouter)
 app.get('/', (req, res) => {
     res.send('Hello')
 })
+
+app.use(invalidEndpoint)
 
 const PORT = process.env.PORT
 app.listen(PORT, () => {

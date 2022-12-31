@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-routet.get('/', (req, res) => {
+router.get('/', (req, res) => {
     res.send('Hello')
 })
 
