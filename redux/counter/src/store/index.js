@@ -1,11 +1,11 @@
 // put all React state here
-import { legacy_createStore } from 'redux'
+import { createStore } from 'redux'
 
 // reducer
 // assign initial state 
 const reducerFunc = (state = { counter: 0 }, action) => {
-
+    return state
 }
 
-const store = legacy_createStore(reducerFunc)
+const store = createStore(reducerFunc)
 export default store
