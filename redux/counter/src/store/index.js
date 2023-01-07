@@ -8,3 +8,4 @@ const reducerFunc = (state = { counter: 0 }, action) => {
 }
 
 const store = legacy_createStore(reducerFunc)
+export default store
