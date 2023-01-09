@@ -33,6 +33,7 @@ export default store
 
 */
 
+/*
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 const counterSlice = createSlice({
@@ -58,3 +59,15 @@ const store = configureStore({
 })
 
 export default store
+*/
+
+import { configureStore } from "@reduxjs/toolkit";
+import authSlice from "./auth-slice";
+
+const store = configureStore({
+    reducer: {
+        auth: authSlice.reducer
+    }
+})
+
+export default store 
