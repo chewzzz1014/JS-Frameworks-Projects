@@ -64,6 +64,7 @@ export default store
 import { configureStore } from "@reduxjs/toolkit";
 import authSlice from "./auth-slice";
 
+// create store from slide
 const store = configureStore({
     reducer: {
         auth: authSlice.reducer
