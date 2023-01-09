@@ -21,7 +21,7 @@ function App() {
 
   const addBy = () => {
     dispatch({
-      type: 'ADD10',
+      type: 'ADD',
       payload: 10
     })
   }
