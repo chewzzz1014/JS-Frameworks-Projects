@@ -14,7 +14,9 @@ function App() {
 
   // dispatch action
   const decrement = () => {
-
+    dispatch({
+      type: 'DESC'
+    })
   }
 
   return (

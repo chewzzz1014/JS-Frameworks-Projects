@@ -10,7 +10,11 @@ const reducerFunc = (state = { counter: 0 }, action) => {
     switch (action.type) {
         case 'INC':
             return {
-                state: state.counter + 1
+                counter: state.counter + 1
+            }
+        case 'DESC':
+            return {
+                counter: state.counter - 1
             }
     }
 
