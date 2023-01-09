@@ -19,12 +19,20 @@ function App() {
     })
   }
 
+  const addBy = () => {
+    dispatch({
+      type: 'ADD10',
+      payload: 10
+    })
+  }
+
   return (
     <div className="App">
       <h1>Counter App</h1>
       <h2>{counter}</h2>
       <button onClick={increment}>Increase</button>
       <button onClick={decrement}>Decrease</button>
+      <button onClick={addBy}>Add By 10</button>
     </div>
   );
 }
