@@ -1,3 +1,6 @@
+// without using redux toolkit
+
+/*
 // put all React state here
 import { createStore } from 'redux'
 
@@ -27,3 +30,17 @@ const reducerFunc = (state = { counter: 0 }, action) => {
 
 const store = createStore(reducerFunc)
 export default store
+
+*/
+
+import { configureStore, createSlice } from "@reduxjs/toolkit";
+
+const counterSlice = createSlice({
+    name: 'counter',
+    initialState: { counter: 0 },
+    reducers: {
+        increment() { },
+        decrement() { },
+        add() { }
+    }
+})
