@@ -18,7 +18,11 @@ const CartItem = ({ name, quantity, total, price, id }) => {
     };
 
     const incrementCartItem = () => {
-
+        dispatch(cartActions.addToCart({
+            name,
+            id,
+            price
+        }))
     }
 
     const decrementCartItem = () => {
