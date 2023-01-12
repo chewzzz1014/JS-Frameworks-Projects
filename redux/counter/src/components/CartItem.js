@@ -26,7 +26,7 @@ const CartItem = ({ name, quantity, total, price, id }) => {
     }
 
     const decrementCartItem = () => {
-
+        dispatch(cartActions.removeFromCart(id))
     }
 
     return (
