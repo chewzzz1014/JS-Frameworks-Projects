@@ -3,6 +3,7 @@ import "./App.css";
 import { useSelector } from 'react-redux'
 import Auth from "./components/Auth";
 import Layout from "./components/Layout";
+import Notification from "./components/Notification";
 
 function App() {
   const cart = useSelector(state => state.cart)
@@ -23,6 +24,7 @@ function App() {
 
   return (
     <div className="App">
+      <Notification type='success' msg={'yoyoyoyoyoyoyo'} />
       {isLoggedIn ? <Layout /> : <Auth />}
     </div>
   );
