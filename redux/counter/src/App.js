@@ -6,6 +6,7 @@ import Layout from "./components/Layout";
 import Notification from "./components/Notification";
 import { uiActions } from './store/ui-slice'
 
+let isFirstRender = true
 function App() {
   const cart = useSelector(state => state.cart)
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
@@ -13,7 +14,10 @@ function App() {
   const notification = useSelector(state => state.ui.notification)
 
   useEffect(() => {
-
+    if (isFirstRender) {
+      isFirstRender = false
+      return;
+    }
     const sendRequest = async () => {
       // show noti before sending
       dispatch(uiActions.showNotification({
@@ -41,7 +45,7 @@ function App() {
     sendRequest().catch(err => {
       dispatch(uiActions.showNotification({
         open: true,
-        msg: 'Sending Reuqest Failed',
+        msg: 'Sending Request Failed',
         type: 'error'
       }))
     })
@@ -49,7 +53,7 @@ function App() {
 
   return (
     <div className="App">
-      <Notification type={notification.type} msg={notification.msg} />
+      {notification && <Notification type={notification.type} msg={notification.msg} />}
       {isLoggedIn ? <Layout /> : <Auth />}
     </div>
   );
