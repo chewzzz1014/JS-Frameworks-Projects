@@ -6,10 +6,16 @@ const cartSlice = createSlice({
     initialState: {
         itemList: [],
         totalQuantity: 0,
-        showCart: false
+        showCart: false,
+        changed: false
     },
     reducers: {
+        replaceData(state, action) {
+            state.totalQuantity = action.payload
+            state.itemList = action.payload.itemList
+        },
         addToCart(state, action) {
+            state.changed = true
             const newItem = action.payload
 
             const existingItem = state.itemList.find(i => i.id === newItem.id)
@@ -29,6 +35,7 @@ const cartSlice = createSlice({
             }
         },
         removeFromCart(state, action) {
+            state.changed = true
             const id = action.payload
             const existingItem = state.itemList.find(i => i.id === id)
             if (existingItem.quantity === 1) {
@@ -44,43 +51,6 @@ const cartSlice = createSlice({
         }
     }
 })
-
-export const sendCartData = (cart) => {
-    return async (dispatch) => {
-        dispatch(uiActions.showNotification({
-            open: true,
-            msg: 'Sending Request',
-            type: 'warning'
-        }))
-
-        const sendRequest = async () => {
-            // send state to firebase
-            const res = await fetch('https://redux-tutorial-http-18870-default-rtdb.asia-southeast1.firebasedatabase.app/cartItems.json', {
-                method: 'PUT',
-                body: JSON.stringify(cart)
-            })
-
-            const data = await res.json()
-
-            // show noti after successful
-            dispatch(uiActions.showNotification({
-                open: true,
-                msg: 'Successfully sent request to database',
-                type: 'success'
-            }))
-        }
-
-        try {
-            await sendRequest()
-        } catch (error) {
-            dispatch(uiActions.showNotification({
-                open: true,
-                msg: 'Sending Request Failed',
-                type: 'error'
-            }))
-        }
-    }
-}
 
 export const cartActions = cartSlice.actions
 
