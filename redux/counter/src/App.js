@@ -5,6 +5,7 @@ import Auth from "./components/Auth";
 import Layout from "./components/Layout";
 import Notification from "./components/Notification";
 import { uiActions } from './store/ui-slice'
+import { sendCartData } from "./store/cart-slice";
 
 let isFirstRender = true
 function App() {
@@ -18,38 +19,9 @@ function App() {
       isFirstRender = false
       return;
     }
-    const sendRequest = async () => {
-      // show noti before sending
-      dispatch(uiActions.showNotification({
-        open: true,
-        msg: 'Sending Request',
-        type: 'warning'
-      }))
 
-      // send state to firebase
-      const res = await fetch('https://redux-tutorial-http-18870-default-rtdb.asia-southeast1.firebasedatabase.app/cartItems.json', {
-        method: 'PUT',
-        body: JSON.stringify(cart)
-      })
-
-      const data = await res.json()
-
-      // show noti after successful
-      dispatch(uiActions.showNotification({
-        open: true,
-        msg: 'Successfully sent request to database',
-        type: 'success'
-      }))
-    }
-
-    sendRequest().catch(err => {
-      dispatch(uiActions.showNotification({
-        open: true,
-        msg: 'Sending Request Failed',
-        type: 'error'
-      }))
-    })
-  }, [cart])
+    dispatch(sendCartData(cart))
+  }, [cart, dispatch])
 
   return (
     <div className="App">
