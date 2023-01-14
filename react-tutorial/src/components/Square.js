@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function Square() {
+export default function Square({ value }) {
     return (
         <button className="square">
-            X
+            {value}
         </button>
     )
 }
