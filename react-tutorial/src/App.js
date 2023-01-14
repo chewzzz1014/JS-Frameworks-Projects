@@ -1,7 +1,7 @@
 import './App.css';
 import Square from './components/Square';
 
-function App() {
+export default function Board() {
   return (
     <div className="App">
       <div className="board-row">
@@ -49,5 +49,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
