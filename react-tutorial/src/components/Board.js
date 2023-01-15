@@ -1,27 +1,20 @@
 import Square from './Square';
-import { useState } from 'react';
 
-export default function Board() {
-
-    // each represents a square
-    const [squares, setSquares] = useState(Array(9).fill(null))
-    const [xIsNext, setXIsNext] = useState(true)
+export default function Board({ xIsNext, squares, onPlay }) {
 
     const winner = calculateWinner(squares)
     let status
     status = winner ? `Winner: ${winner}` : `Next player: ${xIsNext ? 'X' : 'O'}`
 
     function handleClick(i) {
-        const newSq = squares.slice()
-
         // if the square is ady occupied or someone has won, do nothing
         if (squares[i] || winner)
             return
 
-        // else, update the value in the square based on the current playrt
+        // else, update the value in the square based on the current player
+        const newSq = squares.slice()
         newSq[i] = xIsNext ? 'X' : 'O'
-        setSquares(newSq)
-        setXIsNext(!xIsNext)
+        onPlay(newSq)
     }
 
     return (
