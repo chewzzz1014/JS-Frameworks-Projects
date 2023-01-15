@@ -10,8 +10,13 @@ export default function Board() {
 
   function handleClick(i) {
     const newSq = squares.slice()
-    newSq[i] = xIsNext ? 'X' : 'O'
 
+    // if the square is ady occupied, do nothing
+    if (squares[i])
+      return
+
+    // else, update the value in the square based on the current playrt
+    newSq[i] = xIsNext ? 'X' : 'O'
     setSquares(newSq)
     setXIsNext(!xIsNext)
   }
