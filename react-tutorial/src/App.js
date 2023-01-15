@@ -8,11 +8,15 @@ export default function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null))
   const [xIsNext, setXIsNext] = useState(true)
 
+  const winner = calculateWinner(squares)
+  let status
+  status = winner ? `Winner: ${winner}` : `Next player: ${xIsNext ? 'X' : 'O'}`
+
   function handleClick(i) {
     const newSq = squares.slice()
 
-    // if the square is ady occupied, do nothing
-    if (squares[i])
+    // if the square is ady occupied or someone has won, do nothing
+    if (squares[i] || winner)
       return
 
     // else, update the value in the square based on the current playrt
@@ -23,6 +27,7 @@ export default function Board() {
 
   return (
     <div className="App">
+      <div className="status">{status}</div>
       <div className="board-row">
         <Square
           key='1'
