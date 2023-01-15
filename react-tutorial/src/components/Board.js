@@ -25,7 +25,7 @@ export default function Board() {
     }
 
     return (
-        <div className="App">
+        <div>
             <div className="status">{status}</div>
             <div className="board-row">
                 <Square
