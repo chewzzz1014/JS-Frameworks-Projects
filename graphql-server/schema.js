@@ -62,6 +62,7 @@ const RootQuery = new GraphQLObjectType({
 const mutation = new GraphQLObjectType({
     name: 'Mutation',
     fields: {
+        // add customer using data provided through GraphQL ide
         addCustomer: {
             type: CustomerType,
             args: {
@@ -77,10 +78,21 @@ const mutation = new GraphQLObjectType({
                 })
                 return result.data
             }
+        },
+        deleteCustomer: {
+            type: CustomerType,
+            args: {
+                id: { type: new GraphQLNonNull(GraphQLString) }
+            },
+            async resolve(parentValue, args) {
+                const result = await axios.delete(`http://localhost:3000/customers/${args.id}`)
+                return result.data
+            }
         }
     }
 })
 
 module.exports = new GraphQLSchema({
-    query: RootQuery
+    query: RootQuery,
+    mutation
 })
