@@ -8,7 +8,7 @@ const {
 } = require('graphql')
 
 // data
-const customers = [
+const customersData = [
     { id: '1', name: 'John', email: 'j@email.com', age: 35 },
     { id: '2', name: 'Quon', email: 'q@email.com', age: 32 },
     { id: '3', name: 'chewzzz', email: 'z@email.com', age: 20 },
@@ -36,9 +36,9 @@ const RootQuery = new GraphQLObjectType({
                 id: { type: GraphQLString }
             },
             resolve(parentValue, args) {
-                for (let i = 0; i < customers.length; i++) {
-                    if (customers[i] === args.id) {
-                        return customers[i]
+                for (let i = 0; i < customersData.length; i++) {
+                    if (customersData[i].id === args.id) {
+                        return customersData[i]
                     }
                 }
             }
