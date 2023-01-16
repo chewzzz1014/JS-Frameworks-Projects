@@ -2,15 +2,26 @@ import './App.css';
 import './index.css'
 import Editor from './components/Editor';
 import Previewer from './components/Previewer';
+import { useState } from 'react';
 
 function App() {
+
+  const [text, setText] = useState('')
+
+  function handleTextChange({ target }) {
+    console.log(target.value)
+    setText(target.value)
+  }
+
   return (
     <div className="App">
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-      <Editor />
-      <Previewer />
+      <Editor
+        text={text}
+        handleTextChange={handleTextChange}
+      />
+      <Previewer
+        text={text}
+      />
     </div>
   );
 }

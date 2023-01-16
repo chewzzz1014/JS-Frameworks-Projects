@@ -1,9 +1,14 @@
 import React from 'react'
+import Markdown from 'marked-react'
 
-function Previewer() {
+function Previewer({ text }) {
     return (
-        <div id='previewer'>
-            Previewer
+        <div
+            className='border-2 border-red-600'
+        >
+            <Markdown>
+                {text}
+            </Markdown>
         </div>
     )
 }
