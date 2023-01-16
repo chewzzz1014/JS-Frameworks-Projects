@@ -59,6 +59,28 @@ const RootQuery = new GraphQLObjectType({
     }
 })
 
+const mutation = new GraphQLObjectType({
+    name: 'Mutation',
+    fields: {
+        addCustomer: {
+            type: CustomerType,
+            args: {
+                name: { type: new GraphQLNonNull(GraphQLString) },
+                email: { type: new GraphQLNonNull(GraphQLString) },
+                age: { type: new GraphQLNonNull(GraphQLInt) },
+            },
+            async resolve(parentValue, args) {
+                const result = await axios.post('http://localhost:3000/customers', {
+                    name: args.name,
+                    email: args.email,
+                    age: args.age
+                })
+                return result.data
+            }
+        }
+    }
+})
+
 module.exports = new GraphQLSchema({
     query: RootQuery
 })
