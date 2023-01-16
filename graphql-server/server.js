@@ -1,5 +1,11 @@
 const express = require('express')
+const expressGraphQL = require('express-graphql')
 const app = express()
+
+app.use('/graphql', expressGraphQL({
+    schema: schema,
+    graphql: true
+}))
 
 app.get('/', (req, res) => {
     res.send('Hello World')
