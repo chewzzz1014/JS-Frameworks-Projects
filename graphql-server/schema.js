@@ -17,8 +17,8 @@ const customers = [
 // customer type
 const CustomerType = new GraphQLObjectType({
     name: 'Customer',
-    field: () => ({
-        id: { tpye: GraphQLString },
+    fields: () => ({
+        id: { type: GraphQLString },
         name: { type: GraphQLString },
         email: { type: GraphQLString },
         age: { type: GraphQLInt }
@@ -27,21 +27,25 @@ const CustomerType = new GraphQLObjectType({
 
 
 // root query
-const rootQuery = new GraphQLObjectType({
+const RootQuery = new GraphQLObjectType({
     name: 'RootQueryType',
-    field: {
+    fields: {
         customer: {
             type: CustomerType,
             args: {
                 id: { type: GraphQLString }
             },
             resolve(parentValue, args) {
-                customers.filter(c => c.id === args.id)
+                for (let i = 0; i < customers.length; i++) {
+                    if (customers[i] === args.id) {
+                        return customers[i]
+                    }
+                }
             }
         }
-    },
+    }
 })
 
 module.exports = new GraphQLSchema({
-    query: rootQuery
+    query: RootQuery
 })
