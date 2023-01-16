@@ -88,6 +88,19 @@ const mutation = new GraphQLObjectType({
                 const result = await axios.delete(`http://localhost:3000/customers/${args.id}`)
                 return result.data
             }
+        },
+        updateCustomer: {
+            type: CustomerType,
+            args: {
+                id: { type: new GraphQLNonNull(GraphQLString) },
+                name: { type: GraphQLString },
+                email: { type: GraphQLString },
+                age: { type: GraphQLInt },
+            },
+            async resolve(parentValue, args) {
+                const result = await axios.patch(`http://localhost:3000/customers/${args.id}`, args)
+                return result.data
+            }
         }
     }
 })
