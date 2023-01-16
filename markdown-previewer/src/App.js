@@ -14,14 +14,17 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Editor
-        text={text}
-        handleTextChange={handleTextChange}
-      />
-      <Previewer
-        text={text}
-      />
+    <div className="App flex flex-col justify-center items-center h-screen v-screen"
+    >
+      <div className='border-2 border-red-200 container flex flex-col justify-center items-center'>
+        <Editor
+          text={text}
+          handleTextChange={handleTextChange}
+        />
+        <Previewer
+          text={text}
+        />
+      </div>
     </div>
   );
 }
