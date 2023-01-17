@@ -10,13 +10,23 @@ async function run() {
     // go to the page
     await page.goto('https://traversymedia.com/')
 
+    /////////////////////////////////////////////////////////////////////
 
     // do whatever we want here
-    // screenshoot 
+
+    // screenshoot (overwrite if exists)
     await page.screenshot({
-        path: 'images/screenshot.png'
+        path: 'images/screenshot.png',
+        fullPage: true
     })
 
+    // save to pdf
+    await page.pdf({
+        path: 'pdf/website.pdf',
+        format: 'A4'
+    })
+
+    ////////////////////////////////////////////////////////////////////
 
     // close browser
     await browser.close()
