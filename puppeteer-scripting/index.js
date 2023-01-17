@@ -15,16 +15,20 @@ async function run() {
     // do whatever we want here
 
     // screenshoot (overwrite if exists)
-    await page.screenshot({
-        path: 'images/screenshot.png',
-        fullPage: true
-    })
+    // await page.screenshot({
+    //     path: 'images/screenshot.png',
+    //     fullPage: true
+    // })
 
     // save to pdf
-    await page.pdf({
-        path: 'pdf/website.pdf',
-        format: 'A4'
-    })
+    // await page.pdf({
+    //     path: 'pdf/website.pdf',
+    //     format: 'A4'
+    // })
+
+    // html
+    const html = await page.content()
+    console.log(html)
 
     ////////////////////////////////////////////////////////////////////
 
