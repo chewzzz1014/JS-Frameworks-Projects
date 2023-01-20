@@ -5,20 +5,20 @@ import logger from 'morgan'
 import createError from "http-errors";
 import * as dotenv from 'dotenv'
 import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+import path from 'path';
 import userRouter from './routes/users.js'
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __dirname = path.dirname(__filename);
 
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(__dirname, "/views"));
 app.set("view engine", "ejs");
 
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, "public")))
+app.use(express.static(path.join(__dirname, "/public")))
 app.use(express.urlencoded({ extended: true }))
 // to be able to read .env file
 dotenv.config()
