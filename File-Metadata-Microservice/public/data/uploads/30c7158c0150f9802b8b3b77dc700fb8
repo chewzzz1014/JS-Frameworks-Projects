@@ -1,0 +1,95 @@
+---- when line is fast----
+udemy
+fcc bash/linux
+algo
+js mooc.fi
+prototype and figma
+100 days python
+java mooc.fi
+javafx yt
+mongodb
+typescript vid
+spreadsheet and tableau
+cisco courses: linux, js, cybersecurity, ds
+moocfi cybersecusity, kubernates
+advanced css
+bootstrap, tailwind and sass
+
+
+--- when line is slow ----
+database: oracle sql, postgre
+react course
+linux book
+sql book/slides
+fcc js/javascript.info
+algo
+js mooc.fi
+odin project
+python book
+mongodb
+typescript docs
+ml/ds: github courses
+cisco courses: linux, js, cybersecurity, ds
+moocfi cybersecusity, kubernates
+bootstrap, tailwind and sass
+
+- portfolio website
+- github repos website 
+- fcc data analysts
+- fcc frontend
+
+
+- node yt/yt node projects
+- fcc bash/linux
+- yt postgres 
+- mongodb
+- js mooc.fi
+- react course/yt react
+- yt typescript/gitbook
+- yt async js and oop js
+- db practices
+- algo
+- yt boostrap and tailwind; material ui
+- firebase
+- udemy course
+- top 
+- courses: aws, coursera, cisco, mooc.fi
+- figma tutorial
+- yt advanced css concepts
+- cybersecurity, kubernatives
+- ds, ml
+- spreadsheet
+
+yt redux, moocfi, yt typescript, yt mongodb, yt react project, yt node project, yt tailwind, fcc bash, fcc frontend project, fcc data analyst project
+
+ 
+16/1/2023
+- vite, webpack...
+- react project yt
+- angular/vue yt
+- mooc kubernative and cybersecurity
+- typescript docs
+- react yt tutorial
+- fcc bash
+- css advanced yt
+- redux yt
+- db exercises
+- algo
+- read docs and tutorial
+- fcc frontend project
+- node projects
+- moocfi js
+- ds,ml
+- udemy
+- 100 days python
+
+
+$env:CI=$true; npm test
+
+- resume
+- cover letter
+- email template (for applying)
+- email signature
+- deploy backend (render and vercel)
+- host portfolio on domain
+- react router for portfolio
