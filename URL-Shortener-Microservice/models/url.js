@@ -1,4 +1,5 @@
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const urlSchema = new mongoose.Schema({
     url: String,
@@ -22,5 +23,7 @@ seedData();
 // console.log("Yayyyy");
 deleteAllData();
 
-module.exports = URL_SHORT;
+// module.exports = URL_SHORT;
+
+export default URL_SHORT
 
