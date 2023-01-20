@@ -1,16 +1,7 @@
-const express = require('express');
-const path = require("path");
+import express from "express";
+const router = express.Router()
 
-app = express();
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
-app.use(express.static(path.join(__dirname, "public")));
-
-app.get("/", (req, res) => {
-    res.render("index");
-})
-
-app.get("/api", (req, res) => {
+router.get("/", (req, res) => {
     let date = new Date();
     // unix timestamp
     let unixTimeStamp = date.valueOf();
@@ -19,7 +10,7 @@ app.get("/api", (req, res) => {
 })
 
 //if it's date
-app.get("/api/:date", (req, res, next) => {
+router.get("/:date", (req, res, next) => {
     const { date } = req.params;
     const numOfDash = date.length - date.replaceAll("-", "").length;
     if (numOfDash === 2 || numOfDash === 1) {
@@ -39,7 +30,8 @@ app.get("/api/:date", (req, res, next) => {
         next(err);
     }
 })
-app.get("/api/:unix", (req, res, next) => {
+
+router.get("/:unix", (req, res, next) => {
     const { unix } = req.params;
     if (unix == 1451001600000) {
         res.json({ unix: Number(unix), utc: new Date("12-25-2015").toUTCString() })
@@ -48,12 +40,4 @@ app.get("/api/:unix", (req, res, next) => {
     res.json({ unix: unix, utc: date.toUTCString() });
 })
 
-app.use((err, req, res, next) => {
-    res.json({ error: 'Invalid Date' });
-})
-
-
-
-app.listen(3000, () => {
-    console.log("Listening at Port 3000");
-})
+export default router
