@@ -1,5 +1,5 @@
 import express from 'express'
-import { ensureAuthenticated } from '../config/auth.js'
+import ensureAuthenticated from '../config/auth.js'
 
 const router = express.Router()
 
@@ -13,4 +13,4 @@ router.get('/dashboard', ensureAuthenticated, (req, res) => {
     })
 })
 
-module.exports = router
+export default router

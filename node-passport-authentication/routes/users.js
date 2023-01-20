@@ -127,4 +127,4 @@ router.get('/logout', (req, res, err) => {
     })
 })
 
-module.exports = router
+export default router
