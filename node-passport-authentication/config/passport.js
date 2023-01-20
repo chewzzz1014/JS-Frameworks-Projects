@@ -4,7 +4,7 @@ import Strategy from 'passport-local'
 
 const LocalStrategy = Strategy
 
-module.exports = function (passport) {
+function passportFunc(passport) {
     try {
         passport.use(
             new LocalStrategy({
@@ -42,3 +42,4 @@ module.exports = function (passport) {
     })
 }
 
+export default passportFunc
