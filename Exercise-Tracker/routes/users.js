@@ -1,6 +1,6 @@
 import express from "express";
-import User from "../models/user";
-import Log from "../models/log";
+import User from "../models/user.js";
+import Log from "../models/log.js";
 const router = express.Router();
 
 router.get("/", async (req, res, next) => {
