@@ -1,17 +1,32 @@
-const express = require('express')
-const mongoose = require('mongoose')
-const flash = require('connect-flash')
-const session = require('express-session')
-const passport = require('passport')
-const expressLayouts = require('express-ejs-layouts')
-const path = require('path')
+import express from "express";
+import mongoose from "mongoose";
+import logger from 'morgan'
+import createError from "http-errors";
+import { fileURLToPath } from 'url';
+import path from 'path';
+import flash from 'connect-flash'
+import session from "express-session";
+import passport from "passport";
+import * as expressLayouts from 'express-ejs-layouts'
+
+import mainRoute from './routes/home.js'
+import userRoute from './routes/users.js'
+import { MONGO_URI } from './config/keys.js'
+
 const app = express()
-const mainRoute = require('./routes/home')
-const userRoute = require('./routes/users')
-const { MONGO_URI, PORT } = require('./config/keys')
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // passport config
 require('./config/passport')(passport)
+
+app.use(logger("dev"));
+app.use(express.static(path.join(__dirname, '/public')))
+app.use(expressLayouts)
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname, '/views'))
+app.use(express.urlencoded({ extended: true }))
+app.use(flash())
 
 mongoose
     .connect(MONGO_URI, { useNewUrlParser: true })
@@ -21,13 +36,6 @@ mongoose
     .catch(err => {
         console.log(err)
     })
-
-app.use(express.static(path.join(__dirname, 'public')))
-app.use(expressLayouts)
-app.set('view engine', 'ejs')
-app.set('views', path.join(__dirname, 'views'))
-app.use(express.urlencoded({ extended: true }))
-app.use(flash())
 
 // express session
 app.use(session({
@@ -57,6 +65,20 @@ app.use((err, req, res, next) => {
     next(err)
 })
 
-app.listen(PORT, () => {
-    console.log('Server Running')
-})
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+    next(createError(404));
+});
+
+// error handler
+app.use(function (err, req, res, next) {
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get("env") === "development" ? err : {};
+
+    // Send the error status
+    res.status(err.status || 500);
+    res.send(err.message);
+});
+
+export default app

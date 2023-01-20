@@ -1,9 +1,10 @@
-const express = require('express')
-const bcrypt = require('bcryptjs')
-const passport = require('passport')
+import express from 'express'
+import { application } from 'express'
+import bcrypt from 'bcryptjs'
+import passport from 'passport'
+import User from '../models/User.js'
+
 const router = express.Router()
-const User = require('../models/User')
-const { application } = require('express')
 
 router.get('/', (req, res) => {
     res.send('User Route')

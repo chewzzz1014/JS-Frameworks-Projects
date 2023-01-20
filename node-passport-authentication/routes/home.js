@@ -1,6 +1,7 @@
-const express = require('express')
+import express from 'express'
+import { ensureAuthenticated } from '../config/auth.js'
+
 const router = express.Router()
-const { ensureAuthenticated } = require('../config/auth')
 
 router.get('/', (req, res) => {
     res.render('welcome')
