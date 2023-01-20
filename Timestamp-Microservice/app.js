@@ -1,13 +1,11 @@
 import express from "express";
-const path = require("path");
 import logger from 'morgan'
-import apiRouter from './routes/api'
+import apiRouter from './routes/api.js'
 import createError from "http-errors";
 import { fileURLToPath } from 'url';
 import path from 'path';
-import app from "../Exercise-Tracker/app";
 
-app = express();
+const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
