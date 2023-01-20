@@ -1,7 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import path from "path";
-import './routes/users'
+import userRouter from './routes/users'
 
 const app = express();
 
@@ -32,13 +32,6 @@ app.get("/", (req, res) => {
 
 app.use('/api/users', userRouter)
 
-app.use((err, req, res, next) => {
-    res.send(`${err} error!`)
-})
-
-app.listen(3000, () => {
-    console.log("Listening to Port 3000")
-})
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
