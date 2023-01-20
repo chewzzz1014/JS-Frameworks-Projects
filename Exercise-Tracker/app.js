@@ -1,9 +1,16 @@
 import express from "express";
 import mongoose from "mongoose";
 import path from "path";
+import logger from 'morgan'
+import createError from "http-errors";
+import * as dotenv from 'dotenv'
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 import userRouter from './routes/users.js'
 
 const app = express();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -14,10 +21,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")))
 app.use(express.urlencoded({ extended: true }))
 // to be able to read .env file
-require("dotenv").config()
+dotenv.config()
 
 
-mongoose.connect('process.env.MONGO_URI', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         console.log("mongo connection open");
     })
