@@ -1,6 +1,5 @@
 import express from "express";
 import mongoose from "mongoose";
-import path from "path";
 import logger from 'morgan'
 import createError from "http-errors";
 import * as dotenv from 'dotenv'
