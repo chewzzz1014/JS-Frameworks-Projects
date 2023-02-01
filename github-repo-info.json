@@ -1,0 +1,354 @@
+[
+    {
+        "Repo Name": "MoocFi-Full-Stack-Open-2022",
+        "Repo Link": "https://github.com/chewzzz1014/MoocFi-Full-Stack-Open-2022",
+        "Desc": "- Exercises, practises code and project completed for [Full Stack Open 2022](https://fullstackopen.com/en/) on [mooc.fi](https://www.mooc.fi/en/)\n> Learn React, Redux, Node.js, MongoDB, GraphQL and TypeScript in one go! This course will introduce you to modern JavaScript-based web development. The main focus is on building single page applications with ReactJS that use REST APIs built with Node.js.",
+        "Languages/Skills": "JavaScript', 'React', 'Redux', 'Node', 'MongoDB', 'GraphQL', 'Typescript'",
+        "Types": "Course",
+        "Status": "Ongoing"
+    },
+    {
+        "Repo Name": "JS-Frameworks-Projects",
+        "Repo Link": "https://github.com/chewzzz1014/JS-Frameworks-Projects",
+        "Desc": "Compilation of projects I've built using JavaScript frameworks that includes Nodejs, Express and React.",
+        "Languages/Skills": "JavaScript', 'React', 'Node', 'Express', 'Mongoose', 'Bootstrap', 'CSS'",
+        "Types": "Projects",
+        "Status": "Ongoing"
+    },
+    {
+        "Repo Name": "portfolio-website",
+        "Repo Link": "https://github.com/chewzzz1014/portfolio-website",
+        "Desc": "Built my portfolio website using React. Note that the `projects` section only consists of few of my projects, and all projects are included in another page. (link is included in the portfolio website)",
+        "Languages/Skills": "JavaScript', 'React', 'Bootstrap', 'MUI', 'CSS'",
+        "Types": "Projects",
+        "Status": "Ongoing"
+    },
+    {
+        "Repo Name": "portfolio-website-projects-page",
+        "Repo Link": "https://github.com/chewzzz1014/portfolio-website-projects-page",
+        "Desc": "Github repository for the deployment of my portfolio website's projects page. Refer early commit history [here](https://github.com/chewzzz1014/portfolio-website/tree/master/projects)",
+        "Languages/Skills": "JavaScript', 'React', 'Bootstrap', 'MUI', 'CSS'",
+        "Types": "Projects",
+        "Status": "Ongoing"
+    },
+    {
+        "Repo Name": "file",
+        "Repo Link": "https://github.com/chewzzz1014/file",
+        "Desc": "For CDN(Contents Deliver Network) supported by jsdelivr to access files inside this repo in elsewhere.",
+        "Languages/Skills": "",
+        "Types": "CDN",
+        "Status": ""
+    },
+    {
+        "Repo Name": "cli",
+        "Repo Link": "https://github.com/chewzzz1014/cli",
+        "Desc": "Learning linux command and bash.",
+        "Languages/Skills": "Bash', 'Linux'",
+        "Types": "Learning",
+        "Status": "Ongoing"
+    },
+    {
+        "Repo Name": "sql-basics",
+        "Repo Link": "https://github.com/chewzzz1014/sql-basics",
+        "Desc": "Notes and SQL scripts when learning SQL on my own or during my CS degree.",
+        "Languages/Skills": "SQL', 'Oracle SQL'",
+        "Types": "Learning",
+        "Status": "Ongoing"
+    },
+    {
+        "Repo Name": "Javascript_Basics",
+        "Repo Link": "https://github.com/chewzzz1014/JavaScript_Basics",
+        "Desc": "Learning vanila JavaScript and frameworks.Topics include basic syntax, OOP, regex, asynchronous etc. Also include my starting code of learning AJAX, node, mongoose and express.",
+        "Languages/Skills": "JavaScript', 'AJAX', 'Node', 'Express', 'Mongoose'",
+        "Types": "Learning, Projects",
+        "Status": "Ongoing"
+    },
+    {
+        "Repo Name": "algo",
+        "Repo Link": "https://github.com/chewzzz1014/algo",
+        "Desc": "Learning algorithm implementation in Python and Java. Also contains assignments and exercises I've done during my CS degree.",
+        "Languages/Skills": "Python', 'Java'",
+        "Types": "Learning, Exercises",
+        "Status": "Ongoing"
+    },
+    {
+        "Repo Name": "css-javascript-projects",
+        "Repo Link": "https://github.com/chewzzz1014/css-javascript-projects",
+        "Desc": "Compilation of projects built using HTML, CSS, Javascript DOM and Bootstrap.",
+        "Languages/Skills": "HTML', 'CSS', 'JavaScript', 'Boostrap'",
+        "Types": "Projects",
+        "Status": "Ongoing"
+    },
+    {
+        "Repo Name": "jekyll",
+        "Repo Link": "https://github.com/chewzzz1014/jekyll",
+        "Desc": "Learning jekyll, a static site generator",
+        "Languages/Skills": "Jekyll'",
+        "Types": "Learning",
+        "Status": "Completed"
+    },
+    {
+        "Repo Name": "Java_Basics",
+        "Repo Link": "https://github.com/chewzzz1014/Java_Basics",
+        "Desc": "Collection of Java code and simple Java and JavaFX projects I've written.",
+        "Languages/Skills": "Java', 'JavaFX'",
+        "Types": "Learning, Exercises",
+        "Status": "Ongoing"
+    },
+    {
+        "Repo Name": "UX-design-projects",
+        "Repo Link": "https://github.com/chewzzz1014/UX-design-projects",
+        "Desc": "Contains my works done for Google UX Design Certification Professional Certification [On going] on Coursera and my others designs.",
+        "Languages/Skills": "Figma'",
+        "Types": "Learning, Projects",
+        "Status": "Ongoing"
+    },
+    {
+        "Repo Name": "python-libraries",
+        "Repo Link": "https://github.com/chewzzz1014/python-libraries",
+        "Desc": "Learning python libraries.",
+        "Languages/Skills": "Python'",
+        "Types": "Learning, Projects",
+        "Status": "Ongoing"
+    },
+    {
+        "Repo Name": "data-analysis-projects",
+        "Repo Link": "https://github.com/chewzzz1014/data-analysts-projects",
+        "Desc": "Compilation of data analysts projects I've done using Python. Projects using spreadsheet to be added soon.",
+        "Languages/Skills": "Python', 'Pandas'",
+        "Types": "Projects",
+        "Status": "Ongoing"
+    },
+    {
+        "Repo Name": "flask-projects",
+        "Repo Link": "https://github.com/chewzzz1014/flask-projects",
+        "Desc": "Learning Flask framework",
+        "Languages/Skills": "Python', 'Flask'",
+        "Types": "Learning, Projects",
+        "Status": "Ongoing"
+    },
+    {
+        "Repo Name": "boilerplate-mongomongoose",
+        "Repo Link": "https://github.com/chewzzz1014/boilerplate-mongomongoose",
+        "Desc": "Boilerplate for MongoDB and Mongoose lessons under Backend development path on Free Code Camp. Complete exercises as specified in myApp.js",
+        "Languages/Skills": "Mongo', 'Mongoose'",
+        "Types": "Course",
+        "Status": "Completed"
+    },
+    {
+        "Repo Name": "DPhi-Bootcamp",
+        "Repo Link": "https://github.com/chewzzz1014/DPhi-Bootcamp",
+        "Desc": "Collection of solutions to the hands-on exercise of beginner level bootcamps I joined at dphi.tech.",
+        "Languages/Skills": "Python', 'Numpy', 'Pandas', 'Matplotlib', 'Sklearn'",
+        "Types": "Learning, Projects",
+        "Status": "Completed"
+    },
+    {
+        "Repo Name": "boilerplate-express",
+        "Repo Link": "https://github.com/chewzzz1014/boilerplate-express",
+        "Desc": "Boilerplate for Express lessons under Backend development path on Free Code Camp. Complete exercises as specified in myApp.js",
+        "Languages/Skills": "JavaScript', 'Node', 'Express'",
+        "Types": "Course",
+        "Status": "Completed"
+    },
+    {
+        "Repo Name": "100-days-of-code-python",
+        "Repo Link": "https://github.com/chewzzz1014/100-days-of-code-python",
+        "Desc": "Code, exercises and projects I've completed for 100 Days of Code: The Complete Python Pro Bootcamp for 2022 course.",
+        "Languages/Skills": "Python'",
+        "Types": "Course",
+        "Status": "Ongoing"
+    },
+    {
+        "Repo Name": "boilerplate-npm",
+        "Repo Link": "https://github.com/chewzzz1014/boilerplate-npm",
+        "Desc": "Boilerplate for Node and NPM lessons under Backend development path on Free Code Camp. Complete exercises as specified in myApp.js",
+        "Languages/Skills": "JavaScript', 'Node', 'Express'",
+        "Types": "Course",
+        "Status": "Completed"
+    },
+    {
+        "Repo Name": "chewzzz1014",
+        "Repo Link": "https://github.com/chewzzz1014/chewzzz1014",
+        "Desc": "Contains README file on my github profile",
+        "Languages/Skills": "",
+        "Types": "",
+        "Status": ""
+    },
+    {
+        "Repo Name": "Python_Basics",
+        "Repo Link": "https://github.com/chewzzz1014/Python_Basics",
+        "Desc": "Learning basic Python. Also contains python libraries exercises and notes (pandas, numpy, matplotlib etc)",
+        "Languages/Skills": "Python', 'Pandas', 'Matplotlib'",
+        "Types": "Learning, Exercises",
+        "Status": "Ongoing"
+    },
+    {
+        "Repo Name": "my-repos",
+        "Repo Link": "https://github.com/chewzzz1014/my-repos",
+        "Desc": "Created gitub repositories info blog using Jekyll, a static site generator.",
+        "Languages/Skills": "Jekyll'",
+        "Types": "Projects",
+        "Status": "Completed"
+    },
+    {
+        "Repo Name": "jekyll-github-pages-tutorial",
+        "Repo Link": "https://github.com/chewzzz1014/jekyll-github-pages-tutorial",
+        "Desc": "Github course of creating a jekyll site or blog from Github repositories with Github pages using jekyll.",
+        "Languages/Skills": "Jekyll'",
+        "Types": "Course",
+        "Status": "Completed"
+    },
+    {
+        "Repo Name": "pandas_exercises",
+        "Repo Link": "https://github.com/chewzzz1014/pandas_exercises",
+        "Desc": "Pandas exercises from A to Z",
+        "Languages/Skills": "Python', 'Pandas'",
+        "Types": "Exercises",
+        "Status": "Ongoing"
+    },
+    {
+        "Repo Name": "resolve-merge-conflicts",
+        "Repo Link": "https://github.com/chewzzz1014/-resolve-merge-conflicts",
+        "Desc": "Github course of resolving merge conflicts on Github",
+        "Languages/Skills": "Github'",
+        "Types": "Course",
+        "Status": "Completed"
+    },
+    {
+        "Repo Name": "TensorFlow-Pokemon-Course",
+        "Repo Link": "https://github.com/chewzzz1014/TensorFlow-Pokemon-Course",
+        "Desc": "Github course of building a simple neural network using tensorflow.keras to predict Pokemon character.",
+        "Languages/Skills": "Pandas', 'Tensorflow'",
+        "Types": "Course",
+        "Status": "Completed"
+    },
+    {
+        "Repo Name": "Web-Dev-For-Beginners",
+        "Repo Link": "https://github.com/chewzzz1014/Web-Dev-For-Beginners",
+        "Desc": "Microsoft's Github course on Web Development",
+        "Languages/Skills": "HTML', 'CSS', 'JavaScript'",
+        "Types": "Course",
+        "Status": "Ongoing"
+    },
+    {
+        "Repo Name": "JavaScript30",
+        "Repo Link": "https://github.com/chewzzz1014/JavaScript30",
+        "Desc": "Templete forked from 30 Day Vanilla JS Challenge by Wes Bos",
+        "Languages/Skills": "HTML', 'CSS', 'JavaScript'",
+        "Types": "Course, Projects",
+        "Status": "Ongoing"
+    },
+    {
+        "Repo Name": "javascript-exercises",
+        "Repo Link": "https://github.com/chewzzz1014/javascript-exercises",
+        "Desc": "JavaScript exercises on basic synyax and array methods. Template forked from The Odin Projects and solution was tested using Jest.",
+        "Languages/Skills": "JavaScript'",
+        "Types": "Exercises",
+        "Status": "Completed"
+    },
+    {
+        "Repo Name": "Data-Science-For-Beginners",
+        "Repo Link": "https://github.com/chewzzz1014/Data-Science-For-Beginners",
+        "Desc": "Microsoft's Github course on Data Science",
+        "Languages/Skills": "Python', 'Pandas'",
+        "Types": "Course",
+        "Status": "Ongoing"
+    },
+    {
+        "Repo Name": "AI-For-Beginners",
+        "Repo Link": "https://github.com/chewzzz1014/AI-For-Beginners",
+        "Desc": "Microsoft's Github course on AI",
+        "Languages/Skills": "Python', 'Pandas'",
+        "Types": "Course",
+        "Status": "Ongoing"
+    },
+    {
+        "Repo Name": "um-hackthon",
+        "Repo Link": "https://github.com/chewzzz1014/um-hackathon",
+        "Desc": "",
+        "Languages/Skills": "",
+        "Types": "",
+        "Status": ""
+    },
+    {
+        "Repo Name": "space-invader",
+        "Repo Link": "https://github.com/chewzzz1014/space-invader",
+        "Desc": "Simple Space Invader Program created using PyGame library.",
+        "Languages/Skills": "Python', 'Pygame'",
+        "Types": "Projects",
+        "Status": "Completed"
+    },
+    {
+        "Repo Name": "ML-For-Beginners",
+        "Repo Link": "https://github.com/chewzzz1014/ML-For-Beginners",
+        "Desc": "Microsoft's Github course on Machine Learning",
+        "Languages/Skills": "Python', 'Pandas', 'Sklearn'",
+        "Types": "Course",
+        "Status": "Ongoing"
+    },
+    {
+        "Repo Name": "data-engineering-zoomcamp",
+        "Repo Link": "https://github.com/chewzzz1014/data-engineering-zoomcamp",
+        "Desc": "",
+        "Languages/Skills": "",
+        "Types": "",
+        "Status": ""
+    },
+    {
+        "Repo Name": "css-exercises",
+        "Repo Link": "https://github.com/chewzzz1014/css-exercises",
+        "Desc": "CSS exercises that requires learners to recreate the layouts based on desired output images provided. Template forked from The Odin Projects.",
+        "Languages/Skills": "HTML', 'CSS'",
+        "Types": "Exercises",
+        "Status": "Completed"
+    },
+    {
+        "Repo Name": "markdown-portfolio",
+        "Repo Link": "https://github.com/chewzzz1014/markdown-portfolio",
+        "Desc": "Github course of using Github markdown. Built a simple portfolio using jekyll and markdown.",
+        "Languages/Skills": "Markdown'",
+        "Types": "Course",
+        "Status": "Completed"
+    },
+    {
+        "Repo Name": "github-slideshow",
+        "Repo Link": "https://github.com/chewzzz1014/github-slideshow",
+        "Desc": "Introductory Github course on using Git and Github",
+        "Languages/Skills": "Github', 'Git'",
+        "Types": "Course",
+        "Status": "Completed"
+    },
+    {
+        "Repo Name": "online-learning-platform-javafx",
+        "Repo Link": "https://github.com/chewzzz1014/online-learning-platform-javafx",
+        "Desc": "Group project that produced GUI mockups created using JavaFX and Scene Builder.",
+        "Languages/Skills": "Java', 'JavaFX'",
+        "Types": "Projects",
+        "Status": "Ongoing"
+    },
+    {
+        "Repo Name": "TypeScript_Basics",
+        "Repo Link": "https://github.com/chewzzz1014/TypeScript_Basics",
+        "Desc": "Learning TypeScript as beginner.",
+        "Languages/Skills": "TypeScript'",
+        "Types": "Learning",
+        "Status": "Ongoing"
+    },
+    {
+        "Repo Name": "repositories-info-page-jekyll",
+        "Repo Link": "https://github.com/chewzzz1014/repositories-info-page-jekyll",
+        "Desc": "Information about my github respositories. Created using static site generator - Jekyll",
+        "Languages/Skills": "Jekyll'",
+        "Types": "Projects",
+        "Status": "Ongoing"
+    },
+    {
+        "Repo Name": "angular-learning-projects",
+        "Repo Link": "https://github.com/chewzzz1014/angular-learning-projects",
+        "Desc": "Learn Angular. Build Angular projects.",
+        "Languages/Skills": "JavaScript', 'Angular'",
+        "Types": "Projects, Learning",
+        "Status": "Ongoing"
+    }
+]
