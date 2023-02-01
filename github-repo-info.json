@@ -2,7 +2,7 @@
     {
         "name": "MoocFi-Full-Stack-Open-2022",
         "url": "https://github.com/chewzzz1014/MoocFi-Full-Stack-Open-2022",
-        "desc": "- Exercises, practises code and project completed for [Full Stack Open 2022](https://fullstackopen.com/en/) on [mooc.fi](https://www.mooc.fi/en/)\n> Learn React, Redux, Node.js, MongoDB, GraphQL and TypeScript in one go! This course will introduce you to modern JavaScript-based web development. The main focus is on building single page applications with ReactJS that use REST APIs built with Node.js.",
+        "desc": "- Exercises, practises code and project completed for [Full Stack Open 2022](https://fullstackopen.com/en/) on [mooc.fi](https://www.mooc.fi/en/). 'Learn React, Redux, Node.js, MongoDB, GraphQL and TypeScript in one go! This course will introduce you to modern JavaScript-based web development. The main focus is on building single page applications with ReactJS that use REST APIs built with Node'.js.",
         "skills": "JavaScript', 'React', 'Redux', 'Node', 'MongoDB', 'GraphQL', 'Typescript'",
         "type": "Course",
         "Status": "Ongoing"
