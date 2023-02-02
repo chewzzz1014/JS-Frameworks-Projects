@@ -23,3 +23,6 @@ export const counterSlice = createSlice({
 })
 
 export const { increment, decrement } = counterSlice.actions
+
+// export for the store
+export default counterSlice.reducer
