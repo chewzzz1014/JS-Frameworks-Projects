@@ -1,8 +1,9 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { selectAllPost } from './postsSlice'
 
 function PostList() {
-    const posts = useSelector(state => state.posts)
+    const posts = useSelector(selectAllPost)
     const postsEle = posts.map(p => (
         <article key={p.id}>
             <h3>{p.title}</h3>
