@@ -1,10 +1,21 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 function PostList() {
-    return (
-        <div>
+    const posts = useSelector(state => state.posts)
+    const postsEle = posts.map(p => (
+        <article key={p.id}>
+            <h3>{p.title}</h3>
+            <p>{p.content.substring(0, 100)}</p>
+        </article>
+    ))
 
-        </div>
+
+    return (
+        <section>
+            <h2>Posts</h2>
+            {postsEle}
+        </section>
     )
 }
 
