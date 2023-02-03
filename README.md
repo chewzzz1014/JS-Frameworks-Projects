@@ -10,13 +10,13 @@ I've completed [Back End Development and APIs](https://www.freecodecamp.org/lear
 # Projects Live Site
 - Details of all projects available [here](https://chewzzz1014.github.io/portfolio-website-projects-page/)
 
-## Express (Deployment in Progress)
-- [Exercise-Tracker]
-- [File-Metadata-Microservice]
-- [Request-Header-Parser-Microservice]
-- [Timestamp-Microservice]
-- [URL-Shortener-Microservice]
-- [node-passport-authentication]
+## Express 
+- [Exercise-Tracker](https://exercise-tracker-express.onrender.com/)
+- [File-Metadata-Microservice](https://chewzzz-file-metadata-microservice.onrender.com/)
+- [Request-Header-Parser-Microservice](https://request-header-parser-microservice-mv5m.onrender.com/)
+- [Timestamp-Microservice](https://timestamp-microservice-express.onrender.com/)
+- [URL-Shortener-Microservice](https://chewzzz-url-shortener-microservice.onrender.com/)
+- [node-passport-authentication](https://chewzzz-node-passport-authentication.onrender.com/)
 
 ## React
 - [airbnb-clone](https://chewzzz-airbnb-clone.netlify.app/)
