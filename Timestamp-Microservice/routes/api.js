@@ -12,7 +12,7 @@ router.get("/", (req, res) => {
 //if it's date
 router.get("/:date", (req, res, next) => {
     const { date } = req.params;
-    const numOfDash = date.length - date.replaceAll("-", "").length;
+    const numOfDash = date.length - date.replace(/-/g, '').length;
     if (numOfDash === 2 || numOfDash === 1) {
         try {
             let formattedDate = new Date(date);
