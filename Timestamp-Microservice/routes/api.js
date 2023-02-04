@@ -17,27 +17,23 @@ router.get("/:date", (req, res, next) => {
         try {
             let formattedDate = new Date(date);
             if (isNaN(formattedDate))
-                next(err);
+                throw new Error('Invalid Date');
             // unix timestamp
             let unixTimeStamp = formattedDate.valueOf()
             res.json({ unix: unixTimeStamp, utc: formattedDate.toUTCString() });
         } catch (err) {
             next(err);
+            return;
         }
-    } else if (numOfDash === 0) {
-        next();
     } else {
-        next(err);
+        next();
     }
 })
 
 router.get("/:date", (req, res, next) => {
     const unix = req.params.date;
-    if (unix == 1451001600000) {
-        res.json({ date: Number(unix), utc: new Date("12-25-2015").toUTCString() })
-    }
-    let date = new Date(0);
-    res.json({ unix: date, utc: date.toUTCString() });
+    let date = new Date(unix * 1000);
+    res.json({ unix: unix, utc: date.toUTCString() });
 })
 
 export default router

@@ -21,24 +21,24 @@ app.get("/", (req, res) => {
 
 app.use('/api', apiRouter)
 
-app.use((err, req, res, next) => {
-    res.json({ error: 'Invalid Date' });
-})
+// app.use((err, req, res, next) => {
+//     res.json({ error: 'Invalid Date' });
+// })
+
+// error handler
+app.use(function (err, req, res, next) {
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get("env") === "development" ? err : {};
+
+    // Send the error status
+    res.status(err.status || 500).send(err.message);
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     next(createError(404));
 });
-
-// error handler
-// app.use(function (err, req, res, next) {
-//     // set locals, only providing error in development
-//     res.locals.message = err.message;
-//     res.locals.error = req.app.get("env") === "development" ? err : {};
-
-//     // Send the error status
-//     res.status(err.status || 500).send(err.message);
-// });
 
 
 export default app
