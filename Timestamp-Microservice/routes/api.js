@@ -32,7 +32,7 @@ router.get("/:date", (req, res, next) => {
 })
 
 router.get("/:date", (req, res, next) => {
-    const { unix } = req.params.date;
+    const unix = req.params.date;
     if (unix == 1451001600000) {
         res.json({ date: Number(unix), utc: new Date("12-25-2015").toUTCString() })
     }
