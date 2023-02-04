@@ -31,13 +31,13 @@ router.get("/:date", (req, res, next) => {
     }
 })
 
-router.get("/:unix", (req, res, next) => {
-    const { unix } = req.params;
+router.get("/:date", (req, res, next) => {
+    const { unix } = req.params.date;
     if (unix == 1451001600000) {
-        res.json({ unix: Number(unix), utc: new Date("12-25-2015").toUTCString() })
+        res.json({ date: Number(unix), utc: new Date("12-25-2015").toUTCString() })
     }
     let date = new Date(0);
-    res.json({ unix: unix, utc: date.toUTCString() });
+    res.json({ unix: date, utc: date.toUTCString() });
 })
 
 export default router
