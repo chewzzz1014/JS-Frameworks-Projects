@@ -8,8 +8,14 @@ export default function FilterableProductTable() {
 
     return (
         <div>
-            <SearchBar />
-            <ProductTable />
+            <SearchBar
+                filterText={filterText}
+                inStockOnly={inStockOnly}
+            />
+            <ProductTable
+                filterText={filterText}
+                inStockOnly={inStockOnly}
+            />
         </div>
     )
 }
