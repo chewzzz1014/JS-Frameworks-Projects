@@ -1,7 +1,7 @@
 import ProductCategoryRow from './ProductCategoryRow'
 import ProductRow from './ProductRow'
 
-export default function ProductTable({ products, filterText, inStoackOnly }) {
+export default function ProductTable({ products, filterText, inStockOnly }) {
     const rows = []
     let categories = []
 
@@ -12,7 +12,7 @@ export default function ProductTable({ products, filterText, inStoackOnly }) {
             return
 
         // did user require in stock data only?
-        if (inStoackOnly && !p.stocked)
+        if (inStockOnly && !p.stocked)
             return
 
         // create a category header

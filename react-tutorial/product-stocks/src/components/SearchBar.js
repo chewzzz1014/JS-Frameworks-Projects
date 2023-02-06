@@ -14,7 +14,7 @@ export default function SearchBar({ filterText, inStockOnly, onFilterTextChange,
                     <input
                         type="checkbox"
                         checked={inStockOnly}
-                        onChange={(e) => onInStockOnlyChange(e.target.value)}
+                        onChange={(e) => onInStockOnlyChange(e.target.checked)}
                     />
                     {' Only show products in stock'}
                 </label>
