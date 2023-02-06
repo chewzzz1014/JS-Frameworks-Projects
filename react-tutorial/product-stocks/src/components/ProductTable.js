@@ -1,8 +1,7 @@
-import products from './data'
 import ProductCategoryRow from './ProductCategoryRow'
 import ProductRow from './ProductRow'
 
-export default function ProductTable() {
+export default function ProductTable({ products }) {
     const rows = []
     let categories = []
 
