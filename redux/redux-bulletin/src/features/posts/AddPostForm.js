@@ -29,6 +29,7 @@ function AddPostForm() {
         }
     }
 
+    // are all fields been filled?
     const canSave = Boolean(title) && Boolean(title) && Boolean(userId)
 
     const usersOptions = users.map(u => (
