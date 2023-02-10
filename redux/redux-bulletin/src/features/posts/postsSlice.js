@@ -17,9 +17,11 @@ const postsSlice = createSlice({
     name: 'posts',
     initialState,
     reducers: {
-        postAdded(state, action) {
+        postAdded: {
             // mutating state only works in createSlice (ember.js)
-            state.push(action.payload)
+            reducer(state, action) {
+                state.push(action.payload)
+            }
         }
     }
 })
