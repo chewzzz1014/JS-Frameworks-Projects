@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = [
     {
@@ -21,6 +21,15 @@ const postsSlice = createSlice({
             // mutating state only works in createSlice (ember.js)
             reducer(state, action) {
                 state.push(action.payload)
+            },
+            prepare(title, content) {
+                return {
+                    payload: {
+                        id: nanoid(),
+                        title,
+                        content
+                    }
+                }
             }
         }
     }
