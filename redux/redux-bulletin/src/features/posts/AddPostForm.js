@@ -1,28 +1,39 @@
 import React from 'react'
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { nanoid } from '@reduxjs/toolkit'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { postAdded } from './postsSlice'
+import { selectAllUsers } from '../users/usersSlice'
 
 function AddPostForm() {
     const dispatch = useDispatch()
+    const users = useSelector(selectAllUsers)
+
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
+    const [userId, setUserId] = useState('')
 
     const onTitleChanged = e => setTitle(e.target.value)
     const onContentChanged = e => setContent(e.target.value)
+    const onAuthorChanged = e => setUserId(e.target.value)
     const onSavePostClicked = () => {
         // only dispatch if both title and content is not empty
         if (title && content) {
             dispatch(
-                postAdded(title, content)
+                postAdded(title, content, userId)
             )
 
             setTitle('')
             setContent('')
+            setUserId('')
         }
     }
+
+    const usersOptions = users.map(u => (
+        <option key={u.id} value={u.id}>
+            {u.name}
+        </option>
+    ))
 
     return (
         <section>
@@ -39,11 +50,11 @@ function AddPostForm() {
                 <label htmlFor="postAuthor">Author:</label>
                 <select
                     id="postAuthor"
-                // value={userId} 
-                // onChange={onAuthorChanged}
+                    value={userId}
+                    onChange={onAuthorChanged}
                 >
                     <option value=""></option>
-                    {/* {usersOptions} */}
+                    {usersOptions}
                 </select>
                 <label htmlFor="postContent">Content:</label>
                 <textarea
