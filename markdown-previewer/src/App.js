@@ -1,4 +1,3 @@
-import './App.css';
 import './index.css'
 import Editor from './components/Editor';
 import Previewer from './components/Previewer';
