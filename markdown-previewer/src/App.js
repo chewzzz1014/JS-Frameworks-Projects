@@ -14,9 +14,9 @@ function App() {
   }
 
   return (
-    <div className="App flex flex-col justify-center items-center h-screen v-screen"
+    <div className="App"
     >
-      <div className='border-2 border-red-200 container flex flex-col justify-center items-center'>
+      <div className='border-2 border-red-200'>
         <Editor
           text={text}
           handleTextChange={handleTextChange}

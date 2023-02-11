@@ -4,7 +4,7 @@ import Markdown from 'marked-react'
 function Previewer({ text }) {
     return (
         <div
-            className='border-2 border-red-600 min-h-[25%] max-w-xl break-words'
+            className='border-2 border-red-600'
         >
             <p>
                 <Markdown>
