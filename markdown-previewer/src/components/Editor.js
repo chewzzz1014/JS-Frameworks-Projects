@@ -7,6 +7,7 @@ function Editor({ text, handleTextChange }) {
         >
             <textarea
                 id='editor'
+                cols='100'
                 className='border-2 border-purple-600'
                 onChange={(e) => handleTextChange(e)}
             >

@@ -4,13 +4,11 @@ import Markdown from 'marked-react'
 function Previewer({ text }) {
     return (
         <div
-            className='border-2 border-red-600'
+            className='border-2 border-red-600 prose lg:prose-x'
         >
-            <p>
-                <Markdown>
-                    {text}
-                </Markdown>
-            </p>
+            <Markdown>
+                {text}
+            </Markdown>
         </div>
     )
 }
