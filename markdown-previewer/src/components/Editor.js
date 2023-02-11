@@ -6,7 +6,7 @@ function Editor({ text, handleTextChange }) {
 
     return (
         <div
-            className='border-2 border-yellow-500 w-4/5 mx-auto md:w-5/12 mt-5'
+            className={`border-2 border-yellow-500 w-4/5 mx-auto md:w-5/12 mt-5 ${isFull ? 'h-screen' : ''}`}
         >
             <TabHeading
                 text={'Editor'}
@@ -16,7 +16,7 @@ function Editor({ text, handleTextChange }) {
             <textarea
                 id='editor'
                 rows='15'
-                className='border-2 border-purple-600 w-full'
+                className={`border-2 border-purple-600 w-full ${isFull ? 'h-screen' : ''}`}
                 onChange={(e) => handleTextChange(e)}
             >
                 {text}

@@ -6,6 +6,7 @@ import { useState } from 'react';
 function App() {
 
   const [text, setText] = useState('')
+  const [isFull, setIsFull] = useState([false, false])
 
   function handleTextChange({ target }) {
     console.log(target.value)
