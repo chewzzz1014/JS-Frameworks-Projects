@@ -1,10 +1,11 @@
 import React from 'react'
+import { FaExpandArrowsAlt, FaExpandAlt } from 'react-icons/fa';
 
 function TabHeading({ text, isFull, setIsFull }) {
     return (
-        <div className='bg-slate-400 flex justify-between content-center px-3 py-1'>
+        <div className='bg-slate-400 flex justify-between items-center px-3 py-1'>
             <div><b>{text}</b></div>
-            <button><b>X</b></button>
+            {!isFull ? <FaExpandArrowsAlt /> : <FaExpandAlt />}
         </div>
     )
 }
