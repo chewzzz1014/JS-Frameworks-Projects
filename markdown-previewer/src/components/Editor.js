@@ -5,7 +5,7 @@ function Editor({ text, handleTextChange, isFull, setIsFull, idx }) {
 
     return (
         <div
-            className={`bg-white border-2 border-black w-4/5 mx-auto md:w-5/12 mt-5 ${isFull[idx] ? 'h-screen w-11/12' : ''}`}
+            className={`bg-white border-2 border-black w-4/5 mx-auto md:w-5/12 mt-5  ${isFull[idx] ? 'h-screen w-11/12' : ''}`}
         >
             <TabHeading
                 text={'Editor'}

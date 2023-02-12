@@ -8,4 +8,5 @@ body {
 
 .previewer {
     min-height: 150px;
+    overflow-wrap: break-word;
 }
