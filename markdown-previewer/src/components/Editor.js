@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import TabHeading from './TabHeading'
 
-function Editor({ text, handleTextChange }) {
-    const [isFull, setIsFull] = useState(false)
+function Editor({ text, handleTextChange, isFull, setIsFull, idx }) {
 
     return (
         <div
@@ -12,6 +11,7 @@ function Editor({ text, handleTextChange }) {
                 text={'Editor'}
                 isFull={isFull}
                 setIsFull={setIsFull}
+                position={idx}
             />
             <textarea
                 id='editor'

@@ -17,13 +17,24 @@ function App() {
     <div className="App"
     >
       <div className='border-2 border-red-200'>
-        <Editor
-          text={text}
-          handleTextChange={handleTextChange}
-        />
-        <Previewer
-          text={text}
-        />
+        {!isFull[1] &&
+          <Editor
+            text={text}
+            handleTextChange={handleTextChange}
+            isFull={isFull}
+            setIsFull={setIsFull}
+            idx={0}
+          />}
+
+        {!isFull[0] &&
+          <Previewer
+            text={text}
+            isFull={isFull}
+            setIsFull={setIsFull}
+            idx={1}
+          />
+        }
+
       </div>
     </div>
   );
