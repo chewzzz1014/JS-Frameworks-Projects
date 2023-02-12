@@ -6,7 +6,7 @@ function Previewer({ text, isFull, setIsFull, idx }) {
 
     return (
         <div
-            className={`border-2 border-red-600 prose lg:prose-xl w-11/12 mx-auto md:w-full mt-5 ${isFull[idx] ? 'h-full w-11/12' : ''}`}
+            className={`bg-white border-2 border-black prose lg:prose-xl w-11/12 mx-auto md:w-full mt-5 ${isFull[idx] ? 'h-full w-11/12' : ''}`}
         >
             <TabHeading
                 text={'Previewer'}

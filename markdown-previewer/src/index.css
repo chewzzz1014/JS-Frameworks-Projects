@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    background-color: #87b5b5;
+}
+
 .previewer {
     min-height: 150px;
 }

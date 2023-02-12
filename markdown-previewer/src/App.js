@@ -14,9 +14,9 @@ function App() {
   }
 
   return (
-    <div className="App"
+    <div className="App bg-[#87b5b5]"
     >
-      <div className='border-2 border-red-200'>
+      <div className=''>
         {!isFull[1] &&
           <Editor
             text={text}

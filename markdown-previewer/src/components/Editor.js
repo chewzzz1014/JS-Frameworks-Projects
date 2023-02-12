@@ -5,7 +5,7 @@ function Editor({ text, handleTextChange, isFull, setIsFull, idx }) {
 
     return (
         <div
-            className={`border-2 border-yellow-500 w-4/5 mx-auto md:w-5/12 mt-5 ${isFull[idx] ? 'h-screen w-11/12' : ''}`}
+            className={`bg-white border-2 border-black w-4/5 mx-auto md:w-5/12 mt-5 ${isFull[idx] ? 'h-screen w-11/12' : ''}`}
         >
             <TabHeading
                 text={'Editor'}
@@ -16,7 +16,7 @@ function Editor({ text, handleTextChange, isFull, setIsFull, idx }) {
             <textarea
                 id='editor'
                 rows='15'
-                className={`border-2 border-purple-600 w-full ${isFull[idx] ? 'h-screen' : ''}`}
+                className={`px-4 w-full ${isFull[idx] ? 'h-screen' : ''}`}
                 onChange={(e) => handleTextChange(e)}
             >
                 {text}
