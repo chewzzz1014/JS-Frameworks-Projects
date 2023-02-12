@@ -16,7 +16,7 @@ function Editor({ text, handleTextChange, isFull, setIsFull, idx }) {
             <textarea
                 id='editor'
                 rows='15'
-                className={`px-4 w-full ${isFull[idx] ? 'h-screen' : ''}`}
+                className={`focus:outline-0 px-4 w-full ${isFull[idx] ? 'h-full' : ''}`}
                 onChange={(e) => handleTextChange(e)}
             >
                 {text}

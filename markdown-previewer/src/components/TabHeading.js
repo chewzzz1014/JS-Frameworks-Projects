@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaExpandArrowsAlt, FaExpandAlt } from 'react-icons/fa';
+import { BsArrowsAngleContract, BsArrowsFullscreen } from 'react-icons/bs';
 
 function TabHeading({ text, isFull, setIsFull, position }) {
 
@@ -11,7 +11,7 @@ function TabHeading({ text, isFull, setIsFull, position }) {
                     setIsFull(isFull.map((e, idx) => idx === position ? !e : e))
                 }
             >
-                {!isFull[position] ? <FaExpandArrowsAlt /> : <FaExpandAlt />}
+                {!isFull[position] ? <BsArrowsFullscreen /> : <BsArrowsAngleContract />}
             </button>
         </div>
     )
