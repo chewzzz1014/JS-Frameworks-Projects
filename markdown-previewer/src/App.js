@@ -2,10 +2,11 @@ import './index.css'
 import Editor from './components/Editor';
 import Previewer from './components/Previewer';
 import { useState } from 'react';
+import { data } from './data';
 
 function App() {
 
-  const [text, setText] = useState('')
+  const [text, setText] = useState(data)
   const [isFull, setIsFull] = useState([false, false])
 
   function handleTextChange({ target }) {
