@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 
 function Learn() {
     return (
@@ -7,17 +7,20 @@ function Learn() {
             <h1>Learn Route</h1>
             <h4>All courses are listed here</h4>
             <Link
-                to='/learn/course'
-                className='text-white'
+                to='/learn/courses'
+                className='btn btn-success'
             >
                 courses
             </Link>
             <Link
-                to='/learn/bundle'
-                className='text-white'
+                to='/learn/bundles'
+                className='btn btn-primary'
             >
                 bundle
             </Link>
+
+            {/* to display Courses or Bundles component */}
+            <Outlet />
         </div>
     )
 }
