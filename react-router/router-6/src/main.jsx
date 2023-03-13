@@ -3,7 +3,12 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import Home from "./components/Home"
 import Learn from './components/Learn'
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Router>
@@ -15,7 +20,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
       <Route
         path='/myapps'
-        element={<Navigate to='/learn' />}
+        element={<Navigate replace to='/learn' />}
       />
 
       <Route
