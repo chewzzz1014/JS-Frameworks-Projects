@@ -15,29 +15,17 @@ import {
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Router>
     <Routes>
-      <Route
-        path='/'
-        element={<Home />}
-      />
+      <Route path='/' element={<Home />} />
 
-      <Route
-        path='/myapps'
-        element={<Navigate replace to='/learn' />}
-      />
+      <Route path='/myapps' element={<Navigate replace to='/learn' />} />
 
       {/* /learn, /learn/course, /learn/bundle */}
-      <Route
-        path='/learn'
-        element={<Learn />}
-      >
-        <Route
-          path='courses'
-          element={<Courses />}
-        />
-        <Route
-          path='bundles'
-          element={<Bundles />}
-        />
+      <Route path='/learn' element={<Learn />}>
+        <Route path='courses' element={<Courses />} >
+          <Route path=':courseId' />
+        </Route>
+
+        <Route path='bundles' element={<Bundles />} />
       </Route>
     </Routes>
   </Router>
