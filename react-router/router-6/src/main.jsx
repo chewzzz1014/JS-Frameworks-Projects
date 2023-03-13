@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import Home from "./components/Home"
 import Courses from './components/Courses'
+import CourseId from './components/CourseId'
 import Bundles from './components/Bundles'
 import Learn from './components/Learn'
 import {
@@ -22,7 +23,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       {/* /learn, /learn/course, /learn/bundle */}
       <Route path='/learn' element={<Learn />}>
         <Route path='courses' element={<Courses />} >
-          <Route path=':courseId' />
+          <Route path=':courseId' element={<CourseId />} />
         </Route>
 
         <Route path='bundles' element={<Bundles />} />
