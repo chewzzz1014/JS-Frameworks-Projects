@@ -20,7 +20,7 @@ mongoose.connect(CONNECTION_URL)
     .then(() => console.log('Mongo connected'))
     .catch((err) => { console.log(err.message) })
 
-app.use('/', postRouter)
+app.use('/posts', postRouter)
 
 app.listen(PORT, () => {
     console.log(`Server listening at port ${PORT}`)
