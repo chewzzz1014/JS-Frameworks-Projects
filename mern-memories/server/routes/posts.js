@@ -1,11 +1,11 @@
 import express from 'express'
 
-const postRouter = express.Router()
+const router = express.Router()
 
-postRouter
+router
     .route('/')
     .get((req, res) => {
         res.send('Hello')
     })
 
-export default postRouter
+export default router
