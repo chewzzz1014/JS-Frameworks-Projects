@@ -6,6 +6,11 @@ const fetchPosts = async () => {
     await axios.get(BASE_URL)
 }
 
+const createPost = async (newPost) => {
+    await axios.post(BASE_URL, newPost)
+}
+
 export {
-    fetchPosts
+    fetchPosts,
+    createPost
 }

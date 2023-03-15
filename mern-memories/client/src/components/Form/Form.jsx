@@ -31,7 +31,7 @@ function Form() {
             <form
                 autoComplete='off'
                 noValidate
-                className={classes.form}
+                className={`${classes.root} ${classes.form}`}
                 onSubmit={handleSubmit}
             >
                 <Typography
