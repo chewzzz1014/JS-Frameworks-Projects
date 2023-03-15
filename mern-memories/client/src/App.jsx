@@ -9,9 +9,14 @@ import {
 
 function App() {
     return (
-        <div>
-            <h1>App</h1>
-        </div>
+        <Container maxWidth='lg'>
+            <AppBar position='static' color='inherit'>
+                <Typography variant='h2' align='center'>
+                    Memories
+                </Typography>
+                <img src={memories} alt='memories' height='60' />
+            </AppBar>
+        </Container>
     )
 }
 
