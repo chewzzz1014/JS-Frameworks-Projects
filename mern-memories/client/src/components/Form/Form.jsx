@@ -6,6 +6,7 @@ import {
     Typography,
     Paper
 } from '@material-ui/core'
+import FileBase from 'react-file-base64'
 
 function Form() {
     const [postData, setPostData] = useState({
@@ -68,27 +69,26 @@ function Form() {
                     })}
                 />
                 <TextField
-                    name='tag'
+                    name='tags'
                     variant='outlined'
-                    label='Tag'
+                    label='Tags'
                     fullWidth
-                    value={postData.tag}
+                    value={postData.tags}
                     onChange={(e) => setPostData({
                         ...postData,
-                        tag: e.target.value
+                        tags: e.target.value
                     })}
                 />
-                <TextField
-                    name='selectedFile'
-                    variant='outlined'
-                    label='Selected File'
-                    fullWidth
-                    value={postData.selectedFile}
-                    onChange={(e) => setPostData({
-                        ...postData,
-                        selectedFile: e.target.value
-                    })}
-                />
+                <div className={classes.fileInput}>
+                    <FileBase
+                        type='file'
+                        multiple={false}
+                        onDone={({ base64 }) => setPostData({
+                            ...postData,
+                            selectedFile: base64
+                        })}
+                    />
+                </div>
             </form>
         </Paper>
     )
