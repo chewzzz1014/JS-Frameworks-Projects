@@ -13,7 +13,7 @@ const getPosts = () => async (dispatch) => {
     }
 }
 
-const createPost = () => async (dispatch) => {
+const createPost = (post) => async (dispatch) => {
     try {
         const { data } = await api.createPost(post)
 
@@ -22,7 +22,7 @@ const createPost = () => async (dispatch) => {
             payload: data
         })
     } catch (error) {
-
+        console.log(error.message)
     }
 }
 
