@@ -1,4 +1,4 @@
-import * as api from '../aoi'
+import * as api from '../api'
 
 // action creators
 const getPosts = () => async (dispatch) => {
