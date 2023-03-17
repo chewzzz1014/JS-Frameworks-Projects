@@ -22,7 +22,7 @@ function Posts() {
                 >
                     {posts.map((post) => (
                         <Grid key={post._id} item xs={12} sm={6}>
-                            <Post />
+                            <Post post={post} />
                         </Grid>
                     ))}
                 </Grid>
