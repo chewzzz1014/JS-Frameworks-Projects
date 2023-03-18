@@ -8,9 +8,9 @@ import {
 } from '@material-ui/core'
 import FileBase from 'react-file-base64'
 import { useDispatch } from 'react-redux'
-import { createPost } from '../../actions/posts.js'
+import { createPost, updatePost } from '../../actions/posts.js'
 
-function Form() {
+function Form({ currentId, setCurrentId }) {
     const [postData, setPostData] = useState({
         creator: '',
         title: '',
@@ -24,7 +24,7 @@ function Form() {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        dispatch(createPost(postData))
+        currentId ? dispatch(updatePost(currentId, postData)) : dispatch(createPost(postData))
     }
 
     const clear = () => {

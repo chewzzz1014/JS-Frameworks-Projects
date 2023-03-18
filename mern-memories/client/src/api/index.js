@@ -10,7 +10,12 @@ const createPost = async (newPost) => {
     return await axios.post(BASE_URL, newPost)
 }
 
+const updatePost = (id, updatedPost) => {
+    return axios.patch(`${BASE_URL}/${id}`, updatedPost)
+}
+
 export {
     fetchPosts,
-    createPost
+    createPost,
+    updatePost
 }
