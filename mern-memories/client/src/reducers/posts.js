@@ -8,6 +8,10 @@ const reducer = (posts = [], action) => {
                 ...posts,
                 action.payload
             ]
+        case 'UPDATE':
+            return posts.map(p =>
+                p._id === action.payload._id ? action.payload : p
+            )
         default:
             return posts
     }
