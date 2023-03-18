@@ -1,19 +1,27 @@
+import {
+    FETCH_ALL,
+    UPDATE,
+    DELETE,
+    CREATE,
+    LIKE
+} from '../constants/actionType.js'
+
 const reducer = (posts = [], action) => {
     switch (action.type) {
-        case 'FETCH_ALL':
+        case FETCH_ALL:
             // return posts
             return action.payload
-        case 'CREATE':
+        case CREATE:
             return [
                 ...posts,
                 action.payload
             ]
-        case 'UPDATE':
-        case 'LIKE':
+        case UPDATE:
+        case LIKE:
             return posts.map(p =>
                 p._id === action.payload._id ? action.payload : p
             )
-        case 'DELETE':
+        case DELETE:
             return posts.filter(p => p._id !== action.payload)
         default:
             return posts

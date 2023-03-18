@@ -64,7 +64,7 @@ const likePost = (id) => async (dispatch) => {
     try {
         await api.likePost(id)
         dispatch({
-            type: 'LIKE',
+            type: LIKE,
             payload: id
         })
     } catch (error) {
