@@ -32,10 +32,19 @@ function Form({ currentId, setCurrentId }) {
         e.preventDefault()
 
         currentId ? dispatch(updatePost(currentId, postData)) : dispatch(createPost(postData))
+
+        clear()
     }
 
     const clear = () => {
-
+        setCurrentId(null)
+        setPostData({
+            creator: '',
+            title: '',
+            message: '',
+            tags: '',
+            selectedFile: ''
+        })
     }
 
     return (
@@ -49,7 +58,7 @@ function Form({ currentId, setCurrentId }) {
                 <Typography
                     variant='h6'
                 >
-                    Creating a Memory
+                    {`${currentId ? 'Editing' : 'Creating'} a Memory`}
                 </Typography>
                 <TextField
                     name='creator'

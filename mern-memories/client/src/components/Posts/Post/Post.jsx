@@ -25,14 +25,17 @@ function Post({ post, setCurrentId }) {
             </div>
             <div className={classes.overlay2}>
                 <Button style={{ color: 'white' }} size='small' onClick={() => setCurrentId(post._id)}>
-                    <MoreHorzIcon fontSize='default' />
+                    <MoreHorzIcon fontSize='medium' />
                 </Button>
             </div>
             <div className={classes.details}>
-                <Typography variant='body' color='textSecondary'>{post.tags.map(t => `#${t}`)}</Typography>
+                <Typography variant='body1' color='textSecondary'>{post.tags.map(t => `#${t}`)}</Typography>
             </div>
+
+            <Typography className={classes.title} variant='h5' gutterBottom>{post.title}</Typography>
+
             <CardContent>
-                <Typography className={classes.title} variant='h5' gutterBottom>{post.message}</Typography>
+                <Typography variant='h5' gutterBottom>{post.message}</Typography>
             </CardContent>
             <CardActions className={classes.cardActions}>
                 <Button size='small' color='primary' onClick={() => { }}>
