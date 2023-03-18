@@ -1,4 +1,11 @@
 import * as api from '../api'
+import {
+    FETCH_ALL,
+    UPDATE,
+    DELETE,
+    CREATE,
+    LIKE
+} from '../constants/actionType.js'
 
 // action creators
 const getPosts = () => async (dispatch) => {
@@ -7,7 +14,7 @@ const getPosts = () => async (dispatch) => {
         console.log(data)
 
         dispatch({
-            type: 'FETCH_ALL',
+            type: FETCH_ALL,
             payload: data
         })
     } catch (error) {
@@ -21,7 +28,7 @@ const createPost = (post) => async (dispatch) => {
         console.log(data)
 
         dispatch({
-            type: 'CREATE',
+            type: CREATE,
             payload: data
         })
     } catch (error) {
@@ -33,7 +40,7 @@ const updatePost = (id, post) => async (dispatch) => {
     try {
         const { data } = await api.updatePost(id, post)
         dispatch({
-            type: ' UPDATE',
+            type: UPDATE,
             payload: data
         })
     } catch (error) {
@@ -45,7 +52,7 @@ const deletePost = (id) => async (dispatch) => {
     try {
         await api.deletePost(id)
         dispatch({
-            type: 'DELETE',
+            type: DELETE,
             payload: id
         })
     } catch (error) {
