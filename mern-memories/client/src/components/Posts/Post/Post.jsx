@@ -32,7 +32,7 @@ function Post({ post, setCurrentId }) {
                 </Button>
             </div>
             <div className={classes.details}>
-                <Typography variant='body1' color='textSecondary'>{post.tags.map(t => `#${t}`)}</Typography>
+                <Typography variant='body1' color='textSecondary'>{post.tags.map(t => `#${t} `)}</Typography>
             </div>
 
             <Typography className={classes.title} variant='h5' gutterBottom>{post.title}</Typography>
