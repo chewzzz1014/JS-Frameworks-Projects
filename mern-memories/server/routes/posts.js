@@ -3,7 +3,8 @@ import {
     getPosts,
     createPost,
     updatePost,
-    deletePost
+    deletePost,
+    likePost
 } from '../controllers/posts.js'
 
 const router = express.Router()
@@ -17,5 +18,9 @@ router
     .route('/:id')
     .patch(updatePost)
     .delete(deletePost)
+
+router
+    .route('/:id/likePost')
+    .patch(likePost)
 
 export default router

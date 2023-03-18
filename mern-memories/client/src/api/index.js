@@ -18,9 +18,14 @@ const deletePost = (id) => {
     return axios.delete(`${BASE_URL}/${id}`)
 }
 
+const likePost = (id) => {
+    return axios.patch(`${BASE_URL}/${id}/likePost`)
+}
+
 export {
     fetchPosts,
     createPost,
     updatePost,
-    deletePost
+    deletePost,
+    likePost
 }
