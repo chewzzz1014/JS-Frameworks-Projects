@@ -2,7 +2,7 @@ import React from 'react'
 import { Container } from '@material-ui/core'
 import {
     BrowserRouter,
-    Switch,
+    Routes,
     Route
 } from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
@@ -14,10 +14,10 @@ function App() {
         <BrowserRouter>
             <Container maxWidth='lg'>
                 <NavBar />
-                <Switch>
+                <Routes>
                     <Route path='/' exact component={Home} />
                     <Route path='/auth' exact component={Auth} />
-                </Switch>
+                </Routes>
                 <Home />
             </Container>
         </BrowserRouter>
