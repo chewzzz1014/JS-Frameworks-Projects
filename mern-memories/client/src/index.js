@@ -9,6 +9,7 @@ import {
     compose
 } from 'redux'
 import thunk from 'redux-thunk'
+import './index.css'
 
 const store = createStore(reducers, compose(applyMiddleware(thunk)))
 
