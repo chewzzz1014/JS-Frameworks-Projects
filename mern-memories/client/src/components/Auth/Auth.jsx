@@ -15,8 +15,8 @@ import Input from './Input'
 function Auth() {
     const classes = useStyles()
     const [showPassword, setShowPassword] = useState(false)
+    const isSignUp = true
 
-    const isSignUp = false
     const handleSubmit = () => {
 
     }
@@ -25,6 +25,10 @@ function Auth() {
     }
 
     const handleShowPassword = () => setShowPassword((prev) => !prev)
+
+    const switchMode = () => {
+
+    }
 
     return (
         <Container component='main' maxWidth='xs'>
@@ -74,6 +78,13 @@ function Auth() {
                     <Button type='submit' fullWidth variant='contained' color='primary' className={classes.submit}>
                         {isSignUp ? 'Sign Up' : 'Sign In'}
                     </Button>
+                    <Grid container justifyContent='flex-end'>
+                        <Grid item>
+                            <Button onClick={switchMode}>
+                                {isSignUp ? 'Already have an account? Sign In' : "Dont's have an account? Sign Up"}
+                            </Button>
+                        </Grid>
+                    </Grid>
                 </form>
             </Paper>
         </Container >
