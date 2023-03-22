@@ -6,12 +6,12 @@ import {
     Grid,
     Typography,
     Container,
-    TextField
 } from '@material-ui/core'
 import useStyles from './styles'
 import LockOutlinedIcon, { Looks } from '@material-ui/icons/LockOutlined'
 import Input from './Input'
 import { GoogleOAuthProvider } from '@react-oauth/google'
+import { GoogleLogin, googleLogout } from '@react-oauth/google'
 
 function Auth() {
     const classes = useStyles()
@@ -29,6 +29,7 @@ function Auth() {
 
     const switchMode = () => setIsSignUp((prev) => !prev)
 
+    console.log(process.env.REACT_APP_OAUTH)
     return (
         <GoogleOAuthProvider clientId={process.env.REACT_APP_OAUTH}>
             <Container component='main' maxWidth='xs'>
@@ -79,6 +80,7 @@ function Auth() {
                         <Button type='submit' fullWidth variant='contained' color='primary' className={classes.submit}>
                             {isSignUp ? 'Sign Up' : 'Sign In'}
                         </Button>
+                        <GoogleLogin />
                         <Grid container justifyContent='flex-end'>
                             <Grid item>
                                 <Button onClick={switchMode}>
