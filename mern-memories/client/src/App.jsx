@@ -15,11 +15,9 @@ function App() {
             <Container maxWidth='lg'>
                 <NavBar />
                 <Routes>
-                    <Route path='/' element={Home} >
-                        <Route path='auth' element={Auth} />
-                    </Route>
+                    <Route path='/' element={<Home />} />
+                    <Route path='/auth' element={<Auth />} />
                 </Routes>
-                <Home />
             </Container>
         </BrowserRouter>
     )
