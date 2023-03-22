@@ -33,16 +33,19 @@ function Auth() {
                 <form className={classes.form} onSubmit={handleSubmit}>
                     <Grid container spacing={2}>
                         {
-                            isSignUp && {
+                            isSignUp && (
                                 <>
-                            <TextField name='firstName' label='First Name' handleChange={handleChange} autoFocus xs={6}>
-                            </TextField>
+                                    <Grid xs={6} md={12}>
+
+                                    </Grid>
+                                    <TextField name='firstName' label='First Name' handleChange={handleChange} autoFocus xs={6}>
+                                    </TextField>
                                 </>
-                            }
+                            )
                         }
-                </Grid>
-            </form>
-        </Paper>
+                    </Grid>
+                </form>
+            </Paper>
         </Container >
     )
 }
