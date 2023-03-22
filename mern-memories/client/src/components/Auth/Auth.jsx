@@ -30,7 +30,7 @@ function Auth() {
     const switchMode = () => setIsSignUp((prev) => !prev)
 
     return (
-        <GoogleOAuthProvider clientId=''>
+        <GoogleOAuthProvider clientId={process.env.REACT_APP_OAUTH}>
             <Container component='main' maxWidth='xs'>
                 <Paper className={classes.paper} elevation={3}>
                     <Avatar className={classes.avatar}>
