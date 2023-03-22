@@ -3,7 +3,7 @@ import { Container } from '@material-ui/core'
 import {
     BrowserRouter,
     Routes,
-    Route
+    Route,
 } from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
 import Home from './components/Home/Home'
@@ -15,8 +15,9 @@ function App() {
             <Container maxWidth='lg'>
                 <NavBar />
                 <Routes>
-                    <Route path='/' exact component={Home} />
-                    <Route path='/auth' exact component={Auth} />
+                    <Route path='/' element={Home} >
+                        <Route path='auth' element={Auth} />
+                    </Route>
                 </Routes>
                 <Home />
             </Container>
