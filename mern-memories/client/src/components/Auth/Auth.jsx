@@ -10,6 +10,7 @@ import {
 } from '@material-ui/core'
 import useStyles from './styles'
 import LockOutlinedIcon, { Looks } from '@material-ui/icons/LockOutlined'
+import Input from './Input'
 
 function Auth() {
     const classes = useStyles()
@@ -35,14 +36,35 @@ function Auth() {
                         {
                             isSignUp && (
                                 <>
-                                    <Grid xs={6} md={12}>
-
-                                    </Grid>
-                                    <TextField name='firstName' label='First Name' handleChange={handleChange} autoFocus xs={6}>
-                                    </TextField>
+                                    <Input
+                                        name='firstName'
+                                        label='First Name'
+                                        handleChange={handleChange}
+                                        autoFocus
+                                        half
+                                    />
+                                    <Input
+                                        name='firstName'
+                                        label='First Name'
+                                        handleChange={handleChange}
+                                        autoFocus
+                                        half
+                                    />
                                 </>
                             )
                         }
+                        <Input
+                            name='email'
+                            label='Email Address'
+                            handleChange={handleChange}
+                            type='email'
+                        />
+                        <Input
+                            name='password'
+                            label='Password'
+                            handleChange={handleChange}
+                            type='password'
+                        />
                     </Grid>
                 </form>
             </Paper>
