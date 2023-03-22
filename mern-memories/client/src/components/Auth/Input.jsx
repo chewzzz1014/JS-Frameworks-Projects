@@ -5,9 +5,11 @@ import {
     InputAdornment,
     IconButton
 } from '@material-ui/core'
+import Visibility from '@material-ui/icons/Visibility'
+import VisibilityOff from '@material-ui/icons/VisibilityOff'
 
 
-function Input({ name, half }) {
+function Input({ name, handleChange, label, half, autoFocus, type, handleShowPassword }) {
     return (
         <Grid item xs={12} sm={half ? 6 : 12}>
             <TextField
