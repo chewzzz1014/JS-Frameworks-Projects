@@ -15,7 +15,7 @@ import Input from './Input'
 function Auth() {
     const classes = useStyles()
     const [showPassword, setShowPassword] = useState(false)
-    const isSignUp = true
+    const [isSignUp, setIsSignUp] = useState(false)
 
     const handleSubmit = () => {
 
@@ -26,9 +26,7 @@ function Auth() {
 
     const handleShowPassword = () => setShowPassword((prev) => !prev)
 
-    const switchMode = () => {
-
-    }
+    const switchMode = () => setIsSignUp((prev) => !prev)
 
     return (
         <Container component='main' maxWidth='xs'>
