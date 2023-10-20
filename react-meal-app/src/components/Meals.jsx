@@ -1,29 +1,29 @@
 import { useGlobalContext } from "../context"
+import {GrLike} from 'react-icons/gr'
 
 const Meals = () => {
-  const {allMeals, randomMeal} = useGlobalContext() // get context
-  console.log(allMeals, randomMeal)
+  const {allMeals} = useGlobalContext() // get context
+  console.log(allMeals)
 
   return (
-    <div>
-      <h1>all meals</h1>
+    <section className="section-center">
       {
-        allMeals.map(meal => (
-          <div key={meal.idMeal}>
-            <h3>{meal.strMeal}</h3>
-          </div>
-        ))
+        allMeals.map(meal => {
+          const {idMeal, strMeal: title, strMealThumb: image} = meal
+          return (
+            <article  key={idMeal} className="single-meal">
+              <img src={image} className="img"/>
+              <footer>
+                <h5>{title}</h5>
+                <button className="like-btn">
+                  <GrLike />
+                </button>
+              </footer>
+            </article>
+          )
+        })
       }
-
-      <h1>random meal</h1>
-      {
-        randomMeal.map(meal => (
-          <div key={meal.idMeal}>
-            <h3>{meal.strMeal}</h3>
-          </div>
-        ))
-      }
-    </div>
+    </section>
   )
 }
 
