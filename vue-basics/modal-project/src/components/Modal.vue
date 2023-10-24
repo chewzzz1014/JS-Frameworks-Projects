@@ -1,12 +1,32 @@
 <template>
-    <div class="backdrop">
-        <div class="modal">
-            <p>modal content</p>
+    <div class="backdrop" @click.self="closeModal">
+        <div class="modal" :class="{ sale: theme === 'sale' }">
+            <slot>default slot content</slot>
+            <div class="action">
+                <slot name="links"></slot>
+            </div>
         </div>
     </div>    
 </template>
 
-<style>
+<script>
+    export default {
+        name: 'Modal',
+        props: ['theme'],
+        data() {
+            return {
+
+            }
+        },
+        methods: {
+            closeModal() {
+                this.$emit('close')
+            },
+        }
+    }
+</script>
+
+<style scoped>
     .modal {
         width: 400px;
         padding: 20px;
@@ -15,10 +35,20 @@
         border-radius: 10px;
     }
     .backdrop {
-        top: 28;
+        top: 0;
         position: fixed;
         background: rgba(0,0,0,0.5);
         width: 100%;
         height: 100%;
+    }
+    h1 {
+        color: rgb(157, 241, 12);
+    }
+    .modal.sale {
+        background: rgb(107, 218, 107);
+        color: white;
+    }
+    .modal.sale h1 {
+        color: white;
     }
 </style>
