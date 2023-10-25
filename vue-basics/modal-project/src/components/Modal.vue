@@ -4,6 +4,7 @@
             <slot>default slot content</slot>
             <div class="actions">
                 <slot name="links"></slot>
+                <slot name="modal2"></slot>
             </div>
         </div>
     </div>    

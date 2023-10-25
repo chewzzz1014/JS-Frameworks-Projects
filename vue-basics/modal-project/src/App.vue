@@ -18,7 +18,19 @@
         <p>Grab it Now!</p>
       </Modal>
     </div>
+    <div v-if="showModal2">
+      <Modal 
+        theme="sale"
+        @close="toggleModal2"
+      >
+        <template v-slot:modal2>
+          <h1>Sign up to the newsletter</h1>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi ipsa eaque ut saepe velit, iusto iure ullam ab voluptate eos aspernatur fugit dignissimos neque! Commodi eveniet magni minus harum nisi!</p>
+        </template>
+      </Modal>
+    </div>
     <button @click.right="toggleModal">Open Modal (Right Click)</button>
+    <button @click="toggleModal2">Open Modal 2</button>
   </div>
 </template>
 
@@ -36,6 +48,7 @@ export default {
       header: "Sign up for the Giveaway",
       text: "Grab it now!",
       showModal: false,
+      showModal2: false,
     };
   },
   methods: {
@@ -47,7 +60,10 @@ export default {
     },
     toggleModal() {
       this.showModal = !this.showModal
-    }
+    },
+    toggleModal2() {
+      this.showModal2 = !this.showModal2
+    },
   },
 };
 </script>
