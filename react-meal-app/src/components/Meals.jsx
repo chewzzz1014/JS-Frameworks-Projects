@@ -2,12 +2,15 @@ import { useGlobalContext } from "../context"
 import {GrLike} from 'react-icons/gr'
 
 const Meals = () => {
-  const {allMeals} = useGlobalContext() // get context
+  const {allMeals, loading} = useGlobalContext() // get context
   console.log(allMeals)
 
   return (
     <section className="section-center">
       {
+        loading ? 
+        <h4>Loading...</h4>
+        :
         allMeals.map(meal => {
           const {idMeal, strMeal: title, strMealThumb: image} = meal
           return (

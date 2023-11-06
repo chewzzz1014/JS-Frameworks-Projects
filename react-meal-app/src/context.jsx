@@ -7,13 +7,16 @@ const allMealsUrl = 'https://www.themealdb.com/api/json/v1/1/search.php'
 
 export const AppProvider = ({children}) => {
     const [allMeals, setAllMeals] = useState([])
+    const [loading, setLoading] = useState(false)
     
     useEffect(() => {
+        setLoading(true)
         axios
             .get(allMealsUrl, {params: {s: 'a'}})
             .then((response) => {
                 console.log(response.data.meals)
                 setAllMeals(response.data.meals)
+                setLoading(false)
             })
             .catch(err => {
                 console.error(err)
@@ -21,7 +24,7 @@ export const AppProvider = ({children}) => {
     }, [])
 
     return (
-        <AppContext.Provider value={{allMeals}}>
+        <AppContext.Provider value={{allMeals, loading}}>
             {children}
         </AppContext.Provider>
     )
