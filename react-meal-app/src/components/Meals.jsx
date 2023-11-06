@@ -5,12 +5,19 @@ const Meals = () => {
   const {allMeals, loading} = useGlobalContext() // get context
   console.log(allMeals)
 
+  if (loading) {
+    return (
+      <section className="section">
+        <h4>Loading...</h4>
+      </section>
+    )
+  }
   return (
     <section className="section-center">
       {
-        loading ? 
-        <h4>Loading...</h4>
-        :
+        allMeals.length < 1 ? <h4>No items</h4> : ''
+      }
+      {
         allMeals.map(meal => {
           const {idMeal, strMeal: title, strMealThumb: image} = meal
           return (

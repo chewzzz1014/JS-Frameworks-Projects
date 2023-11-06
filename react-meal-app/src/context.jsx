@@ -14,8 +14,11 @@ export const AppProvider = ({children}) => {
         axios
             .get(allMealsUrl, {params: {s: 'a'}})
             .then((response) => {
-                console.log(response.data.meals)
-                setAllMeals(response.data.meals)
+                if (response.data.meals) {
+                    setAllMeals(response.data.meals)
+                } else {
+                    setAllMeals([])
+                }
                 setLoading(false)
             })
             .catch(err => {
