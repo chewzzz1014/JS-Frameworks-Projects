@@ -9,11 +9,12 @@ const randonMealUrl = 'https://www.themealdb.com/api/json/v1/1/random.php'
 export const AppProvider = ({children}) => {
     const [allMeals, setAllMeals] = useState([])
     const [loading, setLoading] = useState(false)
-    
-    useEffect(() => {
+    const [searchTerm, setSearchTerm] = useState('')
+
+    const fetchMeal = (url) => {
         setLoading(true)
         axios
-            .get(allMealsUrl, {params: {s: 'a'}})
+            .get(url, {params: {s: searchTerm}})
             .then((response) => {
                 if (response.data.meals) {
                     setAllMeals(response.data.meals)
@@ -27,10 +28,23 @@ export const AppProvider = ({children}) => {
             .finally(() => {
                 setLoading(false)
             })
+    }
+
+    const fetchRandomMeal = () => {
+        fetchMeal(randonMealUrl)
+    }
+
+    useEffect(() => {
+        fetchMeal(allMealsUrl)
     }, [])
 
+    useEffect(() => {
+        if (!searchTerm) return
+        fetchMeal(allMealsUrl)
+    }, [searchTerm])
+
     return (
-        <AppContext.Provider value={{allMeals, loading}}>
+        <AppContext.Provider value={{allMeals, loading, setSearchTerm, fetchRandomMeal}}>
             {children}
         </AppContext.Provider>
     )
