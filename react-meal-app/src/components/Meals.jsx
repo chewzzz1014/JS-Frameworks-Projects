@@ -15,7 +15,11 @@ const Meals = () => {
   return (
     <section className="section-center">
       {
-        allMeals.length < 1 ? <h4>No items</h4> : ''
+        allMeals.length < 1 ? 
+        <section className="section">
+          <h4>No meals matched your search term. Please try again.</h4> 
+        </section>
+        : ''
       }
       {
         allMeals.map(meal => {

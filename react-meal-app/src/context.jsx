@@ -4,6 +4,7 @@ import axios from 'axios'
 export const AppContext = React.createContext()
 
 const allMealsUrl = 'https://www.themealdb.com/api/json/v1/1/search.php'
+const randonMealUrl = 'https://www.themealdb.com/api/json/v1/1/random.php'
 
 export const AppProvider = ({children}) => {
     const [allMeals, setAllMeals] = useState([])
@@ -19,10 +20,12 @@ export const AppProvider = ({children}) => {
                 } else {
                     setAllMeals([])
                 }
-                setLoading(false)
             })
             .catch(err => {
                 console.error(err)
+            })
+            .finally(() => {
+                setLoading(false)
             })
     }, [])
 
