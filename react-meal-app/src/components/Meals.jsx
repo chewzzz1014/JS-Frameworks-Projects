@@ -2,7 +2,7 @@ import { useGlobalContext } from "../context"
 import {GrLike} from 'react-icons/gr'
 
 const Meals = () => {
-  const {allMeals, loading} = useGlobalContext() // get context
+  const {allMeals, loading, selectMeal} = useGlobalContext() // get context
   console.log(allMeals)
 
   if (loading) {
@@ -25,8 +25,12 @@ const Meals = () => {
         allMeals.map(meal => {
           const {idMeal, strMeal: title, strMealThumb: image} = meal
           return (
-            <article  key={idMeal} className="single-meal">
-              <img src={image} className="img"/>
+            <article key={idMeal} className="single-meal">
+              <img 
+                src={image} 
+                className="img" 
+                onClick={() => selectMeal(idMeal)} 
+              />
               <footer>
                 <h5>{title}</h5>
                 <button className="like-btn">

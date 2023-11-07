@@ -10,6 +10,8 @@ export const AppProvider = ({children}) => {
     const [allMeals, setAllMeals] = useState([])
     const [loading, setLoading] = useState(false)
     const [searchTerm, setSearchTerm] = useState('')
+    const [showModal, setShowModal] = useState(false)
+    const [selectedMeal, setSelectedMeal] = useState(null)
 
     const fetchMeal = (url) => {
         setLoading(true)
@@ -43,8 +45,18 @@ export const AppProvider = ({children}) => {
         fetchMeal(allMealsUrl)
     }, [searchTerm])
 
+    const selectMeal = (id) => {
+        let meal = allMeals.find(m => m.idMeal === id)
+        setSelectedMeal(meal)
+        setShowModal(true)
+    }
+
+    const closeModal = () => {
+        setShowModal(false)
+    }
+
     return (
-        <AppContext.Provider value={{allMeals, loading, setSearchTerm, fetchRandomMeal}}>
+        <AppContext.Provider value={{allMeals, loading, setSearchTerm, fetchRandomMeal, showModal, selectMeal, selectedMeal, closeModal}}>
             {children}
         </AppContext.Provider>
     )
