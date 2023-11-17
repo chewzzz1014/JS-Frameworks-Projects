@@ -5,12 +5,12 @@ import Favorites from "./components/Favorites"
 import { useGlobalContext } from "./context"
 
 function App() {
-  const {showModal} = useGlobalContext()
+  const {showModal, favourites} = useGlobalContext()
 
   return (
     <main>
       <Search />
-      {/* <Favorites /> */}
+      {favourites.length > 0 && <Favorites />}
       <Meals />
       {showModal && <Modal />}
     </main>

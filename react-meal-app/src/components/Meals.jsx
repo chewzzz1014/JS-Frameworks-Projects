@@ -2,8 +2,8 @@ import { useGlobalContext } from "../context"
 import {GrLike} from 'react-icons/gr'
 
 const Meals = () => {
-  const {allMeals, loading, selectMeal} = useGlobalContext() // get context
-  console.log(allMeals)
+  const {allMeals, loading, selectMeal, addToFav} = useGlobalContext() // get context
+  // console.log(allMeals)
 
   if (loading) {
     return (
@@ -12,6 +12,7 @@ const Meals = () => {
       </section>
     )
   }
+
   return (
     <section className="section-center">
       {
@@ -33,7 +34,7 @@ const Meals = () => {
               />
               <footer>
                 <h5>{title}</h5>
-                <button className="like-btn">
+                <button className="like-btn" onClick={() => addToFav(idMeal)}>
                   <GrLike />
                 </button>
               </footer>
